@@ -43,7 +43,7 @@ body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: #999;
-    background-color: #fff;
+    background-color: #f2eff9;
 }
 a:link {
     color: #8a0707;
@@ -402,7 +402,7 @@ video {
     right: 0;
     border-width: 0 30px 30px 0;
     border-style: solid;
-    border-color: #fff #fff rgba(243, 110, 33, 1) rgba(243, 110, 33, 1);
+    border-color: #f2eff9 #f2eff9 rgba(243, 110, 33, 1) rgba(243, 110, 33, 1);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -458,7 +458,7 @@ video {
     transition: background .2s ease-in-out;
 }
 .services-item:hover h4 {
-    color: #fff;
+    color: #f2eff9;
     transform: translate(0, -5px);
     -webkit-transform: translate(0, -5px);
     -o-transform: translate(0, -5px);
@@ -468,7 +468,7 @@ video {
     transition: all .3s ease-in-out;
 }
 .services-item:hover p {
-    color: #fff;
+    color: #f2eff9;
     transform: translate(0, -10px);
     -webkit-transform: translate(0, -10px);
     -o-transform: translate(0, -10px);
@@ -478,7 +478,7 @@ video {
     transition: all .2s ease-in-out;
 }
 .services-item:hover i {
-    color: #fff;
+    color: #f2eff9;
     transform: translate(0, -5px);
     -webkit-transform: translate(0, -5px);
     -o-transform: translate(0, -5px);
@@ -488,7 +488,7 @@ video {
     transition: all .2s ease-in-out;
 }
 .services-item:hover:before {
-    border-color: #fff #fff #a5a5a5 #a5a5a5;
+    border-color: #f2eff9 #f2eff9 #a5a5a5 #a5a5a5;
     -webkit-transition: border-color .2s ease-in-out;
     -moz-transition: border-color .2s ease-in-out;
     transition: border-color .2s ease-in-out;
@@ -502,7 +502,7 @@ video {
     right: 0;
     border-width: 0 30px 30px 0;
     border-style: solid;
-    border-color: #fff #fff rgba(138, 7, 7, 1) rgba(138, 7, 7, 1);
+    border-color: #f2eff9 #f2eff9 rgba(138, 7, 7, 1) rgba(138, 7, 7, 1);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -519,7 +519,7 @@ video {
     padding: 30px 20px 20px;
     margin: 15px 0;
     position: relative;
-    color: #fff;
+    color: #f2eff9;
     overflow: hidden;
     -webkit-transition: background .5s ease-in-out;
     -moz-transition: background .5s ease-in-out;
@@ -558,7 +558,7 @@ video {
     transition: background .2s ease-in-out;
 }
 .services-item-red:hover h4 {
-    color: #fff;
+    color: #f2eff9;
     transform: translate(0, -5px);
     -webkit-transform: translate(0, -5px);
     -o-transform: translate(0, -5px);
@@ -568,7 +568,7 @@ video {
     transition: all .3s ease-in-out;
 }
 .services-item-red:hover p {
-    color: #fff;
+    color: #f2eff9;
     transform: translate(0, -10px);
     -webkit-transform: translate(0, -10px);
     -o-transform: translate(0, -10px);
@@ -578,7 +578,7 @@ video {
     transition: all .2s ease-in-out;
 }
 .services-item-red:hover i {
-    color: #fff;
+    color: #f2eff9;
     transform: translate(0, -5px);
     -webkit-transform: translate(0, -5px);
     -o-transform: translate(0, -5px);
@@ -588,7 +588,7 @@ video {
     transition: all .2s ease-in-out;
 }
 .services-item-red:hover:before {
-    border-color: #fff #fff #a5a5a5 #a5a5a5;
+    border-color: #f2eff9 #f2eff9 #a5a5a5 #a5a5a5;
     -webkit-transition: border-color .2s ease-in-out;
     -moz-transition: border-color .2s ease-in-out;
     transition: border-color .2s ease-in-out;
@@ -727,7 +727,7 @@ video {
 /* ---------------------------------------------- */
 
 #portfolio {
-    background: #fff;
+    background: #f2eff9;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
