@@ -293,7 +293,7 @@ blockquote span {
     margin-left: -2.5px;
     top: 10px;
     -webkit-animation: rotateplane 1.2s infinite ease-in-out;
-    animation: rotateplane 1.2s infinite ease-in-out;
+    animation: rotateplane 2.2s infinite ease-in-out;
 }
 
 .carousel,
