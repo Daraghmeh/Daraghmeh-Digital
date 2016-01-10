@@ -198,6 +198,11 @@ blockquote span {
     color: #999;
 }
 
+.animate-option {
+    -webkit-animation-delay: 5s;
+	-vendor-animation-delay: 5s;
+}
+
 /* Link underline on hover */
 
 .overlay ul li a:after {
