@@ -1221,7 +1221,7 @@ footer .social a {
     
     outline: 0;
     color: #fff;
-    background: #df514c;
+    background: rgba(138, 7, 7, 1);
     /* Hover color, can be changed via colors.css */
 }
 .btn-outlined {
