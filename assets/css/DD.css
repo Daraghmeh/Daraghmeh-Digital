@@ -770,14 +770,13 @@ ul.project-meta li {
     display: inline-block;
     padding: 5px 10px;
     border: 1px solid #fff;
+	background-color:#f2eff9;
 }
 ul.project-meta li a {
     display: inline-block;
-    color: #fff;
+    color: #8A0707;
 }
-ul.project-meta li a:hover {
-    color: #f76758;
-}
+
 .full-project {
     position: absolute;
     left: 0;
