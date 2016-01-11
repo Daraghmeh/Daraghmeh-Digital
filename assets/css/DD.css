@@ -442,7 +442,7 @@ video {
 .services-item p {
     padding: 0;
     margin: 0;
-    color: #999;
+    color: #000000;
     font-size: 16px;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
