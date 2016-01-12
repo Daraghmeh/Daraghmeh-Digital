@@ -4,6 +4,7 @@
 html,body{width:100%;height:100%}
 body{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;color:#999;background-color:#f2eff9}
 a:link{color:#8a0707}
+a.link-white:link{color:#fff}
 a:hover{color:#f36e21}
 h1,h2,h3,h4,h5,h6{margin:0 0 20px 0;text-transform:none;color:rgba(243,110,33,1);font-family:"Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:1px;line-height:1.5}
 .p{margin:0 0 25px;font-size:18px;line-height:1.5}
