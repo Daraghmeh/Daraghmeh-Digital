@@ -398,6 +398,11 @@ video {
     background-size: cover;
     -o-background-size: cover;
 }
+
+.about-padding {
+    padding-top: 60px;
+}
+
 .about h2,
 .about h3 {
     margin: 0 0 10px 0;
