@@ -390,7 +390,13 @@ video {
 /* ---------------------------------------------- */
 
 .about {
-    background-color: rgba(138, 7, 7, 1);
+    width: 100%;
+    background: #222;
+    background: url(../images/portfolio_bg_red.jpg) 50% 0 no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 .about h2,
 .about h3 {
@@ -604,7 +610,7 @@ video {
 .products {
     width: 100%;
     background: #222;
-    background: url(../images/portfolio_bg_red.jpg) 50% 0 no-repeat scroll;
+    background: url(../images/portfolio_bg.jpg) 50% 0 no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -1013,7 +1019,7 @@ ul.project-meta {
 
 .counter-section {
     text-align: center;
-    background: url(../images/portfolio_bg.jpg) 50% 0 no-repeat scroll;
+    background: url(../images/portfolio_bg_red.jpg) 50% 0 no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
