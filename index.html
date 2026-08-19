@@ -1,630 +1,1819 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Providing top-notch web design and development for anyone anywhere! Specializing in rapid deployment of WordPress-based websites with layers of SEO/SEM & analytics.">
-    <meta property="og:image" content="http://daraghmehdigital.com/assets/images/gallery/header-imge.png" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <title>Daraghmeh Digital - Best in Design</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<title>Daraghmeh Digital — AI infrastructure, priced honestly</title>
+<meta name="description" content="Independent AI advisory. Model selection, cost and capacity modeling, and deployment readiness — plus web, SEO and e-commerce growth. Seattle, Washington.">
 
-    <!-- Main stylesheet -->
-    <link href="assets/css/DD.css" rel="stylesheet">
+<link rel="canonical" href="https://daraghmehdigital.com/">
+<link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Plugin stylesheets -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/magnific-popup.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/2.9.9/css/jquery.mb.YTPlayer.min.css" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Daraghmeh Digital">
+<meta property="og:url" content="https://daraghmehdigital.com/">
+<meta property="og:title" content="Daraghmeh Digital — AI infrastructure, priced honestly">
+<meta property="og:description" content="The model is the cheap part. Independent advisory on what an AI deployment actually costs to build, run, and keep running.">
+<meta property="og:image" content="https://daraghmehdigital.com/assets/images/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0E0B09">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService","Organization"],
+      "@id": "https://daraghmehdigital.com/#practice",
+      "name": "Daraghmeh Digital LLC",
+      "url": "https://daraghmehdigital.com/",
+      "email": "mohammad@daraghmehdigital.com",
+      "areaServed": "US",
+      "priceRange": "$$$",
+      "founder": { "@id": "https://daraghmehdigital.com/#person" },
+      "sameAs": ["https://www.linkedin.com/company/daraghmeh-digital"],
+      "description": "Independent advisory for businesses making their first AI investment: model selection, deployment architecture, and the cost of running it.",
+      "address": { "@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://daraghmehdigital.com/#person",
+      "name": "Mohammad Daraghmeh",
+      "jobTitle": "Founder & Principal",
+      "email": "mohammad@daraghmehdigital.com",
+      "url": "https://www.daraghmeh.me",
+      "sameAs": ["https://www.linkedin.com/in/daraghmehM"],
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Rochester Institute of Technology" },
+      "knowsAbout": ["AI infrastructure","LLM inference","Capacity planning","Distributed data platforms","Cloud migration","Technical SEO"]
+    }
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   CONCEPT 3 — "SIGNAL"
+   Loud, confident, high contrast. Color-blocked panels, oversized
+   type, a live spend estimator as the centrepiece.
+
+   Logo note: the master lockup uses #F36E21 + #8A0707. Oxblood is
+   unreadable on near-black, so the "DIGITAL" half is reversed to
+   --logo-2 here. Change that one token for a different treatment.
+   ============================================================ */
+:root{
+  --ink:#0E0B09; --ink-2:#17130F;
+  --line:#2B211C; --line-2:#3D2E26;
+  --bone:#FFFBF7; --dim:#A79A90;
+  --ember:#F36E21; --oxblood:#8A0707; --hot:#FF8A3D;
+  --logo-1:#F36E21; --logo-2:#FFFBF7;
+
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Archivo",ui-sans-serif,system-ui,sans-serif;
+
+  --gut:clamp(1.15rem,4vw,4rem);
+  --stack:clamp(1.9rem,3.8vw,3rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-block-start:2rem}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+body{
+  margin:0;background:var(--ink);color:var(--bone);
+  font-family:var(--body);font-weight:400;
+  font-size:clamp(1rem,.97rem + .2vw,1.075rem);line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.035em;margin:0}
+p{margin:0 0 1.1rem}
+a{color:var(--ember);text-underline-offset:.2em}
+a:hover{color:var(--bone)}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+img,svg{max-inline-size:100%}
+
+.skip{position:absolute;inset-inline-start:-9999px;background:var(--ember);color:#170D06;padding:.8rem 1.2rem;font-weight:600;z-index:200}
+.skip:focus{inset-inline-start:var(--gut);inset-block-start:.6rem}
+.vh{position:absolute;inline-size:1px;block-size:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.wrap{inline-size:min(100% - (var(--gut) * 2),84rem);margin-inline:auto}
+/* Fixed wash: three low-opacity pools of brand colour so the page has depth
+   without any section reading as a different colour. Pinned to the viewport
+   so it never stretches across the full document height. */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 85% 50% at 50% -8%,rgba(243,110,33,.075),transparent 62%),
+    radial-gradient(ellipse 60% 45% at 90% 28%,rgba(138,7,7,.11),transparent 64%),
+    radial-gradient(ellipse 55% 40% at 4% 82%,rgba(243,110,33,.055),transparent 62%);
+}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.16,.84,.44,1),transform .75s cubic-bezier(.16,.84,.44,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ---- section bar (bottom) ----
+   Sits on a gradient that fades to transparent at its top edge, so content
+   dissolves behind it instead of colliding with the labels. */
+.rail{
+  position:fixed;inset-block-end:0;inset-inline:0;z-index:140;
+  display:flex;align-items:flex-end;justify-content:flex-start;
+  gap:clamp(.75rem,2vw,1.5rem);
+  padding:1.5rem clamp(1rem,4vw,2.5rem) .85rem;
+  background:linear-gradient(to top,rgba(14,11,9,.97) 45%,rgba(14,11,9,.88) 72%,rgba(14,11,9,0) 100%);
+  backdrop-filter:blur(12px);
+  overflow:visible;
+  opacity:0;pointer-events:none;transform:translateY(100%);
+  transition:opacity .4s ease,transform .45s cubic-bezier(.16,.84,.44,1);
+}
+.rail-items{display:flex;align-items:flex-end;gap:clamp(.9rem,2.4vw,2.4rem);flex:1 1 auto;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail-items::-webkit-scrollbar{display:none}
+.rail.show{opacity:1;pointer-events:auto;transform:none}
+@media (min-width:48rem){.rail-items{justify-content:center;overflow:visible}}
+.rail a{
+  display:flex;flex-direction:column-reverse;align-items:center;gap:.5rem;
+  text-decoration:none;padding:.2rem .35rem;color:var(--dim);flex:none;
+}
+.rail-dot{
+  inline-size:1.9rem;block-size:2px;border-radius:2px;background:var(--line-2);flex:none;
+  transition:inline-size .34s cubic-bezier(.16,.84,.44,1),background-color .3s ease;
+}
+.rail-label{font:600 .88rem var(--body);white-space:nowrap;transition:color .3s ease}
+.rail a:hover .rail-dot,.rail a:focus-visible .rail-dot{inline-size:2.9rem;background:var(--bone)}
+.rail a:hover .rail-label,.rail a:focus-visible .rail-label{color:var(--bone)}
+.rail a.current .rail-dot{inline-size:3.5rem;background:var(--ember)}
+.rail a.current .rail-label{color:var(--ember)}
+section{padding-block:var(--stack)}
+/* A hairline carries the section break instead of raw whitespace.
+   `section + section` skips the hero (followed by the ticker, which
+   already draws its own rules) so no line is ever doubled. */
+section + section{border-block-start:1px solid var(--line)}
+/* The hero already closes on the credential strip's own rule. */
+.hero + section{border-block-start:0}
+.eyebrow{display:inline-block;font:600 .875rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ember);margin:0 0 1.4rem;max-inline-size:none}
+h2{font-size:clamp(1.7rem,1rem + 2vw,2.75rem);max-inline-size:26ch}
+.sub{color:var(--dim);font-size:1.25rem;line-height:1.6}
+
+/* Every button shares one interaction: a fill that wipes in from the left,
+   a 1px press, and identical treatment on :focus-visible so keyboard users
+   see exactly what mouse users see. `isolation` keeps the z-index:-1 fill
+   behind the label but above the button's own background. */
+.btn{
+  font-size:1.05rem;font-weight:600;text-decoration:none;padding:.95rem 1.75rem;white-space:nowrap;
+  border:2px solid var(--line-2);color:var(--bone);
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  cursor:pointer;background:none;border-radius:3px;font-family:var(--body);
+  position:relative;overflow:hidden;isolation:isolate;
+  transition:color .3s ease,border-color .3s ease,transform .16s ease;
+}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--bone);
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .38s cubic-bezier(.16,.84,.44,1);
+}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1)}
+.btn:hover,.btn:focus-visible{color:var(--ink);border-color:var(--bone)}
+.btn:active{transform:translateY(1px)}
+.btn-solid{background:var(--ember);border-color:var(--ember);color:#170D06}
+.btn-solid:hover,.btn-solid:focus-visible{color:var(--ink);border-color:var(--bone)}
+/* Quieter variant for secondary actions like "show more". */
+.btn-ghost{border-color:var(--line);color:var(--dim)}
+.btn-ghost .chev{transition:transform .35s cubic-bezier(.16,.84,.44,1)}
+.btn-ghost[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+/* ---- hero ---- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(2.5rem,6vw,4.5rem) clamp(1.75rem,3.5vw,2.75rem)}
+.hero-media{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-media video{inline-size:100%;block-size:100%;object-fit:cover;opacity:.42;filter:saturate(.6) contrast(1.05)}
+/* The overlay does double duty: it keeps the headline legible over the
+   video, and when the video is absent it IS the hero background — so the
+   section reads as designed rather than broken. */
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 65% 75% at 82% 20%,rgba(243,110,33,.26),transparent 62%),
+    linear-gradient(100deg,var(--ink) 34%,rgba(11,9,8,.86) 62%,rgba(11,9,8,.72) 100%);
+}
+.hero-inner{position:relative}
+/* The lockup lives here now, at roughly twice header scale, so the top of
+   the page reads as brand rather than chrome. */
+.hero-brand{display:block;inline-size:fit-content;margin:0 auto clamp(1rem,2.4vw,1.6rem)}
+.hero-brand svg{block-size:clamp(42px,6.7vw,69px);inline-size:auto;display:block}
+.hero h1{font-size:clamp(2rem,1rem + 2.8vw,6.5rem);max-inline-size:none;text-wrap:balance;text-align:center}
+.hero h1 span{background:linear-gradient(100deg,var(--ember),var(--hot) 40%,var(--oxblood));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* Lede holds the left, CTAs sit out to the right edge; they drop below
+   and left-align once there isn't room for both on one line. */
+.hero-row{display:flex;flex-wrap:wrap;gap:1.75rem 3rem;align-items:flex-end;justify-content:space-between;margin-block-start:2.4rem}
+.hero-lede{font-size:clamp(.95rem,.9rem + .35vw,1.175rem);color:var(--dim);max-inline-size:52ch;line-height:1.78;letter-spacing:.005em;margin:0;flex:1 1 30rem;text-align:start}
+.hero-lede strong{color:var(--bone);font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin:0;flex:none}
+
+/* Credential strip: rules only, no card. Stacks with horizontal hairlines,
+   then goes four-across with vertical ones — so it never reads as a list. */
+.creds{display:grid;grid-template-columns:1fr;margin:clamp(2rem,4vw,3rem) 0 0;border-block-start:1px solid var(--line)}
+.creds>div{padding-block:1.15rem;border-block-end:1px solid var(--line)}
+@media (min-width:64rem){
+  .creds{grid-template-columns:repeat(3,1fr);border-block-end:1px solid var(--line)}
+  .creds>div{border-block-end:0;padding-inline:1.5rem;border-inline-start:1px solid var(--line)}
+  .creds>div:first-child{border-inline-start:0;padding-inline-start:0}
+}
+.creds dt{font:600 .64rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-block-end:.5rem}
+.creds dd{margin:0;font-family:var(--display);font-weight:600;font-size:.98rem;line-height:1.35;letter-spacing:-.02em}
 
 
-    <!-- Custom Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+/* ---- services ---- */
+.svc{display:grid;gap:1.15rem;margin-block-start:2.6rem}
+@media (min-width:56rem){.svc{grid-template-columns:repeat(3,1fr)}}
+.svc article{border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.7rem 1rem;background:linear-gradient(165deg,var(--ink-2),var(--ink));transition:transform .3s cubic-bezier(.16,.84,.44,1),border-color .3s}
+.svc article:hover{transform:translateY(-6px);border-color:var(--line-2)}
+.svc .n{font:800 .8rem var(--display);color:var(--ember);letter-spacing:.1em;display:block;margin-block-end:1.2rem}
+.svc h3{font-size:1.35rem;margin-block-end:.7rem;letter-spacing:-.03em}
+.svc p{color:var(--dim);margin:0 0 1.2rem;font-size:.94rem}
+.svc ul{list-style:none;margin:0;padding:0;font-size:.87rem;color:var(--dim)}
+.svc li{padding-block:.5rem;border-block-start:1px solid var(--line)}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <script>
-        document.createElement('video');
-      </script>
-    <![endif]-->
+/* Secondary line: warm tint and an ember edge mark it as a distinct offer,
+   but it no longer outshouts the three AI cards it sits beneath. */
+.adjacent{margin-block-start:1.15rem;border-radius:18px;padding:clamp(1.6rem,4vw,2.3rem);background:linear-gradient(115deg,rgba(138,7,7,.24),rgba(243,110,33,.09) 68%,transparent),var(--ink-2);border:1px solid var(--line-2);border-inline-start:3px solid var(--ember);color:var(--bone);display:grid;gap:1.3rem}
+@media (min-width:56rem){.adjacent{grid-template-columns:1fr 1fr;gap:3rem;align-items:center}}
+.adjacent h3{font-size:clamp(1.45rem,1.2rem + 1.3vw,2.1rem);margin-block-end:.5rem;color:var(--bone)}
+.adjacent .n{font:600 .82rem var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--ember);display:block;margin-block-end:.9rem}
+.adjacent p{color:var(--dim);margin:0;font-size:1.12rem;line-height:1.6}
+.adjacent a{color:var(--ember);font-weight:600}
 
+/* ---- cost model ---- */
+.calc{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(165deg,var(--ink-2),var(--ink))}
+.calc-top{padding:clamp(1.6rem,4vw,2.3rem);text-align:center;border-block-end:1px solid var(--line);background:radial-gradient(ellipse 70% 130% at 50% 0%,rgba(243,110,33,.12),transparent 70%)}
+.calc-top .cap{font:600 .7rem var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin:0 0 .9rem;max-inline-size:none}
+.big{font-family:var(--display);font-weight:800;font-size:clamp(2.9rem,1.5rem + 8.5vw,7rem);line-height:.92;letter-spacing:-.055em;background:linear-gradient(100deg,var(--ember),var(--hot) 55%,#FFB07A);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;font-variant-numeric:tabular-nums}
+.calc-top .per{color:var(--dim);font-size:.95rem;margin:.85rem 0 0;max-inline-size:none}
+.calc-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-block-start:1.3rem}
+.calc-chip{display:inline-flex;align-items:baseline;gap:.45rem;padding:.6rem 1.1rem;border:1px solid var(--line-2);border-radius:100px;font-size:.86rem;color:var(--dim)}
+.calc-chip b{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--ember);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+.calc-body{display:grid;gap:0}
+@media (min-width:60rem){.calc-body{grid-template-columns:1.05fr .95fr}}
+.calc-fields{padding:clamp(1.4rem,3.5vw,2rem);border-block-end:1px solid var(--line)}
+@media (min-width:60rem){.calc-fields{border-block-end:0;border-inline-end:1px solid var(--line)}}
+.calc-legend{font:600 .7rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin:0 0 1.1rem;max-inline-size:none}
+.calc-legend + .fieldrow{margin-block-start:0}
+.calc-group + .calc-group{margin-block-start:1.9rem;padding-block-start:1.7rem;border-block-start:1px solid var(--line)}
+.fieldrow{display:grid;gap:1.1rem}
+@media (min-width:32rem){.fieldrow{grid-template-columns:1fr 1fr}}
+.fieldrow .span2{grid-column:1/-1}
+.cf label{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;font:600 .72rem var(--body);letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-block-end:.5rem}
+.cf label span{color:var(--ember);font-size:.84rem;letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums}
+.cf input[type=number],.cf select{
+  inline-size:100%;background:var(--ink);border:1px solid var(--line-2);color:var(--bone);
+  padding:.7rem .85rem;font:500 .98rem var(--body);border-radius:4px;font-variant-numeric:tabular-nums;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.cf select{appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 19px) 1.15rem,calc(100% - 14px) 1.15rem;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.cf input:focus,.cf select:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(243,110,33,.16)}
+.cf input[type=range]{inline-size:100%;margin:.15rem 0 0;accent-color:var(--ember);block-size:1.4rem;cursor:pointer}
+
+.calc-out{padding:clamp(1.4rem,3.5vw,2rem)}
+.calc-out h4{font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;margin:0 0 1rem;color:var(--bone)}
+.calc-out h4 + .bars{margin-block-start:0}
+.calc-out .calc-group + .calc-group{margin-block-start:1.7rem;padding-block-start:1.5rem;border-block-start:1px solid var(--line)}
+.bar{margin-block-end:.9rem}
+.bar-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.88rem;color:var(--dim);margin-block-end:.4rem}
+.bar-head b{color:var(--bone);font-weight:600;font-variant-numeric:tabular-nums}
+.bar-track{block-size:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar-fill{block-size:100%;inline-size:0;border-radius:4px;transition:inline-size .45s cubic-bezier(.16,.84,.44,1)}
+.bar-in .bar-fill{background:linear-gradient(90deg,var(--ember),var(--hot))}
+.bar-out .bar-fill{background:linear-gradient(90deg,var(--oxblood),#C2392B)}
+.bar-cache .bar-fill{background:linear-gradient(90deg,#3E6B4F,#5F9E74)}
+
+.verdict{border:1px solid var(--line-2);border-radius:12px;padding:1.1rem 1.2rem;background:rgba(243,110,33,.06);font-size:.95rem;color:var(--dim);line-height:1.6}
+.verdict b{color:var(--bone);font-weight:600}
+.verdict .hl{color:var(--ember);font-weight:600;font-variant-numeric:tabular-nums}
+
+.calc-compare{border-block-start:1px solid var(--line);padding:clamp(1.4rem,3.5vw,2rem)}
+.cmp-wrap{overflow-x:auto;scrollbar-width:thin}
+table.cmp{inline-size:100%;border-collapse:collapse;font-size:.92rem;min-inline-size:34rem}
+table.cmp th{text-align:start;font:600 .68rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);padding:0 .8rem .8rem 0;border-block-end:1px solid var(--line)}
+table.cmp td{padding:.85rem .8rem .85rem 0;border-block-end:1px solid rgba(43,33,28,.6);color:var(--dim);font-variant-numeric:tabular-nums;vertical-align:middle}
+table.cmp tr:last-child td{border-block-end:0}
+table.cmp td:first-child{color:var(--bone);font-weight:600}
+table.cmp .num{text-align:end;white-space:nowrap}
+table.cmp tr.is-current td{background:rgba(243,110,33,.07)}
+table.cmp tr.is-current td:first-child{color:var(--ember)}
+.cmp-delta{font-size:.86rem}
+.cmp-delta.up{color:#E8836F}
+.cmp-delta.down{color:#6FBF8E}
+.calc-note{padding:clamp(1.4rem,3.5vw,2rem);border-block-start:1px solid var(--line);color:var(--dim);font-size:.95rem;line-height:1.65}
+.calc-note b{color:var(--bone);font-weight:600}
+.calc-note code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.88em;color:var(--ember)}
+
+/* Reusable disclosure — same feel as the FAQ toggle. */
+.disclose{max-block-size:0;overflow:hidden;visibility:hidden;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s linear .55s}
+.disclose.open{max-block-size:220rem;visibility:visible;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s}
+.disclose-btn{inline-size:100%;justify-content:center}
+.disclose-wrap{padding:clamp(1.2rem,3vw,1.7rem) clamp(1.4rem,3.5vw,2rem);border-block-start:1px solid var(--line)}
+
+/* Twelve-month curve */
+.curve{inline-size:100%;block-size:auto;display:block}
+.curve-foot{display:flex;justify-content:space-between;gap:1rem;margin-block-start:.6rem;font-size:.84rem;color:var(--dim);font-variant-numeric:tabular-nums}
+
+/* Comparison table */
+.cmp-val{display:block;font-weight:600;color:var(--bone)}
+.cmp-bar{display:block;block-size:3px;border-radius:2px;background:var(--line);margin-block-start:.4rem;overflow:hidden;min-inline-size:4.5rem}
+.cmp-bar i{display:block;block-size:100%;border-radius:2px;background:linear-gradient(90deg,var(--ember),var(--hot));transition:inline-size .45s cubic-bezier(.16,.84,.44,1)}
+.cmp-tag{display:inline-block;margin-inline-start:.5rem;padding:.1rem .45rem;border-radius:3px;background:rgba(243,110,33,.15);color:var(--ember);font:600 .64rem var(--body);letter-spacing:.1em;text-transform:uppercase;vertical-align:middle}
+
+/* Levers — the actionable half of the calculator. */
+.levers{list-style:none;margin:0;padding:0}
+.lever{margin-block-end:1rem}
+.lever-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.92rem;color:var(--dim);margin-block-end:.4rem}
+.lever-head b{color:var(--ember);font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lever-track{block-size:5px;border-radius:3px;background:var(--line);overflow:hidden}
+.lever-track i{display:block;block-size:100%;border-radius:3px;background:linear-gradient(90deg,#3E6B4F,#6FBF8E);transition:inline-size .45s cubic-bezier(.16,.84,.44,1)}
+.lever-note{display:block;margin-block-start:.35rem;font-size:.82rem;color:var(--dim);opacity:.8}
+.lever-total{margin:1.2rem 0 0;font-size:.9rem;line-height:1.6;color:var(--dim);padding-block-start:1rem;border-block-start:1px solid var(--line)}
+.lever-total .hl{color:var(--ember);font-weight:600;font-variant-numeric:tabular-nums}
+
+/* Actions */
+.calc-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-block-start:1.7rem;padding-block-start:1.5rem;border-block-start:1px solid var(--line)}
+.calc-actions .btn{font-size:.92rem;padding:.7rem 1.15rem;flex:1 1 auto}
+.calc-toast{margin:.9rem 0 0;font-size:.86rem;color:var(--ember);opacity:0;transform:translateY(-4px);transition:opacity .25s ease,transform .25s ease;min-block-size:1.2rem;word-break:break-all}
+.calc-toast.show{opacity:1;transform:none}
+
+/* Comparison: three rows until asked otherwise */
+.cmp-title{font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;margin:0 0 1rem;color:var(--bone)}
+table.cmp:not(.all) tr.cmp-extra{display:none}
+
+/* ---- work ---- */
+.work{list-style:none;padding:0;margin:2.2rem 0 0;border-block-start:1px solid var(--line)}
+.work li{border-block-end:1px solid var(--line)}
+.work a{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.4rem .5rem;text-decoration:none;color:var(--bone);transition:.28s cubic-bezier(.16,.84,.44,1);font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,1rem + 1.1vw,1.85rem);letter-spacing:-.035em}
+.work a:hover{color:var(--ember);padding-inline-start:1.5rem}
+.work .kind{font:500 .74rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);flex:none}
+/* What a web engagement actually includes — keeps the work section from
+   being a bare list of links. */
+.offer{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-block-start:2.2rem}
+@media (min-width:52rem){.offer{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:74rem){.offer{grid-template-columns:repeat(4,1fr)}}
+.offer>div{background:var(--ink-2);padding:1.5rem 1.4rem}
+.offer h3{font-size:1.05rem;margin-block-end:.5rem;letter-spacing:-.025em}
+.offer p{color:var(--dim);font-size:.92rem;margin:0}
+
+/* ---- process ---- */
+.steps{display:grid;gap:1.15rem;margin-block-start:2.2rem}
+@media (min-width:56rem){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.7rem 1.35rem;background:var(--ink-2)}
+/* Cards arrive one after another rather than as a block, and the numeral
+   warms from grey to ember as each lands. Delays ride on .rv's transition,
+   so reduced-motion still short-circuits the whole thing. */
+.steps>.step:nth-child(2){transition-delay:.13s}
+.steps>.step:nth-child(3){transition-delay:.26s}
+.step b{transition:color .55s ease .25s}
+.step.in b{color:var(--ember)}
+.step:hover{border-color:var(--line-2);transform:translateY(-6px)}
+.step b{font:800 2.2rem/1 var(--display);color:var(--line-2);letter-spacing:-.05em;display:block;margin-block-end:1rem}
+.step h3{font-size:1.2rem;margin-block-end:.55rem;letter-spacing:-.03em}
+.step p{color:var(--dim);font-size:.92rem;margin:0 0 .9rem}
+.step .when{font:600 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ember);display:block;border-block-start:1px solid var(--line);padding-block-start:.85rem}
+
+/* ---- faq ---- */
+.faq{margin-block-start:2.2rem;border-block-start:1px solid var(--line)}
+/* Collapsed by default. max-block-size animates reliably everywhere; the
+   visibility flip keeps hidden answers out of the tab order while closed. */
+.faq-more{max-block-size:0;overflow:hidden;visibility:hidden;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s linear .55s}
+.faq-more.open{max-block-size:120rem;visibility:visible;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s}
+#faqToggle{margin-block-start:1.7rem}
+details{border-block-end:1px solid var(--line)}
+summary{padding:1.35rem .5rem;cursor:pointer;font:800 1.08rem var(--display);letter-spacing:-.025em;display:flex;justify-content:space-between;align-items:center;gap:1rem;list-style:none;transition:color .2s}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--ember)}
+summary::after{content:"+";font-family:var(--body);font-weight:400;font-size:1.5rem;color:var(--ember);flex:none;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 .5rem 1.6rem;color:var(--dim);font-size:1.15rem;line-height:1.65;margin:0}
+
+/* ---- contact ---- */
+/* The last break before the form is dotted so it reads as a different kind
+   of divider. A 1px `dotted` border renders as cramped specks, so the dots are
+   drawn with a repeating gradient — even spacing, bright enough to register
+   against the near-black. ID selector beats `section + section`. */
+#contact{border-block-start:0;position:relative}
+#contact::before{
+  content:"";position:absolute;inset-block-start:0;inset-inline:0;block-size:2px;
+  background:repeating-linear-gradient(to right,rgba(167,154,144,.65) 0 2px,transparent 2px 10px);
+}
+.contact-panel{border-radius:22px;background:linear-gradient(150deg,var(--ink-2),var(--ink));border:1px solid var(--line);padding:clamp(1.5rem,4vw,2.8rem);display:grid;gap:2.2rem}
+@media (min-width:62rem){.contact-panel{grid-template-columns:1fr 1.2fr;gap:3.5rem}}
+.contact-panel h2{margin-block-end:1.1rem}
+.fgrid{display:grid;gap:1.1rem}
+@media (min-width:44rem){.fgrid{grid-template-columns:1fr 1fr}.fspan{grid-column:1/-1}}
+.field label{display:block;font:600 .7rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-block-end:.5rem}
+.field .req{color:var(--ember)}
+.field input,.field select,.field textarea{
+  inline-size:100%;background:var(--ink);border:1px solid var(--line-2);color:var(--bone);
+  padding:.85rem 1rem;font:400 .95rem var(--body);border-radius:10px;transition:border-color .2s,box-shadow .2s;
+}
+.field textarea{resize:vertical;min-block-size:7.5rem}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 20px) 1.3rem,calc(100% - 15px) 1.3rem;background-size:5px 5px,5px 5px;background-repeat:no-repeat;cursor:pointer}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(243,110,33,.16)}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#E85D52}
+.err{display:block;color:#FF9188;font-size:.79rem;margin-block-start:.35rem;min-block-size:1rem}
+.hp{position:absolute!important;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.form-foot{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-block-start:1.5rem}
+.privacy{font-size:.95rem;line-height:1.6;color:var(--dim);margin:0;flex:1 1 18rem}
+.status{margin-block-start:1.1rem;padding:1rem 1.2rem;border:1px solid var(--line-2);border-radius:12px;font-size:.92rem;display:none}
+.status.show{display:block}
+.status.ok{border-color:var(--ember);background:rgba(243,110,33,.1)}
+.status.bad{border-color:#E85D52;background:rgba(232,93,82,.1)}
+button[disabled]{opacity:.55;cursor:progress}
+.direct{list-style:none;padding:0;margin:1.8rem 0 0}
+.direct li{border-block-start:1px solid var(--line);padding-block:.9rem;display:flex;justify-content:space-between;gap:1rem;font-size:.92rem;flex-wrap:wrap}
+.direct b{color:var(--dim);font:600 .7rem var(--body);letter-spacing:.16em;text-transform:uppercase;padding-block-start:.2rem}
+.direct a{text-decoration:none}
+
+/* ---- footer ---- */
+footer{border-block-start:1px solid var(--line);padding-block:2.4rem;font-size:.85rem;color:var(--dim)}
+.fbar{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:space-between;align-items:center}
+footer p{max-inline-size:none;margin:0}
+
+/* ============================================================
+   ACCESSIBILITY + LANGUAGE DOCK
+   Deliberately NOT inside the reveal header: that header is hidden
+   until you scroll past the hero, and accessibility controls that
+   can't be reached on load are worse than none. This floats
+   independently and is available from the first paint.
+   All state is client-side + localStorage — no backend, so it runs
+   as-is on GitHub Pages.
+   ============================================================ */
+/* Sits in the bar as one more control; panel escapes upward because .rail
+   no longer clips (the links scroll inside .rail-items instead). */
+.a11y{position:relative;flex:none;align-self:flex-end;margin-block-end:.1rem}
+/* Same interaction as every other button on the page: wipe fill from the
+   leading edge, 1px press, matching treatment on :focus-visible. */
+/* Icon-only trigger, sized and baseline-shifted to sit level with the nav
+   labels rather than the indicator dashes beneath them. */
+.a11y-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.42rem .68rem;border-radius:3px;
+  border:1px solid var(--line-2);background:none;color:var(--dim);
+  cursor:pointer;line-height:0;
+  transition:color .25s ease,border-color .25s ease,transform .18s cubic-bezier(.16,.84,.44,1);
+}
+.a11y-btn:hover,.a11y-btn:focus-visible{color:var(--ember);border-color:var(--ember);transform:translateY(-2px)}
+.a11y-btn:active{transform:translateY(0)}
+.a11y-btn[aria-expanded="true"]{color:var(--ember);border-color:var(--ember)}
+.a11y-btn svg{inline-size:1.1rem;block-size:1.1rem;display:block;flex:none}
+.a11y-sep{inline-size:1px;block-size:1rem;background:var(--line-2);flex:none}
+.a11y-label{display:none}
+.a11y-panel{
+  position:absolute;inset-block-end:calc(100% + .8rem);inset-inline-end:0;
+  inline-size:min(21rem,calc(100vw - 2rem));
+  background:rgba(20,16,13,.98);backdrop-filter:blur(20px);
+  border:1px solid var(--line-2);border-radius:16px;padding:1.35rem;
+  box-shadow:0 24px 60px rgba(0,0,0,.6);
+  opacity:0;transform:translateY(12px) scale(.96);transform-origin:bottom right;
+  pointer-events:none;visibility:hidden;
+  transition:opacity .28s ease,transform .28s cubic-bezier(.16,.84,.44,1),visibility 0s linear .28s;
+}
+[dir="rtl"] .a11y-panel{transform-origin:bottom left}
+.a11y-panel.open{opacity:1;transform:none;pointer-events:auto;visibility:visible;
+  transition:opacity .28s ease,transform .28s cubic-bezier(.16,.84,.44,1),visibility 0s}
+.a11y-title{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:var(--bone);margin:0 0 1.1rem;padding-block-end:.9rem;border-block-end:1px solid var(--line)}
+.a11y-panel h3{font:600 .74rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:0 0 .7rem}
+.a11y-group + .a11y-group{margin-block-start:1.2rem;padding-block-start:1.2rem;border-block-start:1px solid var(--line)}
+.seg{display:flex;gap:.35rem}
+.seg button{
+  flex:1;padding:.6rem .4rem;font:600 .88rem var(--body);
+  background:none;border:1px solid var(--line-2);border-radius:7px;color:var(--dim);
+  cursor:pointer;transition:background-color .22s ease,border-color .22s ease,color .22s ease,transform .16s ease;
+}
+.seg button:hover,.seg button:focus-visible{border-color:var(--ember);color:var(--ember)}
+.seg button:active{transform:translateY(1px)}
+.seg button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);color:#170D06}
+.seg .s1{font-size:.82rem}.seg .s2{font-size:1rem}.seg .s3{font-size:1.2rem}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding-block:.5rem;font-size:.95rem;cursor:pointer;color:var(--bone)}
+.sw input{position:absolute;opacity:0;pointer-events:none}
+.sw .track{inline-size:2.5rem;block-size:1.4rem;border-radius:100px;background:var(--line-2);position:relative;flex:none;transition:background-color .25s ease}
+.sw .track::after{content:"";position:absolute;inset-block-start:.2rem;inset-inline-start:.2rem;inline-size:1rem;block-size:1rem;border-radius:50%;background:var(--bone);transition:transform .28s cubic-bezier(.16,.84,.44,1)}
+.sw input:checked + .track{background:var(--ember)}
+.sw input:checked + .track::after{transform:translateX(1.1rem)}
+[dir="rtl"] .sw input:checked + .track::after{transform:translateX(-1.1rem)}
+.sw input:focus-visible + .track{outline:2px solid var(--ember);outline-offset:3px}
+.a11y-reset{margin-block-start:1.2rem;inline-size:100%;padding:.65rem;font:600 .85rem var(--body);background:none;border:1px solid var(--line);border-radius:7px;color:var(--dim);cursor:pointer;transition:border-color .22s ease,color .22s ease}
+.a11y-reset:hover,.a11y-reset:focus-visible{border-color:var(--ember);color:var(--ember)}
+
+/* ---- user-selected display modes ---- */
+:root[data-contrast="high"]{--bone:#FFFFFF;--dim:#EFE9E3;--line:#6E5C4F;--line-2:#8E7A69;--ember:#FF9550}
+:root[data-contrast="high"] body::before{opacity:.3}
+:root[data-contrast="high"] .hero-media video{opacity:.1}
+:root[data-contrast="high"] .adjacent p{color:var(--bone)}
+:root[data-motion="reduce"] *,
+:root[data-motion="reduce"] *::before,
+:root[data-motion="reduce"] *::after{animation:none!important;transition-duration:.01ms!important}
+:root[data-motion="reduce"] .rv{opacity:1!important;transform:none!important}
+:root[data-links="on"] main a{text-decoration:underline;text-underline-offset:.2em}
+:root[data-links="on"] .btn,:root[data-links="on"] .work a{text-decoration:none}
+
+/* ---- RTL: the layout already uses logical properties, so it mirrors for
+   free. These only undo Latin-specific typography Arabic doesn't want. ---- */
+[dir="rtl"] .eyebrow,[dir="rtl"] .a11y-panel h3,
+[dir="rtl"] .kind,[dir="rtl"] .step .when,[dir="rtl"] .creds dt,
+[dir="rtl"] .field label,[dir="rtl"] .direct b,[dir="rtl"] .svc .n,
+[dir="rtl"] .adjacent .n{letter-spacing:0;text-transform:none}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3{letter-spacing:0}
+[dir="rtl"] .hero-media::after{background:
+  radial-gradient(ellipse 65% 75% at 18% 20%,rgba(243,110,33,.26),transparent 62%),
+  linear-gradient(260deg,var(--ink) 34%,rgba(14,11,9,.86) 62%,rgba(14,11,9,.72) 100%)}
+</style>
 </head>
 
-<body id="home">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-52TX3X"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-52TX3X');</script>
-<!-- End Google Tag Manager -->
-
-    <!-- Intro Header -->
-    <!-- Full Page Image Background Carousel Header -->
-    <header id="intro-carousel" class="carousel slide">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item html5-video-container active">
-                <!-- HTML5 Video -->
-                <video muted autoplay loop poster="assets/images/typing-on-mac.jpg" id="html5-video" class="fill">
-                    <source src="assets/videos/typing-on-mac.webm" type="video/webm">
-                        <source src="assets/videos/typing-on-mac.mp4" type="video/mp4">
-                </video>
-                <div class="carousel-caption">
-                    <img class="img-responsive" src="assets/images/DaraghmehDigital_logo.svg" alt="Daraghmeh Digital" />
-                    <div class="h1 wow animated slideInUp eggwhite ">Providing top-notch web design and development for anyone anywhere!</div>
-                </div>
-
-                <div class="overlay-detail"></div>
-            </div>
-            <!-- /.item -->
-
+<!-- Section rail. Replaces the top header entirely: a fixed vertical
+     index that pairs with the snap scrolling and cannot slide in and
+     out of view the way the old reveal header did. -->
+<nav class="rail" id="rail" aria-label="Sections">
+  <div class="rail-items">
+    <a href="#what"><span class="rail-dot"></span><span class="rail-label">Practice areas</span></a>
+    <a href="#spend"><span class="rail-dot"></span><span class="rail-label">Your spend</span></a>
+    <a href="#work"><span class="rail-dot"></span><span class="rail-label">Work</span></a>
+    <a href="#how"><span class="rail-dot"></span><span class="rail-label">Process</span></a>
+    <a href="#faq"><span class="rail-dot"></span><span class="rail-label">FAQ</span></a>
+    <a href="#contact"><span class="rail-dot"></span><span class="rail-label">Contact</span></a>
+  </div>
+  <div class="a11y" id="a11yDock">
+    <button class="a11y-btn" id="a11yBtn" type="button" aria-expanded="false" aria-controls="a11yPanel"
+            aria-label="Accessibility and language options">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="4.2" r="2"/><path d="M5.5 9.2h13M12 7.4v6.4m0 0-3.2 6.4m3.2-6.4 3.2 6.4"/>
+      </svg>
+      <span class="a11y-sep" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4.2" ry="9"/>
+      </svg>
+    </button>
+  
+    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-label="Accessibility and language options">
+      <p class="a11y-title">Accessibility</p>
+      <div class="a11y-group">
+        <h3>Language</h3>
+        <div class="seg" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" data-lang="es" aria-pressed="false">Español</button>
+          <button type="button" data-lang="ar" aria-pressed="false" lang="ar">العربية</button>
         </div>
-        <!-- /.carousel-inner -->
-        <div class="html5-video-controls">
-            <!-- Video Controls -->
-            <!--  
-                            <a id="html5-video-volume" class="fa fa-volume-up fa-lg" href="#"></a>
-                            <a id="html5-video-play" class="fa fa-pause fa-lg" href="#"></a> 
-                            -->
+      </div>
+  
+      <div class="a11y-group">
+        <h3>Text size</h3>
+        <div class="seg" role="group" aria-label="Text size">
+          <button type="button" class="s1" data-size="100" aria-pressed="true">A</button>
+          <button type="button" class="s2" data-size="115" aria-pressed="false">A</button>
+          <button type="button" class="s3" data-size="130" aria-pressed="false">A</button>
         </div>
-        <div class="mouse animate-option wow animated fadeOut"></div>
-
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="about content-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 wow slideInLeft">
-                    <h2>How is Daraghmeh Digital different?</h2>
-                    <p class="caption eggwhite">We cannot express how important it is in this day and age to have a website for a business. That is where Daraghmeh Digital comes in. We are not here for a quick buck or two. No, we pledge to every single client a unique and painless experience. We make sure every aspect of our client's site is done beautifully and professionally. From the site's design to backend implementation to aggressive SEO campaigns.</p>
-                    <p class="caption eggwhite">Money is not our goal or drive. That is why we will always be affordable without sacrificing quality or care. We show true commitment for our clients from start to finish.</p>
-
-                    <blockquote>
-                        A business that makes nothing but money is a poor business.
-
-                        <span class="eggwhite">Henry Ford</span>
-                    </blockquote>
-
-                </div>
-
-
-                <div class="col-md-4 wow slideInRight" data-wow-offset="10">
-                    <img src="assets/images/DaraghmehDigital-responsive-min.png" alt="Responsive Layout" class=" img-responsive center-block about-padding">
-                </div>
-
-                <div class="col-md-4 text-center wow slideInRight" data-wow-offset="10">
-                    <br>
-                    <br>
-                    <a href="#contact" class="page-scroll btn btn-default btn-lg link-white">Contact Us!</a>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-    <!-- /.section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services content-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h2>Just some things we do</h2>
-                </div>
-
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-md-4">
-                            <div class="row services-item text-center wow flipInX" data-wow-offset="10">
-                                <i class="fa fa-repeat fa-3x"></i>
-                                <h4>All-in-one</h4>
-                                <p>Supporting you the entire way. From designing to hosting to managing</p>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="row services-item text-center wow flipInX" data-wow-offset="10">
-                                <i class="fa fa-paint-brush fa-3x"></i>
-                                <h4>User Interace Design</h4>
-                                <p>Creating beautiful, modern, and above all functional websites is what we love</p>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="row services-item text-center wow flipInX" data-wow-offset="10">
-                                <i class="fa fa-bullhorn fa-3x"></i>
-                                <h4>Social Marketing</h4>
-                                <p>Marketing can take your business to new heights and we can help (SEO/SEM)</p>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="row services-item text-center wow flipInX" data-wow-offset="10">
-                                <i class="fa fa-cogs fa-3x"></i>
-                                <h4>Maintenance</h4>
-                                <p>Tweaking or editing your site for new content or design we got you covered</p>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="row services-item text-center wow flipInX" data-wow-offset="10">
-                                <i class="fa fa-life-ring fa-3x"></i>
-                                <h4>Real-Time Support</h4>
-                                <p>Offering a full range of support from DNS issues to site migrations and much more</p>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="row services-item text-center wow flipInX" data-wow-offset="10">
-                                <i class="fa fa-database fa-3x"></i>
-                                <h4>System Design</h4>
-                                <p>Setting you up with the right environment and conditions for success</p>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-    <!-- /.section -->
-
-
-
-    <!-- Products Section -->
-    <section id="products" class="products content-section-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="assets/images/S6_phone.png" alt="iPhone White" class="center-block img-responsive">
-                </div>
-
-
-                <div class="col-md-8">
-                    <div class="products-container">
-
-                        <div class="col-md-12 text-center">
-                            <h2>Some Benefits of a Daraghmeh Digital Site</h2>
-                            <h3 class="caption white text-center"><strong>Not only are our prices affordable but we offer the best and latest premium features and technologies</strong></h3>
-                        </div>
-
-
-                        <div class="col-md-6 product-item wow fadeIn" data-wow-offset="10">
-                            <div class="media-left">
-                                <span class="icon"><i class="fa fa-arrows-alt fa-3x"></i></span>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">Responsive Layout</h3>
-                                <p>Powerful layout design that can be adapted to any screen size</p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6 product-item wow fadeIn" data-wow-offset="10">
-                            <div class="media-left">
-                                <span class="icon"><i class="fa fa-eye fa-3x"></i></span>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">Retina Ready Graphics</h3>
-                                <p>Making every site beautiful &amp; ultra-sharp with Retina icons, fonts &amp; images.</p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6 product-item wow fadeIn" data-wow-offset="10" data-wow-delay=".50s">
-                            <div class="media-left">
-                                <span class="icon"><i class="fa fa-share-alt fa-3x"></i></span>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">Social Media</h3>
-                                <p> Making every page/post optimized and SEO ready via meta-tags, keywords, and much more</p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6 product-item wow fadeIn" data-wow-offset="10" data-wow-delay=".50s">
-                            <div class="media-left">
-                                <span class="icon"><i class="fa fa-cloud-upload fa-3x"></i></span>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">Daily Backups</h3>
-                                <p>You read that right. Your site and all its contents will be backed up not weekly, not monthly, but every night.</p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6 product-item wow fadeIn" data-wow-offset="10" data-wow-delay="1s">
-                            <div class="media-left">
-                                <span class="icon"><i class="fa fa-toggle-on fa-3x"></i></span>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">Endless Color Options</h3>
-                                <p>Choose any color scheme that suits your brand</p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6 product-item wow fadeIn" data-wow-offset="10" data-wow-delay="1s">
-                            <div class="media-left">
-                                <span class="icon"><i class="fa fa-envelope-o fa-3x"></i></span>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">Email + Contact form</h3>
-                                <p>Custom email address, fully functional contact form with user input validation and spam protection</p>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                    <!-- /.products-container -->
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-    <!-- /.products -->
-
-    <!-- Portfolio/Gallery Section -->
-    <section id="portfolio" class="portfolio content-section parallax">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h2>Some of our  clients...</h2>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="container project-container text-center">
-            <div class="recent-project-carousel owl-carousel owl-theme popup-gallery">
-                <div class="item recent-project">
-                    <img src="assets/images/gallery/client-1.jpg" alt="">
-                    <div class="project-info">
-                        <h3>Faraci Lange Attorney</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(Complete/Maintaining)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="http://www.faraci.com/" title="Faraci Lange Attorneys | Company Site" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
- 
-                 <div class="item recent-project">
-                    <img src="assets/images/gallery/client-7.jpg" alt="">
-                    <div class="project-info">
-                        <h3>International Food Market</h3><h3>(eCommerce)</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(Complete/Maintaining)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="https://internationalfood.market/" title="International Food Market | Company Site" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
-
-                
-                <div class="item recent-project">
-                    <img src="assets/images/gallery/client-6.jpg" alt="">
-                    <div class="project-info">
-                        <h3>Single Page DEMO Site</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(Complete/Demo)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="http://liberty.dd.x10.mx/" title="Demo Site | Single Page" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
-
-                <div class="item recent-project">
-                    <img src="assets/images/gallery/client-5.jpg" alt="">
-                    <div class="project-info">
-                        <h3>FlickShare</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(In Progress)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="https://daraghmeh.github.io/FlickShare/" title="FlickShare | Company Site" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
-
-                <div class="item recent-project">
-                    <img src="assets/images/gallery/client-3.jpg" alt="">
-                    <div class="project-info">
-                        <h3>Arch Hookah</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(In Progress)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="http://daraghmeh.github.io/ArchHookah/" title="Arch Hookah | Branding Site" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
-
-                <div class="item recent-project">
-                    <img src="assets/images/gallery/client-2.jpg" alt="">
-                    <div class="project-info">
-                        <h3>RIT Behind the Bricks</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(Complete/Maintaining)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="http://ritbehindthebricks.com/" title="RIT Behind the Bricks | Social Media Site" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
-
-                <div class="item recent-project">
-                    <img src="assets/images/gallery/client-4.jpg" alt="">
-                    <div class="project-info">
-                        <h3>Daraghmeh USA</h3>
-                        <ul class="project-meta">
-                            <li><a><code>(Complete/Maintaining)</code></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.project-info -->
-                    <div class="full-project">
-                        <a href="http://daraghmehusa.com/" title="Daraghmeh USA | Company Site" target="_blank">Visit Site<i class="fa fa-clone"></i></a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- /.recent-project-carousel -->
-
-            <div class="customNavigation project-navigation text-center">
-                <a class="btn-prev"><i class="fa fa-angle-left fa-2x"></i></a>
-                <a class="btn-next"><i class="fa fa-angle-right fa-2x"></i></a>
-            </div>
-            <!-- /.project-navigation -->
-
-        </div>
-
-    </section>
-    <!-- /.portfolio -->
-
-    <!-- Counter Section -->
-    <section id="counter" class="counter-section content-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h2>Our Achievements</h2>
-                </div>
-
-
-                <div class="col-sm-3 counter-wrap">
-                    <strong><span class="timer">20</span>+</strong>
-                    <span class="count-description">Clients Worked With</span>
-                </div>
-
-
-                <div class="col-sm-3 counter-wrap">
-                    <strong><span class="timer">250</span>+</strong>
-                    <span class="count-description">Support Hours</span>
-                </div>
-
-
-                <div class="col-sm-3 counter-wrap">
-                    <strong><span class="timer">15</span><</strong>
-                    <span class="count-description">Response Time (min)</span>
-                </div>
-
-
-                <div class="col-sm-3 counter-wrap">
-                    <strong><span class="timer">10</span></strong>
-                    <span class="count-description">StackOverflow Posts</span>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-    <!-- /.counter-section -->
-
-    <!-- Contact section -->
-    <section id="contact" class="contact content-section no-bottom-pad">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h2>Contact</h2>
-                    <h4 class="red">Get in touch with us for a FREE consultation on a new project or idea</h4>
-                    <hr>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-    <!-- /.portfolio -->
-
-    <div class="container">
-        <div class="row form-container" style="padding-bottom: 50px;">
-
-            <div class="col-md-8 contact-form">
-                <h3>Drop us a line</h3>
-                <!-- Hidden message to show if contact is successful. -->
-                <div id="submit-success" class="alert alert-success alert-dismissible collapse" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    Thank You, we will be in touch soon!
-                </div>
-
-                <!-- Hidden message to show if user encounters errors. -->
-                <div id="submit-errors" class="alert alert-danger alert-dismissible collapse" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    It looks like there was an error submitting the form. Please try again.
-                </div>
-                <form id="contact-form" action="/">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name..." value="" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Your email..." value="" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Your phone..." value="" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="4" name="message" placeholder="Your message..." required></textarea>
-                    </div>
-                    <input type="hidden" name="_subject" value="Website contact" />
-                    <input type="text" name="_gotcha" style="display:none" />
-                    <div class="form-group">
-                        <button type="submit" name="submit" class="btn btn-default"><i class="fa fa-paper-plane fa-fw"></i> Send</button>
-                    </div>
-                </form>
-
-            </div>
-            <!-- /.contact-form -->
-
-            <div class="col-md-4 contact-address">
-                <h3>Direct Contact</h3>
-                <ul>
-                    <li><span>Email:</span><a href="mailto:mohammad@daraghmehdigital.com?Subject=Hello!" target="_top">mohammad@daraghmehdigital.com</a>
-                    </li>
-                    <li><span>Phone:</span>+1 803-820-1064</li>
-                </ul>
-            </div>
-
-            <div class="col-md-4 contact-address">
-                <h3>Stay Connected</h3>
-                <div class="row services-item-red sans-shadow text-center">
-                    <a href="https://www.facebook.com/daraghmehdigital" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
-                </div>
-                <div class="row services-item-red sans-shadow text-center">
-                    <a href="https://www.linkedin.com/company/daraghmeh-digital" target="_blank"><i class="fa fa-linkedin fa-3x"></i></a>
-                </div>
-
-            </div>
-
-        </div>
+      </div>
+  
+      <div class="a11y-group">
+        <h3>Display</h3>
+        <label class="sw"><span>High contrast</span><input type="checkbox" id="optContrast"><span class="track"></span></label>
+        <label class="sw"><span>Reduce motion</span><input type="checkbox" id="optMotion"><span class="track"></span></label>
+        <label class="sw"><span>Underline links</span><input type="checkbox" id="optLinks"><span class="track"></span></label>
+        <button class="a11y-reset" type="button" id="a11yReset">Reset all</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <!-- Background plate. Paths are repo-relative, so the video only appears
+         once this file sits beside assets/ — until then the overlay gradient
+         carries the hero on its own. -->
+    <div class="hero-media" aria-hidden="true">
+      <video id="heroVid" autoplay muted loop playsinline preload="none"
+             poster="assets/images/typing-on-mac.jpg">
+        <source data-src="assets/videos/typing-on-mac.webm" type="video/webm">
+        <source data-src="assets/videos/typing-on-mac.mp4" type="video/mp4">
+      </video>
     </div>
 
-    <!-- Footer -->
-    <footer>
+    <div class="wrap hero-inner">
+      <a class="hero-brand" href="/" aria-label="Daraghmeh Digital, home">
+        <svg viewBox="-223 231 513 99" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <g fill="var(--logo-1)">
+            <path d="M-76.4 276.3h-8.2v-13h-27.2v13h-8.1v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1h26.9V276.3zM-84.5 250.6h-14.7c-2.5 0-4.4 0.1-5.9 0.4s-2.6 0.6-3.5 1.1c-0.8 0.5-1.4 1-1.8 1.7s-0.6 1.4-0.8 2.1h26.7C-84.5 255.9-84.5 250.6-84.5 250.6z"/>
+            <path d="M-58.2 255.8h19c1.7 0 2.9-0.4 3.9-1.3 0.9-0.9 1.5-2.1 1.8-3.8h-28.4v25.6h-8.2v-33.5h44.4v6.4c0 8.4-4.1 13.1-12.3 14l12.7 13.1h-9.8l-12.9-13h-10.2V255.8L-58.2 255.8z"/>
+            <path d="M21.5 276.3h-8.2v-13h-27.2v13H-22v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1h26.9C21.5 242.8 21.5 276.3 21.5 276.3zM13.4 250.6H-1.3c-2.5 0-4.4 0.1-5.9 0.4s-2.6 0.6-3.5 1.1c-0.8 0.5-1.5 1-1.8 1.7 -0.4 0.7-0.6 1.4-0.8 2.1h26.7V250.6z"/>
+            <path d="M71.2 242.8v7.9H44.3c-1.7 0-3.1 0.1-4.2 0.4 -1.1 0.3-2 0.8-2.7 1.5 -0.7 0.7-1.1 1.6-1.4 2.8 -0.3 1.2-0.4 2.6-0.4 4.4v8.6h27.7v-5h-6.1v-7.5h14.2v20.4H27.5v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1H71.2z"/>
+            <path d="M119.4 276.3h-8.1v-12.9H85.4v12.9h-8.1v-33.5h8.1v13h25.9v-13h8.1V276.3z"/>
+            <path d="M125.4 242.8h33.5c2.5 0 4.8 0.4 6.8 1.1 2.1 0.7 3.8 1.8 5.3 3.2s2.6 3 3.4 4.8c0.8 1.9 1.2 4 1.2 6.2v18.2h-8.1v-16.7c0-5.9-2.9-8.8-8.6-8.8h-25.5v25.5h-8.1v-33.5H125.4zM145.9 254.8h8.2v21.5h-8.2V254.8z"/>
+            <path d="M224 250.6h-34.3v5.1h33.4v7.5h-33c0.5 1.6 1.4 2.9 2.7 3.7 1.3 0.9 3.2 1.3 5.6 1.3H224v8h-25.7c-2.6 0-4.9-0.4-7-1.2 -2.1-0.8-3.8-1.9-5.3-3.3s-2.6-3.2-3.3-5.2c-0.8-2.1-1.1-4.4-1.1-6.9v-16.9H224V250.6L224 250.6z"/>
+            <path d="M271.1 311.6H263v-48.3h-25.9v12.9h-8.2v-33.5h8.1v13h25.9v-13h8.1v68.9H271.1z"/>
+            <rect x="79.9" y="308.3" width="191.1" height="8"/>
+            <polygon points="-202.1 243.3 -202.1 255.5 -202.1 260.5 -202.1 278.3 -187.1 278.3 -187.1 260.3 -140.1 260.3 -140.1 278.3 -124.1 278.3 -124.1 243.3 "/>
+            <polygon points="270.1 316.3 269.8 316.3 269.9 311.6 270.1 311.6 "/>
+          </g>
+          <g fill="var(--logo-2)">
+            <path d="M-111.8 316h-8.1v-33.4h8.1V316z"/>
+            <path d="M-62 282.5v7.9h-26.9c-1.7 0-3.1 0.1-4.2 0.4s-2 0.8-2.7 1.5 -1.1 1.6-1.4 2.8c-0.3 1.2-0.4 2.6-0.4 4.4v8.6h27.7v-5H-76v-7.5h14.2V316h-43.9v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1C-89.1 282.5-62 282.5-62 282.5z"/>
+            <path d="M-47.9 316H-56v-33.4h8.1C-47.9 282.6-47.9 316-47.9 316z"/>
+            <path d="M-40.2 282.3c1.4 0 3.6 0 7.6 0h27.8v7.7l-17.7 0 0 0 4.2 0 -0.1 25.9 -8.3 0 0-25.9h4.1 -11.3c0 0-3.3 0-5.2 0 -0.8 0-1.3 0-1.3 0"/>
+            <path d="M45.1 316h-8.2v-12.9H9.7V316H1.6v-16.7c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1h26.9C45.1 282.6 45.1 316 45.1 316zM36.9 290.5H22.2c-2.5 0-4.4 0.1-5.9 0.4s-2.6 0.6-3.5 1.1c-0.8 0.5-1.4 1-1.8 1.7 -0.4 0.7-0.6 1.4-0.8 2.1h26.7V290.5z"/>
+            <polygon points="58.9 308.3 58.9 282.3 51.9 282.3 51.9 316.3 77.9 316.3 77.9 308.3 "/>
+            <path d="M-140.1 279.3v1.7c0 12.9-4.9 19.3-15.6 19.3h-31.4v-21h-15v39h46.7c4.9 0 9.2-1.1 13-2.8 3.8-1.6 7-4.2 9.6-7.3 2.6-3.1 4.9-7 6.3-11.5 1.4-4.5 2.4-9.7 2.4-15.4v-2L-140.1 279.3 -140.1 279.3z"/>
+          </g>
+        </svg>
+      </a>
+      <h1>The model is <span>the cheap part.</span></h1>
 
-        <div class="copynote">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        &copy; 2016. Daraghmeh Digital. All rights reserved.
-                    </div>
+      <div class="hero-row">
+        <p class="hero-lede">
+          Independent advisory for companies making their first serious AI investment.
+          <strong>A decade of enterprise platform engineering — the infrastructure other teams build
+          on</strong> — pointed at what your deployment actually costs to build, run, and keep running.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#contact">Request a conversation</a>
+          <a class="btn" href="#spend">Model your costs</a>
+        </div>
+      </div>
+
+      <dl class="creds">
+        <div><dt>Team</dt><dd>Engineers, SEO experts, photographers</dd></div>
+        <div><dt>Credentials</dt><dd>Ex-Microsoft &amp; Apple, granted U.S. patents</dd></div>
+        <div><dt>Reach</dt><dd>Worldwide · U.S. focus</dd></div>
+      </dl>
+    </div>
+  </section>
 
 
-                </div>
+  <!-- ============ SERVICES ============ -->
+  <section class="wrap" id="what">
+    <p class="eyebrow">Practice areas</p>
+      <h2>Where we come in</h2>
+      <p class="sub" style="margin-block-start:1.1rem">Before you commit, before you sign, and after it's live.</p>
 
+    <div class="svc">
+      <article class="rv">
+        <span class="n">01 — BEFORE YOU COMMIT</span>
+        <h3>Strategy &amp; model selection</h3>
+        <p>Which model holds quality for your workload, on hardware you can afford. Benchmarked against your data, not a leaderboard.</p>
+        <ul><li>Use-case triage</li><li>Open vs. closed evaluation</li><li>Build / buy / wait call</li></ul>
+      </article>
+      <article class="rv">
+        <span class="n">02 — BEFORE YOU SIGN</span>
+        <h3>Cost &amp; capacity modeling</h3>
+        <p>Unit economics at your real volume: where self-hosting overtakes a managed API, the bill at ten times the traffic, and what breaks first.</p>
+        <ul><li>Token &amp; GPU economics</li><li>Break-even analysis</li><li>Vendor contract review</li></ul>
+      </article>
+      <article class="rv">
+        <span class="n">03 — AFTER LAUNCH</span>
+        <h3>Deployment &amp; readiness</h3>
+        <p>Architecture, failover, latency budgets, and the on-call story. The part that decides whether it survives month three.</p>
+        <ul><li>Reference architecture</li><li>Observability &amp; alerting</li><li>Runbooks &amp; handoff</li></ul>
+      </article>
+    </div>
+
+    <div class="adjacent rv">
+      <div>
+        <span class="n">Adjacent practice</span>
+        <h3>Digital presence &amp; market share</h3>
+      </div>
+      <div>
+        <p>
+          The line this practice was built on, and still running: web presence, technical SEO, and
+          e-commerce growth. Same discipline — measure it, find the waste, remove it — applied to page
+          speed, crawlability, and conversion. See <a href="#work">selected work</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COST MODEL ============ -->
+  <section class="wrap" id="spend">
+    <p class="eyebrow">Your spend</p>
+    <h2>What it costs to run</h2>
+    <p class="sub" style="margin-block-start:1.1rem;margin-block-end:2.5rem">
+      Input and output are priced differently, caching and batching change the maths, and retries
+      quietly inflate every line. Put your real workload in — then see what would actually cut it.
+    </p>
+
+    <div class="calc rv">
+      <div class="calc-top">
+        <p class="cap">Estimated year-one spend</p>
+        <span class="big" id="cAnnual">$0</span>
+        <p class="per" id="cMonthly">$0 in month one</p>
+        <div class="calc-chips">
+          <span class="calc-chip"><b id="cPerReq">$0</b> per request</span>
+          <span class="calc-chip"><b id="cPerK">$0</b> per 1,000 requests</span>
+          <span class="calc-chip"><b id="cOutShare">0%</b> of the bill is output</span>
+        </div>
+      </div>
+
+      <div class="calc-body">
+        <div class="calc-fields">
+          <div class="calc-group">
+            <p class="calc-legend">Your workload</p>
+            <div class="fieldrow">
+              <div class="cf span2">
+                <label for="cModel">Model</label>
+                <select id="cModel"></select>
+              </div>
+              <div class="cf span2">
+                <label for="cReq">Requests / month <span id="cReqOut">250,000</span></label>
+                <input type="number" id="cReq" min="1" step="1000" value="250000">
+                <input type="range" id="cReqR" min="3" max="8" step="0.01" value="5.4"
+                       aria-label="Requests per month, logarithmic scale">
+              </div>
+              <div class="cf">
+                <label for="cIn">Input tokens / request</label>
+                <input type="number" id="cIn" min="0" step="100" value="2500">
+              </div>
+              <div class="cf">
+                <label for="cOut">Output tokens / request</label>
+                <input type="number" id="cOut" min="0" step="50" value="600">
+              </div>
+              <div class="cf">
+                <label for="cPriceIn">Input $ / 1M</label>
+                <input type="number" id="cPriceIn" min="0" step="0.05" value="3">
+              </div>
+              <div class="cf">
+                <label for="cPriceOut">Output $ / 1M</label>
+                <input type="number" id="cPriceOut" min="0" step="0.05" value="15">
+              </div>
+              <div class="cf">
+                <label for="cHit">Prompt cache hit rate <span id="cHitOut">0%</span></label>
+                <input type="range" id="cHit" min="0" max="95" step="1" value="0">
+              </div>
+              <div class="cf">
+                <label for="cDisc">Cached token discount <span id="cDiscOut">90%</span></label>
+                <input type="range" id="cDisc" min="0" max="95" step="5" value="90">
+              </div>
             </div>
+          </div>
 
+          <div class="calc-group">
+            <button class="btn btn-ghost disclose-btn" type="button" data-disclose="advPanel"
+                    data-open="More levers" data-close="Fewer levers"
+                    aria-expanded="false" aria-controls="advPanel">
+              <span class="label">More levers</span>
+              <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="disclose" id="advPanel">
+              <div class="fieldrow" style="margin-block-start:1.4rem">
+                <div class="cf">
+                  <label for="cRetry">Retry &amp; waste rate <span id="cRetryOut">5%</span></label>
+                  <input type="range" id="cRetry" min="0" max="40" step="1" value="5">
+                </div>
+                <div class="cf">
+                  <label for="cCommit">Committed-use discount <span id="cCommitOut">0%</span></label>
+                  <input type="range" id="cCommit" min="0" max="40" step="1" value="0">
+                </div>
+                <div class="cf">
+                  <label for="cBatch">Traffic sent as batch <span id="cBatchOut">0%</span></label>
+                  <input type="range" id="cBatch" min="0" max="100" step="5" value="0">
+                </div>
+                <div class="cf">
+                  <label for="cBatchD">Batch discount <span id="cBatchDOut">50%</span></label>
+                  <input type="range" id="cBatchD" min="0" max="75" step="5" value="50">
+                </div>
+                <div class="cf">
+                  <label for="cGrow">Monthly growth <span id="cGrowOut">4%</span></label>
+                  <input type="range" id="cGrow" min="0" max="25" step="1" value="4">
+                </div>
+                <div class="cf">
+                  <label for="cOps">Ops hours / month <span id="cOpsOut">20 hrs</span></label>
+                  <input type="range" id="cOps" min="0" max="80" step="1" value="20">
+                </div>
+                <div class="cf span2">
+                  <label for="cGpu">Self-host GPU cost / month</label>
+                  <input type="number" id="cGpu" min="0" step="50" value="2400">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost" type="button" id="cRecalc">Recalculate</button>
+            <button class="btn btn-ghost" type="button" id="cReset">Reset</button>
+            <button class="btn btn-ghost" type="button" id="cShare">Share these numbers</button>
+          </div>
+          <p class="calc-toast" id="cToast" role="status" aria-live="polite"></p>
         </div>
-        <!-- /.copynote -->
 
-        <div class="nav pull-right scroll-top">
-            <a href="#home" title="Scroll to top"><i class="fa fa-angle-up"></i></a>
+        <div class="calc-out">
+          <div class="calc-group">
+            <h4>Where the money goes</h4>
+            <div class="bars">
+              <div class="bar bar-in">
+                <div class="bar-head"><span>Input tokens</span><b id="bInVal">$0</b></div>
+                <div class="bar-track"><div class="bar-fill" id="bIn"></div></div>
+              </div>
+              <div class="bar bar-out">
+                <div class="bar-head"><span>Output tokens</span><b id="bOutVal">$0</b></div>
+                <div class="bar-track"><div class="bar-fill" id="bOut"></div></div>
+              </div>
+              <div class="bar bar-cache">
+                <div class="bar-head"><span>Saved by caching</span><b id="bCacheVal">$0</b></div>
+                <div class="bar-track"><div class="bar-fill" id="bCache"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <h4>What would actually cut this</h4>
+            <ul class="levers" id="cLevers"></ul>
+            <p class="lever-total" id="cLeverTotal">—</p>
+          </div>
+
+          <div class="calc-group">
+            <h4>Managed API or Self-Host?</h4>
+            <p class="verdict" id="cVerdict">—</p>
+          </div>
+
+          <div class="calc-group">
+            <button class="btn btn-ghost disclose-btn" type="button" data-disclose="notePanel"
+                    data-open="Calculation Process" data-close="Hide Calculation Process"
+                    aria-expanded="false" aria-controls="notePanel">
+              <span class="label">Calculation Process</span>
+              <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="disclose" id="notePanel">
+              <p class="calc-note">
+                Input and output are billed separately — output typically runs three to five times
+                the input rate, which is why a workload that looks cheap on paper isn't. Retries are
+                applied to both before anything else, because a failed call still bills. Cached input
+                is charged at the discount you set; Anthropic reads cached tokens at roughly a tenth
+                of list, other providers differ. Batch and committed-use discounts are applied last,
+                to the subtotal. Year one compounds monthly growth rather than multiplying month one
+                by twelve. Self-host break-even is <code>(GPU + ops × $95/hr) ÷ cost per request</code>.
+                <br><br>
+                <b>Excluded:</b> engineering time, evaluation, embeddings, vector storage, egress and
+                the cost of an outage — which routinely exceed the inference bill in year one. Model
+                prices are indicative list rates and every field is editable; verify with your
+                provider before committing budget.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
 
-    </footer>
-    <!-- /.footer -->
+      <div class="calc-compare">
+        <h4 class="cmp-title">The same workload, every model</h4>
+        <div class="cmp-wrap">
+          <table class="cmp" id="cmpTable">
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col" class="num">In / Out per 1M</th>
+                <th scope="col" class="num">Per month</th>
+                <th scope="col" class="num">Year one</th>
+                <th scope="col" class="num">vs. yours</th>
+              </tr>
+            </thead>
+            <tbody id="cmpBody"></tbody>
+          </table>
+        </div>
+        <button class="btn btn-ghost disclose-btn" type="button" id="cmpToggle"
+                aria-expanded="false" style="margin-block-start:1.3rem">
+          <span class="label">Show all models</span>
+          <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
 
+  <!-- ============ WORK ============ -->
+  <section class="wrap" id="work">
+    <p class="eyebrow">Selected work</p>
+      <h2>Shipped, and still running</h2>
+      <p class="sub">Sites designed, built, photographed, and kept running under Daraghmeh Digital.</p>
 
+    <ul class="work rv">
+      <li><a href="https://www.faraci.com/" target="_blank" rel="noopener">Faraci Lange Attorneys <span class="kind">Firm site</span></a></li>
+      <li><a href="https://internationalfood.market/" target="_blank" rel="noopener">International Food Market <span class="kind">E-commerce</span></a></li>
+      <li><a href="http://ritbehindthebricks.com/" target="_blank" rel="noopener">RIT Behind the Bricks <span class="kind">Social platform</span></a></li>
+      <li><a href="http://daraghmehusa.com/" target="_blank" rel="noopener">Daraghmeh USA <span class="kind">Company site</span></a></li>
+      <li><a href="https://daraghmeh.github.io/FlickShare/" target="_blank" rel="noopener">FlickShare <span class="kind">Company site</span></a></li>
+      <li><a href="http://daraghmeh.github.io/ArchHookah/" target="_blank" rel="noopener">Arch Hookah <span class="kind">Branding site</span></a></li>
+    </ul>
 
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <div class="offer rv">
+      <div>
+        <h3>Design &amp; build</h3>
+        <p>Structure, front-end, and CMS — built to load fast on a phone and stay maintainable after handoff.</p>
+      </div>
+      <div>
+        <h3>Technical SEO</h3>
+        <p>Crawlability, Core Web Vitals, structured data, and the unglamorous fixes that actually move rankings.</p>
+      </div>
+      <div>
+        <h3>Photography &amp; content</h3>
+        <p>Original product and location photography, so the storefront isn't furnished with stock images.</p>
+      </div>
+      <div>
+        <h3>Hosting &amp; maintenance</h3>
+        <p>Updates, monitoring, backups, and a real person to call the day something breaks.</p>
+      </div>
+    </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </section>
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax-min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/2.9.9/jquery.mb.YTPlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.countto/0.1.0/jquery.countTo.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.inview/0.2/jquery.inview.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-    <script src="assets/js/additional-methods.min.js"></script>
+  <!-- ============ PROCESS ============ -->
+  <section class="wrap" id="how">
+    <p class="eyebrow">Process</p>
+    <h2>How We Operate</h2>
 
-    <!-- Custom JavaScript -->
-    <script src="assets/js/DD.js"></script>
-    
+    <div class="steps">
+      <div class="step rv">
+        <b>01</b>
+        <h3>First conversation</h3>
+        <p>We ask the questions that expose the real constraint, then tell you whether you need a consultant at all — sometimes the answer is no.</p>
+        <span class="when">30 minutes · no obligation</span>
+      </div>
+      <div class="step rv">
+        <b>02</b>
+        <h3>Assessment</h3>
+        <p>A written deliverable: benchmarked model recommendation, a cost model at your volumes, reference architecture, and the risks nobody flagged. Yours to keep and to shop around.</p>
+        <span class="when">1–2 weeks · quoted in advance</span>
+      </div>
+      <div class="step rv">
+        <b>03</b>
+        <h3>Build &amp; handoff</h3>
+        <p>Implementation oversight next to your team or your vendor, through launch and into steady state — then a handoff package so nothing depends on us.</p>
+        <span class="when">Monthly · fixed scope</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="wrap" id="faq">
+    <p class="eyebrow">Working with us</p>
+    <h2>Common Questions</h2>
+    <p class="sub">Confidentiality, data handling, and what happens if it goes wrong.</p>
+
+    <div class="faq rv">
+      <details>
+        <summary>Who sees our data, and what happens to it afterwards?</summary>
+        <p>Only the people assigned to your engagement. Wherever it's technically possible we work inside your environment rather than copying data out, so your systems stay the system of record. Nothing you share is used to train a model, reused for another client, or kept once the engagement closes — and we'll confirm deletion in writing on request.</p>
+      </details>
+      <details>
+        <summary>Can you work under our security and compliance requirements?</summary>
+        <p>Yes. We've delivered on platforms carrying GDPR obligations and regional data-residency rules, and we're used to working inside controls set by someone else's security team — background checks, access reviews, dedicated accounts, restricted environments. Tell us the constraints and we'll work within them rather than asking for exceptions.</p>
+      </details>
+      <details>
+        <summary>What if the work isn't what we expected?</summary>
+        <p>Every engagement runs against a scope agreed in writing before anything starts. If what we deliver doesn't match that scope, we revise it at no additional charge until it does. And if you decide after the first week that this isn't working, you pay for the week that's been worked, keep everything produced to that point, and we part on good terms.</p>
+      </details>
+      <div class="faq-more" id="faqMore">
+      <details>
+        <summary>Do you resell anything?</summary>
+        <p>No. No hardware, no licenses, no cloud credits, no referral fees from model providers. The only thing we sell is our time — which is exactly why we can tell you to spend less.</p>
+      </details>
+      <details>
+        <summary>What if we don't actually need AI?</summary>
+        <p>Then that's the answer, and you get it in the first conversation before you've paid anything. A surprising share of "AI problems" turn out to be reporting problems, data-quality problems, or a search index nobody ever tuned.</p>
+      </details>
+      <details>
+        <summary>Why does an AI practice also do SEO and e-commerce?</summary>
+        <p>Because it's the line this practice was founded on and those clients are still served. Most volume today is AI and infrastructure advisory, but the web work draws on the same engineering habits.</p>
+      </details>
+      <details>
+        <summary>How do you charge?</summary>
+        <p>Assessments are a fixed fee quoted after the first conversation, so you know the price before committing. Ongoing work is a monthly retainer against a fixed scope. No hourly billing, and no change order for asking a question.</p>
+      </details>
+      </div>
+    </div>
+
+    <button class="btn btn-ghost" type="button" id="faqToggle" aria-expanded="false" aria-controls="faqMore">
+      <span class="label">Show 4 more</span>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="wrap" id="contact">
+    <div class="contact-panel">
+      <div class="rv">
+        <p class="eyebrow">Contact</p>
+        <h2>Get in touch</h2>
+        <p class="sub">
+            The first conversation is short and free. If it isn't a fit, we'll say so and point you at what is.
+        </p>
+        <ul class="direct">
+          <li><b>Email</b><a href="mailto:mohammad@daraghmehdigital.com">mohammad@daraghmehdigital.com</a></li>
+          <li><b>Company</b><a href="https://www.linkedin.com/company/daraghmeh-digital" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><b>Owner</b><span>Mohammad Daraghmeh — <a href="https://www.daraghmeh.me" target="_blank" rel="noopener">www.daraghmeh.me</a></span></li>
+        </ul>
+      </div>
+
+      <div class="rv">
+        <!-- Web3Forms. Native POST works without JavaScript; the script below
+             upgrades it to an inline async submit. One key, one place. -->
+        <form id="lead" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="5e1a34a4-107e-4e91-8776-a217f07edf4e">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+          <div class="fgrid">
+            <div class="field">
+              <label for="f-name">Name <span class="req">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+              <span class="err" data-for="f-name"></span>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <span class="err" data-for="f-email"></span>
+            </div>
+            <div class="field">
+              <label for="f-co">Company</label>
+              <input id="f-co" name="company" type="text" autocomplete="organization">
+              <span class="err" data-for="f-co"></span>
+            </div>
+            <div class="field">
+              <label for="f-stage">Where you are</label>
+              <select id="f-stage" name="stage">
+                <option value="Exploring — no decision yet">Exploring — no decision yet</option>
+                <option value="Evaluating vendors or models">Evaluating vendors or models</option>
+                <option value="Building now">Building now</option>
+                <option value="Live, and the costs hurt">Live, and the costs hurt</option>
+                <option value="Web, SEO or e-commerce work">Web, SEO or e-commerce work</option>
+              </select>
+            </div>
+            <div class="field fspan">
+              <label for="f-msg">What are you trying to do? <span class="req">*</span></label>
+              <textarea id="f-msg" name="message" required placeholder="The workload, roughly how much of it you expect to run, and what's blocking you."></textarea>
+              <span class="err" data-for="f-msg"></span>
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
+            <button class="btn btn-solid" type="submit" id="send">Send message</button>
+          </div>
+
+          <div class="status" id="status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="fbar">
+    <p>Daraghmeh Digital LLC · Seattle, Washington · &copy; <span id="yr">2026</span></p>
+  </div>
+</footer>
+
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function () {
+  "use strict";
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  ga('create', 'UA-40773425-12', 'auto');
-  ga('send', 'pageview');
+  /* ---------- reveal ---------- */
+  var rv = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    rv.forEach(function (el) { io.observe(el); });
+  } else {
+    rv.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---------- section rail ----------
+     Fades in once the hero is behind you, then simply stays. No
+     directional logic, nothing to fight the snap scrolling. */
+  var rail = document.getElementById("rail");
+  var heroEl = document.querySelector(".hero");
+  function syncRail() {
+    var trigger = heroEl ? heroEl.offsetHeight * 0.6 : 380;
+    if (rail) rail.classList.toggle("show", window.scrollY > trigger);
+  }
+  addEventListener("scroll", syncRail, { passive: true });
+  addEventListener("resize", syncRail, { passive: true });
+  syncRail();
+
+  /* ---------- FAQ: show more ---------- */
+  var faqMore = document.getElementById("faqMore");
+  var faqToggle = document.getElementById("faqToggle");
+  if (faqMore && faqToggle) {
+    faqToggle.addEventListener("click", function () {
+      var open = faqMore.classList.toggle("open");
+      faqToggle.setAttribute("aria-expanded", String(open));
+      faqToggle.querySelector(".label").textContent = open ? "Show fewer" : "Show 4 more";
+      if (!open) {
+        Array.prototype.forEach.call(faqMore.querySelectorAll("details"), function (d) {
+          d.open = false;
+        });
+      }
+    });
+  }
+
+  /* ---------- hero video ----------
+     Sources sit in data-src so the file is never fetched until we decide it
+     should be. Phones, metered connections and reduced-motion users get the
+     poster frame plus the overlay, which is a complete design on its own —
+     and they never pay for a multi-megabyte download they didn't ask for. */
+  var heroVid = document.getElementById("heroVid");
+  if (heroVid) {
+    var conn = navigator.connection || {};
+    var wantsVideo = window.innerWidth >= 768 && !reduced && !conn.saveData;
+    if (wantsVideo) {
+      Array.prototype.forEach.call(heroVid.querySelectorAll("source"), function (s) {
+        s.setAttribute("src", s.getAttribute("data-src"));
+      });
+      heroVid.load();
+    } else {
+      heroVid.removeAttribute("autoplay");
+    }
+  }
+  /* ---------- cost model ----------
+     One pure function does the arithmetic. Everything on screen — the headline,
+     the bars, the levers, the comparison table — is derived from it, so a change
+     to any control necessarily updates all of them. That was the flaw in the
+     previous version: the comparison rows used each model's preset price and
+     ignored hand-edited prices, so editing a price appeared to do nothing. */
+  var OPS_RATE = 95;
+  var MODELS = [
+    { name: "Claude Opus 4.1",        inp: 15,    outp: 75   },
+    { name: "Claude Sonnet 4.5",      inp: 3,     outp: 15   },
+    { name: "Claude Haiku 3.5",       inp: 0.80,  outp: 4    },
+    { name: "GPT-4o",                 inp: 2.50,  outp: 10   },
+    { name: "GPT-4o mini",            inp: 0.15,  outp: 0.60 },
+    { name: "Gemini 1.5 Pro",         inp: 1.25,  outp: 5    },
+    { name: "Gemini 1.5 Flash",       inp: 0.075, outp: 0.30 },
+    { name: "Llama 3.1 70B (hosted)", inp: 0.60,  outp: 0.60 },
+    { name: "Mistral Large",          inp: 2,     outp: 6    }
+  ];
+  var DEFAULTS = {
+    cReq:250000, cIn:2500, cOut:600, cPriceIn:3, cPriceOut:15, cHit:0, cDisc:90,
+    cRetry:5, cCommit:0, cBatch:0, cBatchD:50, cGrow:4, cOps:20, cGpu:2400
+  };
+
+  var q = function (id) { return document.getElementById(id); };
+  var C = {};
+  ["cModel","cReq","cReqR","cIn","cOut","cPriceIn","cPriceOut","cHit","cDisc",
+   "cRetry","cCommit","cBatch","cBatchD","cGrow","cOps","cGpu"].forEach(function (k) { C[k] = q(k); });
+
+  if (C.cModel) {
+
+    MODELS.forEach(function (m, i) {
+      var o = document.createElement("option");
+      o.value = String(i); o.textContent = m.name; C.cModel.appendChild(o);
+    });
+    var oc = document.createElement("option");
+    oc.value = "custom"; oc.textContent = "Custom / self-hosted"; C.cModel.appendChild(oc);
+
+    /* ---- helpers ---- */
+    function n(el, fb) {
+      if (!el) return fb;
+      var v = parseFloat(el.value);
+      return (isFinite(v) && v >= 0) ? v : fb;
+    }
+    function money(v) {
+      if (!isFinite(v)) return "—";
+      if (v >= 1e6) return "$" + (v / 1e6).toFixed(v >= 1e7 ? 1 : 2) + "M";
+      if (v >= 1000) return "$" + Math.round(v / 1000).toLocaleString("en-US") + "k";
+      if (v >= 10) return "$" + v.toFixed(0);
+      if (v >= 0.01) return "$" + v.toFixed(2);
+      if (v > 0) return "$" + v.toFixed(4);
+      return "$0";
+    }
+    function int(v) { return Math.round(v).toLocaleString("en-US"); }
+
+    /* Current state of every control, as plain numbers. */
+    function readConfig() {
+      return {
+        reqs:   Math.max(1, n(C.cReq, DEFAULTS.cReq)),
+        tIn:    n(C.cIn, DEFAULTS.cIn),
+        tOut:   n(C.cOut, DEFAULTS.cOut),
+        pIn:    n(C.cPriceIn, DEFAULTS.cPriceIn),
+        pOut:   n(C.cPriceOut, DEFAULTS.cPriceOut),
+        hit:    n(C.cHit, 0) / 100,
+        disc:   n(C.cDisc, 0) / 100,
+        retry:  n(C.cRetry, 0) / 100,
+        commit: n(C.cCommit, 0) / 100,
+        batch:  n(C.cBatch, 0) / 100,
+        batchD: n(C.cBatchD, 0) / 100,
+        grow:   n(C.cGrow, 0) / 100
+      };
+    }
+
+    /* The single source of truth. Pure: same input, same output, no DOM. */
+    function cost(c) {
+      var mult    = 1 + c.retry;
+      var inTok   = c.reqs * c.tIn * mult;
+      var outTok  = c.reqs * c.tOut * mult;
+      var cached  = inTok * c.hit;
+      var plain   = inTok - cached;
+      var rawIn   = (plain / 1e6) * c.pIn + (cached / 1e6) * c.pIn * (1 - c.disc);
+      var rawOut  = (outTok / 1e6) * c.pOut;
+      var factor  = (1 - c.batch * c.batchD) * (1 - c.commit);
+      var saved   = (cached / 1e6) * c.pIn * c.disc * factor;
+      return {
+        inCost: rawIn * factor,
+        outCost: rawOut * factor,
+        total: (rawIn + rawOut) * factor,
+        saved: saved,
+        reqs: c.reqs
+      };
+    }
+    function withOverride(c, patch) {
+      var copy = {}; for (var k in c) copy[k] = c[k];
+      for (var p in patch) copy[p] = patch[p];
+      return copy;
+    }
+    function yearOne(monthly, g) {
+      return g > 0 ? monthly * (Math.pow(1 + g, 12) - 1) / g : monthly * 12;
+    }
+
+    /* ---- render ---- */
+    function draw() {
+      var c = readConfig();
+      var base = cost(c);
+      var annual = yearOne(base.total, c.grow);
+
+      /* live readouts on every slider */
+      q("cReqOut").textContent    = int(c.reqs);
+      q("cHitOut").textContent    = Math.round(c.hit * 100) + "%";
+      q("cDiscOut").textContent   = Math.round(c.disc * 100) + "%";
+      q("cRetryOut").textContent  = Math.round(c.retry * 100) + "%";
+      q("cCommitOut").textContent = Math.round(c.commit * 100) + "%";
+      q("cBatchOut").textContent  = Math.round(c.batch * 100) + "%";
+      q("cBatchDOut").textContent = Math.round(c.batchD * 100) + "%";
+      q("cGrowOut").textContent   = Math.round(c.grow * 100) + "%";
+      q("cOpsOut").textContent    = int(n(C.cOps, 0)) + " hrs";
+
+      q("cAnnual").textContent  = money(annual);
+      q("cMonthly").textContent = money(base.total) + " in month one" +
+        (c.grow > 0 ? ", " + money(base.total * Math.pow(1 + c.grow, 11)) + " by month twelve" : "");
+      q("cPerReq").textContent  = money(base.total / c.reqs);
+      q("cPerK").textContent    = money((base.total / c.reqs) * 1000);
+      q("cOutShare").textContent = base.total > 0
+        ? Math.round((base.outCost / base.total) * 100) + "%" : "0%";
+
+      var peak = Math.max(base.inCost, base.outCost, base.saved, 1e-6);
+      q("bIn").style.inlineSize    = (base.inCost / peak) * 100 + "%";
+      q("bOut").style.inlineSize   = (base.outCost / peak) * 100 + "%";
+      q("bCache").style.inlineSize = (base.saved / peak) * 100 + "%";
+      q("bInVal").textContent    = money(base.inCost) + "/mo";
+      q("bOutVal").textContent   = money(base.outCost) + "/mo";
+      q("bCacheVal").textContent = money(base.saved) + "/mo";
+
+      /* ---- levers: each is "change this one thing", priced ---- */
+      var cheapest = null;
+      MODELS.forEach(function (m) {
+        var t = cost(withOverride(c, { pIn: m.inp, pOut: m.outp })).total;
+        if (!cheapest || t < cheapest.total) cheapest = { name: m.name, total: t };
+      });
+
+      var levers = [
+        { label: "Move to " + (cheapest ? cheapest.name : "a cheaper model"),
+          save: cheapest ? base.total - cheapest.total : 0,
+          note: "same workload, lower rate" },
+        { label: "Cache 70% of input",
+          save: base.total - cost(withOverride(c, { hit: Math.max(c.hit, 0.70) })).total,
+          note: c.hit >= 0.70 ? "already there" : "stable prefixes only" },
+        { label: "Cut output length 30%",
+          save: base.total - cost(withOverride(c, { tOut: c.tOut * 0.70 })).total,
+          note: "tighter prompts, capped max tokens" },
+        { label: "Batch half the traffic",
+          save: base.total - cost(withOverride(c, { batch: Math.max(c.batch, 0.50), batchD: Math.max(c.batchD, 0.50) })).total,
+          note: "anything not user-facing" },
+        { label: "Eliminate retries",
+          save: base.total - cost(withOverride(c, { retry: 0 })).total,
+          note: "validation and backoff" }
+      ].filter(function (l) { return l.save > 0.005; })
+       .sort(function (a, b) { return b.save - a.save; });
+
+      var maxSave = levers.length ? levers[0].save : 0;
+      q("cLevers").innerHTML = levers.length
+        ? levers.map(function (l) {
+            return '<li class="lever">' +
+              '<div class="lever-head"><span>' + l.label + '</span><b>' + money(l.save) + '/mo</b></div>' +
+              '<div class="lever-track"><i style="inline-size:' +
+                (maxSave > 0 ? (l.save / maxSave) * 100 : 0).toFixed(1) + '%"></i></div>' +
+              '<span class="lever-note">' + l.note + ' · ' + money(l.save * 12) + ' a year</span></li>';
+          }).join("")
+        : '<li class="lever"><span class="lever-note">No lever moves the number at these settings.</span></li>';
+
+      var totalSave = levers.reduce(function (s, l) { return s + l.save; }, 0);
+      q("cLeverTotal").innerHTML = levers.length
+        ? 'Applied together these are not additive — they overlap — but the largest single move is ' +
+          '<span class="hl">' + money(maxSave) + '/mo</span>, and the addressable envelope is roughly ' +
+          '<span class="hl">' + money(Math.min(totalSave, base.total * 0.9)) + '/mo</span>.'
+        : 'Nothing obvious left to cut at these settings.';
+
+      /* ---- self-host ---- */
+      var host = n(C.cGpu, 0) + n(C.cOps, 0) * OPS_RATE;
+      var perReq = base.total / c.reqs;
+      var v = q("cVerdict");
+      if (perReq <= 0) {
+        v.textContent = "Set a price above zero to compare.";
+      } else {
+        var be = host / perReq;
+        v.innerHTML = "<b>" + (base.total < host ? "Managed API" : "Self-hosting") +
+          "</b> is cheaper by <span class=\"hl\">" + money(Math.abs(base.total - host)) +
+          "/mo</span>. Break-even at <span class=\"hl\">" + int(be) + "</span> requests/mo — " +
+          (be > c.reqs ? "<span class=\"hl\">" + (be / c.reqs).toFixed(1) + "×</span> your traffic."
+                       : "you are past it.") +
+          " Self-hosting assumes someone is on call.";
+      }
+
+      /* ---- comparison: your configuration always appears, so hand-edited
+             prices are visible in the table rather than silently ignored ---- */
+      /* If your prices exactly match a preset, flag that row as yours rather
+         than printing an identical duplicate underneath it. */
+      var matched = false;
+      var rows = MODELS.map(function (m) {
+        var mine = Math.abs(m.inp - c.pIn) < 1e-9 && Math.abs(m.outp - c.pOut) < 1e-9;
+        if (mine) matched = true;
+        return { name: m.name, inp: m.inp, outp: m.outp, mine: mine,
+                 mo: cost(withOverride(c, { pIn: m.inp, pOut: m.outp })).total };
+      });
+      if (!matched) rows.push({ name: "Your configuration", inp: c.pIn, outp: c.pOut, mo: base.total, mine: true });
+      rows.sort(function (a, b) { return a.mo - b.mo; });
+
+      var maxMo = rows[rows.length - 1].mo || 1;
+      q("cmpBody").innerHTML = rows.map(function (r, i) {
+        var d = base.total > 0 ? ((r.mo - base.total) / base.total) * 100 : 0;
+        var cls = Math.abs(d) < 0.5 ? "" : (d > 0 ? "up" : "down");
+        var lab = Math.abs(d) < 0.5 ? "—" : (d > 0 ? "+" : "") + Math.round(d) + "%";
+        return '<tr class="' + (r.mine ? "is-current " : "") + (i >= 3 ? "cmp-extra" : "") + '">' +
+          '<td>' + r.name + (i === 0 ? '<span class="cmp-tag">cheapest</span>' : '') + (r.mine ? '<span class="cmp-tag">yours</span>' : '') + '</td>' +
+          '<td class="num">$' + r.inp + ' / $' + r.outp + '</td>' +
+          '<td class="num"><span class="cmp-val">' + money(r.mo) + '</span>' +
+            '<span class="cmp-bar"><i style="inline-size:' + ((r.mo / maxMo) * 100).toFixed(1) + '%"></i></span></td>' +
+          '<td class="num">' + money(yearOne(r.mo, c.grow)) + '</td>' +
+          '<td class="num cmp-delta ' + cls + '">' + lab + '</td></tr>';
+      }).join("");
+    }
+
+    /* ---- requests: log slider paired with the number field ---- */
+    function fromSlider() {
+      var v = Math.pow(10, parseFloat(C.cReqR.value));
+      var step = v >= 1e6 ? 1e4 : v >= 1e5 ? 1000 : v >= 1e4 ? 100 : 10;
+      C.cReq.value = Math.max(1, Math.round(v / step) * step);
+      draw();
+    }
+    function toSlider() {
+      var v = Math.max(1, n(C.cReq, DEFAULTS.cReq));
+      C.cReqR.value = Math.min(8, Math.max(3, Math.log(v) / Math.LN10));
+      draw();
+    }
+
+    /* ---- wiring: every control, without exception ---- */
+    C.cModel.addEventListener("change", function () {
+      var i = C.cModel.value;
+      if (i !== "custom") { C.cPriceIn.value = MODELS[+i].inp; C.cPriceOut.value = MODELS[+i].outp; }
+      draw();
+    });
+    /* Hand-editing a price means you are no longer on a preset — say so. */
+    [C.cPriceIn, C.cPriceOut].forEach(function (el) {
+      el.addEventListener("input", function () { C.cModel.value = "custom"; draw(); });
+    });
+    C.cReqR.addEventListener("input", fromSlider);
+    C.cReq.addEventListener("input", toSlider);
+    [C.cIn, C.cOut, C.cHit, C.cDisc, C.cRetry, C.cCommit,
+     C.cBatch, C.cBatchD, C.cGrow, C.cOps, C.cGpu].forEach(function (el) {
+      el.addEventListener("input", draw);
+      el.addEventListener("change", draw);
+    });
+
+    /* ---- comparison expand ---- */
+    var cmpT = q("cmpToggle"), cmpTable = q("cmpTable");
+    cmpT.addEventListener("click", function () {
+      var open = cmpTable.classList.toggle("all");
+      cmpT.setAttribute("aria-expanded", String(open));
+      cmpT.querySelector(".label").textContent = open ? "Show fewer models" : "Show all models";
+    });
+
+    /* ---- actions ---- */
+    function toast(msg) {
+      var t = q("cToast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(function () { t.classList.remove("show"); }, 2600);
+    }
+    q("cRecalc").addEventListener("click", function () { draw(); toast("Recalculated."); });
+    q("cReset").addEventListener("click", function () {
+      Object.keys(DEFAULTS).forEach(function (k) { if (C[k]) C[k].value = DEFAULTS[k]; });
+      C.cModel.value = "1";
+      toSlider();
+      toast("Back to defaults.");
+    });
+    q("cShare").addEventListener("click", function () {
+      var p = [];
+      Object.keys(DEFAULTS).forEach(function (k) { if (C[k]) p.push(k + "=" + encodeURIComponent(C[k].value)); });
+      var url = location.origin + location.pathname + "?" + p.join("&") + "#spend";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url)
+          .then(function () { toast("Link copied — it reopens with your numbers."); })
+          .catch(function () { toast(url); });
+      } else { toast(url); }
+    });
+
+    /* Defaults first, then a shared link overrides them — order matters here. */
+    C.cModel.value = "1";
+    C.cPriceIn.value = MODELS[1].inp;
+    C.cPriceOut.value = MODELS[1].outp;
+
+    (function restoreFromLink() {
+      if (!location.search) return;
+      var params = new URLSearchParams(location.search);
+      var used = false;
+      Object.keys(DEFAULTS).forEach(function (k) {
+        if (C[k] && params.has(k)) { C[k].value = params.get(k); used = true; }
+      });
+      if (used) C.cModel.value = "custom";
+    })();
+
+    toSlider();
+  }
+
+  /* ---------- contact form ---------- */
+  var form = document.getElementById("lead");
+  var statusBox = document.getElementById("status");
+  /* Without JS the form does a native POST and Web3Forms redirects back with
+     ?sent=1, so those visitors see the same confirmation as everyone else. */
+  if (statusBox && new URLSearchParams(location.search).get("sent") === "1") {
+    statusBox.className = "status show ok";
+    statusBox.textContent = "Thanks — that came through. We read every message and usually reply within one business day.";
+  }
+  var send = document.getElementById("send");
+
+  function setErr(input, msg) {
+    var slot = form.querySelector('.err[data-for="' + input.id + '"]');
+    if (slot) slot.textContent = msg || "";
+    input.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+
+  function validate() {
+    var ok = true, first = null;
+    var checks = [
+      ["f-name", "Please tell us your name."],
+      ["f-email", "A valid email address, so we can reply."],
+      ["f-msg", "A sentence or two is plenty."]
+    ];
+    checks.forEach(function (pair) {
+      var input = document.getElementById(pair[0]);
+      var val = input.value.trim();
+      var bad = !val || (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val));
+      setErr(input, bad ? pair[1] : "");
+      if (bad) { ok = false; if (!first) first = input; }
+    });
+    if (first) first.focus();
+    return ok;
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    statusBox.className = "status";
+    if (!validate()) return;
+
+    var data = Object.fromEntries(new FormData(form).entries());
+
+    if (data.access_key.indexOf("REPLACE_") === 0) {
+      statusBox.className = "status show bad";
+      statusBox.textContent = "Setup needed: paste your Web3Forms access key into the hidden access_key field before going live.";
+      return;
+    }
+
+    send.disabled = true;
+    send.textContent = "Sending…";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (json) {
+        if (!json.success) throw new Error(json.message || "Submission failed");
+        form.reset();
+        statusBox.className = "status show ok";
+        statusBox.textContent = "Thanks — that came through. We read every message and usually reply within one business day.";
+      })
+      .catch(function () {
+        statusBox.className = "status show bad";
+        statusBox.innerHTML = 'Something went wrong sending that. Email us directly at <a href="mailto:mohammad@daraghmehdigital.com">mohammad@daraghmehdigital.com</a>.';
+      })
+      .then(function () {
+        send.disabled = false;
+        send.textContent = "Send message";
+      });
+  });
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
 </script>
-    
-</body>
 
+<!-- ============ ACCESSIBILITY + LANGUAGE DOCK ============ -->
+
+<script>
+/* ============================================================
+   Accessibility + language layer.
+
+   Translations are keyed by the English source string rather than by
+   data-i18n attributes. That means zero markup changes, and any string
+   not yet in the dictionary simply stays in English instead of going
+   blank — so the feature degrades safely as copy changes.
+
+   Everything persists to localStorage and runs entirely client-side,
+   which is what makes it work on GitHub Pages with no backend.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  var KEY = "dd-prefs";
+  var prefs = {};
+  try { prefs = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { prefs = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (e) {} }
+
+  var DICT = {
+    es: {
+      "Practice areas":"Áreas de práctica","Your spend":"Tu gasto","Work":"Proyectos","Contact":"Contacto",
+      
+      "The model is":"El modelo es","the cheap part.":"la parte barata.",
+      "Request a conversation":"Solicitar una conversación","Model your costs":"Modela tus costes",
+      "Team":"Equipo","Credentials":"Credenciales","Reach":"Alcance",
+      "Engineers, SEO experts, photographers":"Ingenieros, expertos en SEO, fotógrafos",
+      "Ex-Microsoft & Apple, granted U.S. patents":"Ex-Microsoft y Apple, patentes de EE. UU. concedidas",
+      "Selected work":"Proyectos seleccionados","Process":"Proceso","Working with us":"Trabajar con nosotros","Get in touch":"Contacto",
+      "Where we come in":"Dónde entramos nosotros",
+      "What it costs to run":"Lo que cuesta operarlo",
+      "Shipped, and still running":"Entregado, y todavía funcionando",
+      "How We Operate":"Cómo operamos","FAQ":"Preguntas frecuentes",
+      "Common Questions":"Preguntas habituales",
+      
+      "01 — BEFORE YOU COMMIT":"01 — ANTES DE COMPROMETERTE","02 — BEFORE YOU SIGN":"02 — ANTES DE FIRMAR",
+      "03 — AFTER LAUNCH":"03 — DESPUÉS DEL LANZAMIENTO",
+      "Strategy & model selection":"Estrategia y selección de modelo",
+      "Cost & capacity modeling":"Modelado de costes y capacidad","Deployment & readiness":"Despliegue y preparación",
+      "Adjacent practice":"Práctica adyacente","Digital presence & market share":"Presencia digital y cuota de mercado",
+      "Estimated year-one spend":"Gasto estimado del primer año","Your workload":"Tu carga de trabajo",
+      "More levers":"Más palancas","Fewer levers":"Menos palancas","What would actually cut this":"Qué reduciría esto de verdad","Recalculate":"Recalcular","Reset":"Restablecer","Share these numbers":"Compartir estos números","Show all models":"Ver todos los modelos","Show fewer models":"Ver menos modelos","Retry & waste rate":"Tasa de reintentos y desperdicio","Committed-use discount":"Descuento por uso comprometido","Traffic sent as batch":"Tráfico enviado por lotes","Batch discount":"Descuento por lotes",
+      "Model":"Modelo","Requests / month":"Solicitudes / mes",
+      "Input tokens / request":"Tokens de entrada / solicitud","Output tokens / request":"Tokens de salida / solicitud",
+      "Monthly growth":"Crecimiento mensual","Input $ / 1M":"Entrada $ / 1M",
+      "Output $ / 1M":"Salida $ / 1M","Prompt cache hit rate":"Tasa de acierto de caché",
+      "Cached token discount":"Descuento por tokens en caché","Self-host GPU cost / month":"Coste de GPU propia / mes",
+      "Ops hours / month":"Horas de operación / mes","Where the money goes":"Adónde va el dinero",
+      "Input tokens":"Tokens de entrada","Output tokens":"Tokens de salida",
+      "Saved by caching":"Ahorrado con caché","Managed API or Self-Host?":"¿API gestionada o autoalojamiento?",
+      "The same workload, every model":"La misma carga, todos los modelos",
+      "First conversation":"Primera conversación","Assessment":"Evaluación","Build & handoff":"Desarrollo y entrega",
+      "30 minutes · no obligation":"30 minutos · sin compromiso","1–2 weeks · quoted in advance":"1–2 semanas · presupuesto previo",
+      "Monthly · fixed scope":"Mensual · alcance fijo",
+      "Firm site":"Web de despacho","E-commerce":"Comercio electrónico","Social platform":"Plataforma social",
+      "Company site":"Web corporativa","Branding site":"Web de marca",
+      "Design & build":"Diseño y desarrollo","Technical SEO":"SEO técnico",
+      "Photography & content":"Fotografía y contenido","Hosting & maintenance":"Alojamiento y mantenimiento",
+      "Who sees our data, and what happens to it afterwards?":"¿Quién ve nuestros datos y qué pasa con ellos después?",
+      "Can you work under our security and compliance requirements?":"¿Pueden trabajar bajo nuestros requisitos de seguridad y cumplimiento?",
+      "What if the work isn't what we expected?":"¿Y si el trabajo no es lo que esperábamos?",
+      "Do you resell anything?":"¿Revenden algo?","What if we don't actually need AI?":"¿Y si en realidad no necesitamos IA?",
+      "Why does an AI practice also do SEO and e-commerce?":"¿Por qué una consultora de IA también hace SEO y e-commerce?",
+      "How do you charge?":"¿Cómo cobran?","Show 4 more":"Ver 4 más","Show fewer":"Ver menos",
+      "Name":"Nombre","Email":"Correo electrónico","Company":"Empresa","Where you are":"En qué punto estás",
+      "What are you trying to do?":"¿Qué quieres conseguir?","Send message":"Enviar mensaje",
+      "Exploring — no decision yet":"Explorando — sin decisión aún","Evaluating vendors or models":"Evaluando proveedores o modelos",
+      "Building now":"Construyendo ahora","Live, and the costs hurt":"En producción, y los costes duelen",
+      "Web, SEO or e-commerce work":"Trabajo web, SEO o e-commerce",
+      "Owner":"Propietario",
+      "Accessibility":"Accesibilidad","Language":"Idioma","Text size":"Tamaño del texto","Display":"Visualización",
+      "High contrast":"Alto contraste","Reduce motion":"Reducir movimiento",
+      "Underline links":"Subrayar enlaces","Reset all":"Restablecer todo"
+    },
+    ar: {
+      "Practice areas":"مجالات العمل","Your spend":"تكلفتك","Work":"أعمالنا","Contact":"تواصل",
+      
+      "The model is":"النموذج هو","the cheap part.":"الجزء الرخيص.",
+      "Request a conversation":"اطلب محادثة","Model your costs":"احسب تكاليفك",
+      "Team":"الفريق","Credentials":"المؤهلات","Reach":"نطاق العمل",
+      "Engineers, SEO experts, photographers":"مهندسون، وخبراء تحسين محركات البحث، ومصورون",
+      "Ex-Microsoft & Apple, granted U.S. patents":"خبرة سابقة في مايكروسوفت وآبل، وبراءات اختراع أمريكية",
+      "Selected work":"أعمال مختارة","Process":"آلية العمل","Working with us":"التعامل معنا","Get in touch":"تواصل معنا",
+      "Where we come in":"أين يبدأ دورنا",
+      "What it costs to run":"تكلفة التشغيل",
+      "Shipped, and still running":"أُطلقت، ولا تزال تعمل",
+      "How We Operate":"آلية عملنا","FAQ":"الأسئلة الشائعة",
+      "Common Questions":"أسئلة شائعة",
+      
+      "01 — BEFORE YOU COMMIT":"٠١ — قبل الالتزام","02 — BEFORE YOU SIGN":"٠٢ — قبل التوقيع",
+      "03 — AFTER LAUNCH":"٠٣ — بعد الإطلاق",
+      "Strategy & model selection":"الاستراتيجية واختيار النموذج",
+      "Cost & capacity modeling":"نمذجة التكلفة والسعة","Deployment & readiness":"النشر والجاهزية",
+      "Adjacent practice":"ممارسة موازية","Digital presence & market share":"الحضور الرقمي وحصة السوق",
+      "Estimated year-one spend":"الإنفاق التقديري للسنة الأولى","Your workload":"حجم استخدامك",
+      "More levers":"عوامل إضافية","Fewer levers":"عوامل أقل","What would actually cut this":"ما الذي يخفض هذه التكلفة فعلاً","Recalculate":"إعادة الحساب","Reset":"إعادة تعيين","Share these numbers":"شارك هذه الأرقام","Show all models":"عرض كل النماذج","Show fewer models":"عرض نماذج أقل","Retry & waste rate":"نسبة إعادة المحاولة والهدر","Committed-use discount":"خصم الاستخدام الملتزم","Traffic sent as batch":"النسبة المُرسلة دفعات","Batch discount":"خصم الدفعات",
+      "Model":"النموذج","Requests / month":"الطلبات / شهرياً",
+      "Input tokens / request":"رموز الإدخال / طلب","Output tokens / request":"رموز الإخراج / طلب",
+      "Monthly growth":"النمو الشهري","Input $ / 1M":"الإدخال $ / مليون",
+      "Output $ / 1M":"الإخراج $ / مليون","Prompt cache hit rate":"نسبة إصابة التخزين المؤقت",
+      "Cached token discount":"خصم الرموز المخزَّنة","Self-host GPU cost / month":"تكلفة المعالج الرسومي الذاتي / شهرياً",
+      "Ops hours / month":"ساعات التشغيل / شهرياً","Where the money goes":"أين تذهب الأموال",
+      "Input tokens":"رموز الإدخال","Output tokens":"رموز الإخراج",
+      "Saved by caching":"الموفَّر بالتخزين المؤقت","Managed API or Self-Host?":"واجهة مُدارة أم استضافة ذاتية؟",
+      "The same workload, every model":"نفس الحِمل، لكل النماذج",
+      "First conversation":"المحادثة الأولى","Assessment":"التقييم","Build & handoff":"التنفيذ والتسليم",
+      "30 minutes · no obligation":"٣٠ دقيقة · دون التزام","1–2 weeks · quoted in advance":"١–٢ أسبوع · بعرض سعر مسبق",
+      "Monthly · fixed scope":"شهرياً · نطاق ثابت",
+      "Firm site":"موقع مكتب محاماة","E-commerce":"متجر إلكتروني","Social platform":"منصة اجتماعية",
+      "Company site":"موقع شركة","Branding site":"موقع هوية بصرية",
+      "Design & build":"التصميم والتطوير","Technical SEO":"تحسين محركات البحث التقني",
+      "Photography & content":"التصوير والمحتوى","Hosting & maintenance":"الاستضافة والصيانة",
+      "Who sees our data, and what happens to it afterwards?":"من يطّلع على بياناتنا، وماذا يحدث لها بعد ذلك؟",
+      "Can you work under our security and compliance requirements?":"هل يمكنكم العمل وفق متطلبات الأمن والامتثال لدينا؟",
+      "What if the work isn't what we expected?":"ماذا لو لم يكن العمل كما توقعنا؟",
+      "Do you resell anything?":"هل تبيعون منتجات وسيطة؟","What if we don't actually need AI?":"ماذا لو لم نكن بحاجة فعلاً للذكاء الاصطناعي؟",
+      "Why does an AI practice also do SEO and e-commerce?":"لماذا تقدّم شركة ذكاء اصطناعي خدمات تحسين محركات البحث والتجارة الإلكترونية؟",
+      "How do you charge?":"كيف تحتسبون الأتعاب؟","Show 4 more":"عرض ٤ أخرى","Show fewer":"عرض أقل",
+      "Name":"الاسم","Email":"البريد الإلكتروني","Company":"الشركة","Where you are":"أين أنت الآن",
+      "What are you trying to do?":"ما الذي تحاول تحقيقه؟","Send message":"إرسال الرسالة",
+      "Exploring — no decision yet":"في مرحلة الاستكشاف — دون قرار","Evaluating vendors or models":"تقييم الموردين أو النماذج",
+      "Building now":"قيد التنفيذ الآن","Live, and the costs hurt":"قيد التشغيل، والتكاليف مرتفعة",
+      "Web, SEO or e-commerce work":"أعمال الويب أو تحسين محركات البحث أو التجارة الإلكترونية",
+      "Owner":"المالك",
+      "Accessibility":"إمكانية الوصول","Language":"اللغة","Text size":"حجم النص","Display":"العرض",
+      "High contrast":"تباين عالٍ","Reduce motion":"تقليل الحركة",
+      "Underline links":"تسطير الروابط","Reset all":"إعادة تعيين الكل"
+    }
+  };
+
+  /* Snapshot the English DOM once, before anything is swapped. */
+  var textNodes = [], attrNodes = [], snapped = false;
+  function snapshot() {
+    if (snapped) return;
+    snapped = true;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        var tag = n.parentNode && n.parentNode.nodeName;
+        if (tag === "SCRIPT" || tag === "STYLE") return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var n;
+    while ((n = walker.nextNode())) textNodes.push({ node: n, en: n.nodeValue });
+    ["placeholder", "aria-label"].forEach(function (attr) {
+      Array.prototype.forEach.call(document.querySelectorAll("[" + attr + "]"), function (el) {
+        attrNodes.push({ el: el, attr: attr, en: el.getAttribute(attr) });
+      });
+    });
+  }
+
+  function press(sel, key, val) {
+    Array.prototype.forEach.call(document.querySelectorAll(sel), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset[key] === String(val)));
+    });
+  }
+
+  function applyLang(lang) {
+    snapshot();
+    var map = DICT[lang];
+    textNodes.forEach(function (t) {
+      var key = t.en.trim();
+      var hit = map && map[key];
+      t.node.nodeValue = hit ? t.en.replace(key, hit) : t.en;
+    });
+    attrNodes.forEach(function (a) {
+      var key = (a.en || "").trim();
+      var hit = map && map[key];
+      a.el.setAttribute(a.attr, hit || a.en);
+    });
+    root.setAttribute("lang", lang);
+    root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+    prefs.lang = lang; save();
+    press("[data-lang]", "lang", lang);
+  }
+
+
+  /* ---- nav scroll-spy ----
+     Lights the nav link for whichever section owns the middle of the
+     viewport, so the guided scroll always has a visible "you are here". */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".rail a[href^='#']"));
+  var navTargets = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  if (navLinks.length && "IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(function (a, i) { a.classList.toggle("current", navTargets[i] === e.target); });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    navTargets.forEach(function (t) { if (t) spy.observe(t); });
+  }
+  /* ---- panel ---- */
+  var btn = document.getElementById("a11yBtn");
+  var panel = document.getElementById("a11yPanel");
+  function setOpen(open) {
+    panel.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+  }
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    setOpen(!panel.classList.contains("open"));
+  });
+  document.addEventListener("click", function (e) {
+    if (!panel.contains(e.target) && !btn.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && panel.classList.contains("open")) { setOpen(false); btn.focus(); }
+  });
+
+
+  /* ---- keyboard section navigation ----
+     Arrow and Page keys move a whole section instead of a few lines. This
+     replaces the CSS scroll-snap, which took over the scroll container and
+     left both the mouse and the keyboard fighting it. Guarded so typing in
+     the form, or operating this panel, still behaves normally. */
+  var SECTIONS = Array.prototype.slice.call(document.querySelectorAll("main > section"));
+  function sectionIndex() {
+    var y = window.scrollY + 90, idx = 0;
+    SECTIONS.forEach(function (s, i) { if (s.offsetTop <= y) idx = i; });
+    return idx;
+  }
+  function goToSection(i) {
+    i = Math.max(0, Math.min(SECTIONS.length - 1, i));
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                 root.getAttribute("data-motion") === "reduce";
+    window.scrollTo({ top: Math.max(0, SECTIONS[i].offsetTop - 8), behavior: reduce ? "auto" : "smooth" });
+  }
+  document.addEventListener("keydown", function (e) {
+    var t = e.target;
+    if (t && (/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(t.nodeName) || t.isContentEditable)) return;
+    if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+    if (panel.classList.contains("open")) return;
+    if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); goToSection(sectionIndex() + 1); }
+    else if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); goToSection(sectionIndex() - 1); }
+    else if (e.key === "Home") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+    else if (e.key === "End") { e.preventDefault(); goToSection(SECTIONS.length - 1); }
+  });
+
+  /* ---- generic disclosures (calculator panels) ---- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-disclose]"), function (b) {
+    var panel = document.getElementById(b.getAttribute("data-disclose"));
+    if (!panel) return;
+    b.addEventListener("click", function () {
+      var open = panel.classList.toggle("open");
+      b.setAttribute("aria-expanded", String(open));
+      var lab = b.querySelector(".label");
+      if (lab) lab.textContent = open ? b.getAttribute("data-close") : b.getAttribute("data-open");
+    });
+  });
+  /* ---- controls ---- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-lang]"), function (b) {
+    b.addEventListener("click", function () { applyLang(b.dataset.lang); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-size]"), function (b) {
+    b.addEventListener("click", function () {
+      root.style.fontSize = b.dataset.size + "%";
+      prefs.size = b.dataset.size; save();
+      press("[data-size]", "size", b.dataset.size);
+    });
+  });
+
+  var TOGGLES = [
+    { id: "optContrast", attr: "data-contrast", on: "high" },
+    { id: "optMotion",   attr: "data-motion",   on: "reduce" },
+    { id: "optLinks",    attr: "data-links",    on: "on" }
+  ];
+  TOGGLES.forEach(function (t) {
+    var box = document.getElementById(t.id);
+    box.addEventListener("change", function () {
+      if (box.checked) root.setAttribute(t.attr, t.on);
+      else root.removeAttribute(t.attr);
+      prefs[t.id] = box.checked; save();
+    });
+  });
+
+  document.getElementById("a11yReset").addEventListener("click", function () {
+    TOGGLES.forEach(function (t) {
+      document.getElementById(t.id).checked = false;
+      root.removeAttribute(t.attr);
+    });
+    root.style.fontSize = "";
+    press("[data-size]", "size", "100");
+    applyLang("en");
+    prefs = {}; save();
+  });
+
+  /* ---- restore saved preferences ---- */
+  if (prefs.size) { root.style.fontSize = prefs.size + "%"; press("[data-size]", "size", prefs.size); }
+  TOGGLES.forEach(function (t) {
+    if (prefs[t.id]) { document.getElementById(t.id).checked = true; root.setAttribute(t.attr, t.on); }
+  });
+  if (prefs.lang && prefs.lang !== "en") applyLang(prefs.lang);
+})();
+</script>
+</body>
 </html>
