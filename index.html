@@ -421,6 +421,8 @@ details p{padding:0 .5rem 1.6rem;color:var(--dim);font-size:1.15rem;line-height:
 .field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#E85D52}
 .err{display:block;color:#FF9188;font-size:.79rem;margin-block-start:.35rem;min-block-size:1rem}
 .hp{position:absolute!important;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.h-captcha{margin-block-start:1.3rem;min-block-size:78px}
+.h-captcha iframe{border-radius:6px}
 .form-foot{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-block-start:1.5rem}
 .privacy{font-size:.95rem;line-height:1.6;color:var(--dim);margin:0;flex:1 1 18rem}
 .status{margin-block-start:1.1rem;padding:1rem 1.2rem;border:1px solid var(--line-2);border-radius:12px;font-size:.92rem;display:none}
@@ -1052,6 +1054,8 @@ footer p{max-inline-size:none;margin:0}
             </div>
           </div>
 
+          <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+
           <div class="form-foot">
             <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
             <button class="btn btn-solid" type="submit" id="send">Send message</button>
@@ -1482,6 +1486,15 @@ footer p{max-inline-size:none;margin:0}
 
     var data = Object.fromEntries(new FormData(form).entries());
 
+    /* hCaptcha injects h-captcha-response into the form, so FormData already
+       carries it. Catch an unsolved widget here rather than letting the API
+       reject it and surfacing a vaguer error. */
+    if (typeof hcaptcha !== "undefined" && !data["h-captcha-response"]) {
+      statusBox.className = "status show bad";
+      statusBox.textContent = "Please complete the anti-spam check above.";
+      return;
+    }
+
     if (data.access_key.indexOf("REPLACE_") === 0) {
       statusBox.className = "status show bad";
       statusBox.textContent = "Setup needed: paste your Web3Forms access key into the hidden access_key field before going live.";
@@ -1500,6 +1513,7 @@ footer p{max-inline-size:none;margin:0}
       .then(function (json) {
         if (!json.success) throw new Error(json.message || "Submission failed");
         form.reset();
+        if (typeof hcaptcha !== "undefined") { try { hcaptcha.reset(); } catch (e) {} }
         statusBox.className = "status show ok";
         statusBox.textContent = "Thanks — that came through. We read every message and usually reply within one business day.";
       })
@@ -1815,5 +1829,6 @@ footer p{max-inline-size:none;margin:0}
   if (prefs.lang && prefs.lang !== "en") applyLang(prefs.lang);
 })();
 </script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>
