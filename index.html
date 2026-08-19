@@ -1451,7 +1451,7 @@ footer p{max-inline-size:none;margin:0}
      ?sent=1, so those visitors see the same confirmation as everyone else. */
   if (statusBox && new URLSearchParams(location.search).get("sent") === "1") {
     statusBox.className = "status show ok";
-    statusBox.textContent = "Thanks — that came through. We read every message and usually reply within one business day.";
+    statusBox.textContent = "Thank you — your enquiry has been received. We reply to every message, usually within one business day.";
   }
   var send = document.getElementById("send");
 
@@ -1489,6 +1489,15 @@ footer p{max-inline-size:none;margin:0}
     /* hCaptcha injects h-captcha-response into the form, so FormData already
        carries it. Catch an unsolved widget here rather than letting the API
        reject it and surfacing a vaguer error. */
+    /* Compose the notification subject here rather than relying on dashboard
+       templating — this is deterministic, and it drops the separator cleanly
+       when an optional field is blank. */
+    var who = (data.name || "").trim();
+    var co  = (data.company || "").trim();
+    var st  = (data.stage || "").trim();
+    data.subject = "Enquiry — " + (who || "no name given") +
+      (co ? " · " + co : "") + (st ? " · " + st : "");
+
     if (typeof hcaptcha !== "undefined" && !data["h-captcha-response"]) {
       statusBox.className = "status show bad";
       statusBox.textContent = "Please complete the anti-spam check above.";
@@ -1515,7 +1524,7 @@ footer p{max-inline-size:none;margin:0}
         form.reset();
         if (typeof hcaptcha !== "undefined") { try { hcaptcha.reset(); } catch (e) {} }
         statusBox.className = "status show ok";
-        statusBox.textContent = "Thanks — that came through. We read every message and usually reply within one business day.";
+        statusBox.textContent = "Thank you — your enquiry has been received. We reply to every message, usually within one business day.";
       })
       .catch(function () {
         statusBox.className = "status show bad";
