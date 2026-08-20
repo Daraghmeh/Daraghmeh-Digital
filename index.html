@@ -17,7 +17,7 @@
 <meta property="og:description" content="The model is the cheap part. Independent advisory on what an AI deployment actually costs to build, run, and keep running.">
 <meta property="og:image" content="https://daraghmehdigital.com/assets/images/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0E0B09">
+<meta name="theme-color" content="#151110">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,8 +66,8 @@
    --logo-2 here. Change that one token for a different treatment.
    ============================================================ */
 :root{
-  --ink:#0E0B09; --ink-2:#17130F;
-  --line:#2B211C; --line-2:#3D2E26;
+  --ink:#151110; --ink-2:#1E1916;
+  --line:#332721; --line-2:#48372D;
   --bone:#FFFBF7; --dim:#A79A90;
   --ember:#F36E21; --oxblood:#8A0707; --hot:#FF8A3D;
   --logo-1:#F36E21; --logo-2:#FFFBF7;
@@ -77,6 +77,7 @@
 
   --gut:clamp(1.15rem,4vw,4rem);
   --stack:clamp(1.9rem,3.8vw,3rem);
+  --rail-h:clamp(4.4rem,7vw,5.4rem);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-block-start:2rem}
@@ -107,9 +108,10 @@ img,svg{max-inline-size:100%}
 body::before{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:
-    radial-gradient(ellipse 85% 50% at 50% -8%,rgba(243,110,33,.075),transparent 62%),
-    radial-gradient(ellipse 60% 45% at 90% 28%,rgba(138,7,7,.11),transparent 64%),
-    radial-gradient(ellipse 55% 40% at 4% 82%,rgba(243,110,33,.055),transparent 62%);
+    radial-gradient(ellipse 85% 50% at 50% -8%,rgba(243,110,33,.10),transparent 64%),
+    radial-gradient(ellipse 60% 45% at 90% 28%,rgba(138,7,7,.13),transparent 66%),
+    radial-gradient(ellipse 55% 40% at 4% 82%,rgba(243,110,33,.075),transparent 64%),
+    radial-gradient(ellipse 70% 40% at 50% 50%,rgba(255,251,247,.028),transparent 70%);
 }
 
 .rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.16,.84,.44,1),transform .75s cubic-bezier(.16,.84,.44,1)}
@@ -124,7 +126,7 @@ body::before{
   display:flex;align-items:flex-end;justify-content:flex-start;
   gap:clamp(.75rem,2vw,1.5rem);
   padding:1.5rem clamp(1rem,4vw,2.5rem) .85rem;
-  background:linear-gradient(to top,rgba(14,11,9,.97) 45%,rgba(14,11,9,.88) 72%,rgba(14,11,9,0) 100%);
+  background:linear-gradient(to top,rgba(21,17,16,.97) 45%,rgba(21,17,16,.88) 72%,rgba(21,17,16,0) 100%);
   backdrop-filter:blur(12px);
   overflow:visible;
   opacity:0;pointer-events:none;transform:translateY(100%);
@@ -154,7 +156,9 @@ section{padding-block:var(--stack)}
 section + section{border-block-start:1px solid var(--line)}
 /* The hero already closes on the credential strip's own rule. */
 .hero + section{border-block-start:0}
-.eyebrow{display:inline-block;font:600 .875rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ember);margin:0 0 1.4rem;max-inline-size:none}
+.h2-lead{max-inline-size:34ch;text-wrap:balance}
+.h2-lead .lead-k{color:var(--ember)}
+.h2-lead .lead-k::after{content:":"}
 h2{font-size:clamp(1.7rem,1rem + 2vw,2.75rem);max-inline-size:26ch}
 .sub{color:var(--dim);font-size:1.25rem;line-height:1.6}
 
@@ -211,15 +215,16 @@ h2{font-size:clamp(1.7rem,1rem + 2vw,2.75rem);max-inline-size:26ch}
 .hero-lede{font-size:clamp(.95rem,.9rem + .35vw,1.175rem);color:var(--dim);max-inline-size:52ch;line-height:1.78;letter-spacing:.005em;margin:0;flex:1 1 30rem;text-align:start}
 .hero-lede strong{color:var(--bone);font-weight:600}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin:0;flex:none}
+.hero-cta .btn{font-size:.95rem;padding:.72rem 1.3rem;border-width:2px}
 
 /* Credential strip: rules only, no card. Stacks with horizontal hairlines,
    then goes four-across with vertical ones — so it never reads as a list. */
 .creds{display:grid;grid-template-columns:1fr;margin:clamp(2rem,4vw,3rem) 0 0;border-block-start:1px solid var(--line)}
-.creds>div{padding-block:1.15rem;border-block-end:1px solid var(--line)}
+.creds>div{padding-block:1.15rem;border-block-end:1px solid var(--line);text-align:center}
 @media (min-width:64rem){
   .creds{grid-template-columns:repeat(3,1fr);border-block-end:1px solid var(--line)}
   .creds>div{border-block-end:0;padding-inline:1.5rem;border-inline-start:1px solid var(--line)}
-  .creds>div:first-child{border-inline-start:0;padding-inline-start:0}
+  .creds>div:first-child{border-inline-start:0}
 }
 .creds dt{font:600 .64rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-block-end:.5rem}
 .creds dd{margin:0;font-family:var(--display);font-weight:600;font-size:.98rem;line-height:1.35;letter-spacing:-.02em}
@@ -338,8 +343,16 @@ table.cmp tr.is-current td:first-child{color:var(--ember)}
 .lever-total .hl{color:var(--ember);font-weight:600;font-variant-numeric:tabular-nums}
 
 /* Actions */
-.calc-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-block-start:1.7rem;padding-block-start:1.5rem;border-block-start:1px solid var(--line)}
-.calc-actions .btn{font-size:.92rem;padding:.7rem 1.15rem;flex:1 1 auto}
+.calc-actions{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:flex-end;margin-block-start:1.7rem;padding-block-start:1.5rem;border-block-start:1px solid var(--line)}
+.act svg{inline-size:1rem;block-size:1rem;flex:none}
+.act-recalc{border-color:rgba(243,110,33,.5);color:var(--ember)}
+.act-recalc::before{background:var(--ember)}
+.act-reset{border-color:rgba(232,93,82,.45);color:#F0857C}
+.act-reset::before{background:#F0857C}
+.act-share{border-color:rgba(255,251,247,.3);color:var(--bone)}
+.act-share::before{background:var(--bone)}
+.calc-actions .btn{font-size:.82rem;padding:.55rem .9rem;flex:0 0 auto;gap:.45rem}
+.calc-actions .btn svg{inline-size:.92rem;block-size:.92rem}
 .calc-toast{margin:.9rem 0 0;font-size:.86rem;color:var(--ember);opacity:0;transform:translateY(-4px);transition:opacity .25s ease,transform .25s ease;min-block-size:1.2rem;word-break:break-all}
 .calc-toast.show{opacity:1;transform:none}
 
@@ -356,10 +369,11 @@ table.cmp:not(.all) tr.cmp-extra{display:none}
 /* What a web engagement actually includes — keeps the work section from
    being a bare list of links. */
 .offer{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-block-start:2.2rem}
+.oico{inline-size:1.35rem;block-size:1.35rem;flex:none;color:var(--ember)}
 @media (min-width:52rem){.offer{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:74rem){.offer{grid-template-columns:repeat(4,1fr)}}
 .offer>div{background:var(--ink-2);padding:1.5rem 1.4rem}
-.offer h3{font-size:1.05rem;margin-block-end:.5rem;letter-spacing:-.025em}
+.offer h3{display:flex;align-items:center;gap:.6rem;font-size:1.05rem;margin-block-end:.5rem;letter-spacing:-.025em}
 .offer p{color:var(--dim);font-size:.92rem;margin:0}
 
 /* ---- process ---- */
@@ -421,23 +435,30 @@ details p{padding:0 .5rem 1.6rem;color:var(--dim);font-size:1.15rem;line-height:
 .field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#E85D52}
 .err{display:block;color:#FF9188;font-size:.79rem;margin-block-start:.35rem;min-block-size:1rem}
 .hp{position:absolute!important;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.h-captcha{margin-block-start:1.3rem;min-block-size:78px}
+.h-captcha{min-block-size:78px;flex:0 0 auto}
 .h-captcha iframe{border-radius:6px}
-.form-foot{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-block-start:1.5rem}
-.privacy{font-size:.95rem;line-height:1.6;color:var(--dim);margin:0;flex:1 1 18rem}
+.form-foot{display:flex;flex-wrap:wrap;gap:1.9rem;align-items:center;justify-content:flex-start;margin-block-start:1.4rem}
+.privacy{font-size:.88rem;font-style:italic;line-height:1.6;color:var(--dim);margin:1.1rem 0 0 auto;max-inline-size:52ch;text-align:end}
 .status{margin-block-start:1.1rem;padding:1rem 1.2rem;border:1px solid var(--line-2);border-radius:12px;font-size:.92rem;display:none}
 .status.show{display:block}
 .status.ok{border-color:var(--ember);background:rgba(243,110,33,.1)}
 .status.bad{border-color:#E85D52;background:rgba(232,93,82,.1)}
 button[disabled]{opacity:.55;cursor:progress}
 .direct{list-style:none;padding:0;margin:1.8rem 0 0}
-.direct li{border-block-start:1px solid var(--line);padding-block:.9rem;display:flex;justify-content:space-between;gap:1rem;font-size:.92rem;flex-wrap:wrap}
-.direct b{color:var(--dim);font:600 .7rem var(--body);letter-spacing:.16em;text-transform:uppercase;padding-block-start:.2rem}
-.direct a{text-decoration:none}
+.direct li{border-block-start:1px solid var(--line);padding-block:.9rem;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:.4rem 1rem;font-size:.92rem}
+.direct b{display:inline-flex;align-items:center;gap:.5rem;color:var(--dim);font:600 .7rem var(--body);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.direct b svg{inline-size:1rem;block-size:1rem;flex:none;color:var(--ember)}
+.direct a,.direct li>span{text-align:end;text-decoration:none;overflow-wrap:anywhere}
+.owner{display:flex;flex-direction:column;gap:.2rem;align-items:flex-end}
+.owner a{font-size:.86rem;color:var(--ember)}
 
 /* ---- footer ---- */
-footer{border-block-start:1px solid var(--line);padding-block:2.4rem;font-size:.85rem;color:var(--dim)}
-.fbar{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:space-between;align-items:center}
+footer{padding-block:2.2rem;padding-block-end:calc(2.2rem + var(--rail-h));font-size:.82rem;color:var(--dim)}
+.fbar{display:flex;flex-wrap:wrap;gap:1rem 1.6rem;justify-content:space-between;align-items:center}
+.fbar p{letter-spacing:.02em;margin:0}
+.flogo{display:block;flex:none;line-height:0;opacity:.72;transition:opacity .3s ease}
+.flogo:hover{opacity:1}
+.flogo svg{block-size:clamp(24px,2.6vw,30px);inline-size:auto;display:block}
 footer p{max-inline-size:none;margin:0}
 
 /* ============================================================
@@ -507,7 +528,7 @@ footer p{max-inline-size:none;margin:0}
 .a11y-reset:hover,.a11y-reset:focus-visible{border-color:var(--ember);color:var(--ember)}
 
 /* ---- user-selected display modes ---- */
-:root[data-contrast="high"]{--bone:#FFFFFF;--dim:#EFE9E3;--line:#6E5C4F;--line-2:#8E7A69;--ember:#FF9550}
+:root[data-contrast="high"]{--ink:#0B0908;--ink-2:#141110;--bone:#FFFFFF;--dim:#EFE9E3;--line:#6E5C4F;--line-2:#8E7A69;--ember:#FF9550}
 :root[data-contrast="high"] body::before{opacity:.3}
 :root[data-contrast="high"] .hero-media video{opacity:.1}
 :root[data-contrast="high"] .adjacent p{color:var(--bone)}
@@ -527,7 +548,7 @@ footer p{max-inline-size:none;margin:0}
 [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3{letter-spacing:0}
 [dir="rtl"] .hero-media::after{background:
   radial-gradient(ellipse 65% 75% at 18% 20%,rgba(243,110,33,.26),transparent 62%),
-  linear-gradient(260deg,var(--ink) 34%,rgba(14,11,9,.86) 62%,rgba(14,11,9,.72) 100%)}
+  linear-gradient(260deg,var(--ink) 34%,rgba(21,17,16,.86) 62%,rgba(21,17,16,.72) 100%)}
 </style>
 </head>
 
@@ -539,8 +560,8 @@ footer p{max-inline-size:none;margin:0}
      out of view the way the old reveal header did. -->
 <nav class="rail" id="rail" aria-label="Sections">
   <div class="rail-items">
-    <a href="#what"><span class="rail-dot"></span><span class="rail-label">Practice areas</span></a>
-    <a href="#spend"><span class="rail-dot"></span><span class="rail-label">Your spend</span></a>
+    <a href="#what"><span class="rail-dot"></span><span class="rail-label">Practice Areas</span></a>
+    <a href="#spend"><span class="rail-dot"></span><span class="rail-label">Your Spend</span></a>
     <a href="#work"><span class="rail-dot"></span><span class="rail-label">Work</span></a>
     <a href="#how"><span class="rail-dot"></span><span class="rail-label">Process</span></a>
     <a href="#faq"><span class="rail-dot"></span><span class="rail-label">FAQ</span></a>
@@ -656,8 +677,7 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ SERVICES ============ -->
   <section class="wrap" id="what">
-    <p class="eyebrow">Practice areas</p>
-      <h2>Where we come in</h2>
+    <h2 class="h2-lead"><span class="lead-k">Practice Areas</span> Where We Come In</h2>
       <p class="sub" style="margin-block-start:1.1rem">Before you commit, before you sign, and after it's live.</p>
 
     <div class="svc">
@@ -698,8 +718,7 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ COST MODEL ============ -->
   <section class="wrap" id="spend">
-    <p class="eyebrow">Your spend</p>
-    <h2>What it costs to run</h2>
+    <h2 class="h2-lead"><span class="lead-k">Your Spend</span> What It Costs to Run</h2>
     <p class="sub" style="margin-block-start:1.1rem;margin-block-end:2.5rem">
       Input and output are priced differently, caching and batching change the maths, and retries
       quietly inflate every line. Put your real workload in — then see what would actually cut it.
@@ -799,40 +818,6 @@ footer p{max-inline-size:none;margin:0}
               </div>
             </div>
           </div>
-
-          <div class="calc-actions">
-            <button class="btn btn-ghost" type="button" id="cRecalc">Recalculate</button>
-            <button class="btn btn-ghost" type="button" id="cReset">Reset</button>
-            <button class="btn btn-ghost" type="button" id="cShare">Share these numbers</button>
-          </div>
-          <p class="calc-toast" id="cToast" role="status" aria-live="polite"></p>
-        </div>
-
-        <div class="calc-out">
-          <div class="calc-group">
-            <h4>Where the money goes</h4>
-            <div class="bars">
-              <div class="bar bar-in">
-                <div class="bar-head"><span>Input tokens</span><b id="bInVal">$0</b></div>
-                <div class="bar-track"><div class="bar-fill" id="bIn"></div></div>
-              </div>
-              <div class="bar bar-out">
-                <div class="bar-head"><span>Output tokens</span><b id="bOutVal">$0</b></div>
-                <div class="bar-track"><div class="bar-fill" id="bOut"></div></div>
-              </div>
-              <div class="bar bar-cache">
-                <div class="bar-head"><span>Saved by caching</span><b id="bCacheVal">$0</b></div>
-                <div class="bar-track"><div class="bar-fill" id="bCache"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="calc-group">
-            <h4>What would actually cut this</h4>
-            <ul class="levers" id="cLevers"></ul>
-            <p class="lever-total" id="cLeverTotal">—</p>
-          </div>
-
           <div class="calc-group">
             <h4>Managed API or Self-Host?</h4>
             <p class="verdict" id="cVerdict">—</p>
@@ -863,10 +848,44 @@ footer p{max-inline-size:none;margin:0}
             </div>
           </div>
         </div>
+
+        <div class="calc-out">
+          <div class="calc-group">
+            <h4>Where the money goes</h4>
+            <div class="bars">
+              <div class="bar bar-in">
+                <div class="bar-head"><span>Input tokens</span><b id="bInVal">$0</b></div>
+                <div class="bar-track"><div class="bar-fill" id="bIn"></div></div>
+              </div>
+              <div class="bar bar-out">
+                <div class="bar-head"><span>Output tokens</span><b id="bOutVal">$0</b></div>
+                <div class="bar-track"><div class="bar-fill" id="bOut"></div></div>
+              </div>
+              <div class="bar bar-cache">
+                <div class="bar-head"><span>Saved by caching</span><b id="bCacheVal">$0</b></div>
+                <div class="bar-track"><div class="bar-fill" id="bCache"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <h4>What would actually cut this</h4>
+            <ul class="levers" id="cLevers"></ul>
+            <p class="lever-total" id="cLeverTotal">—</p>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-ghost act act-recalc" type="button" id="cRecalc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.2v4.6h-4.6"/></svg>Recalculate</button>
+            <button class="btn btn-ghost act act-reset" type="button" id="cReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4.2v4.6h4.6"/></svg>Reset</button>
+            <button class="btn btn-ghost act act-share" type="button" id="cShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.8 7.4-3.9M8.3 13.2l7.4 3.9"/></svg>Share these numbers</button>
+          </div>
+          <p class="calc-toast" id="cToast" role="status" aria-live="polite"></p>
+
+        </div>
       </div>
 
       <div class="calc-compare">
-        <h4 class="cmp-title">The same workload, every model</h4>
+        <h4 class="cmp-title">What your workload costs on every model</h4>
         <div class="cmp-wrap">
           <table class="cmp" id="cmpTable">
             <thead>
@@ -892,14 +911,15 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ WORK ============ -->
   <section class="wrap" id="work">
-    <p class="eyebrow">Selected work</p>
-      <h2>Shipped, and still running</h2>
+    <h2 class="h2-lead"><span class="lead-k">Selected Work</span> Shipped, and Still Running</h2>
       <p class="sub">Sites designed, built, photographed, and kept running under Daraghmeh Digital.</p>
 
     <ul class="work rv">
       <li><a href="https://www.faraci.com/" target="_blank" rel="noopener">Faraci Lange Attorneys <span class="kind">Firm site</span></a></li>
+      <li><a href="https://wsm-law.com/" target="_blank" rel="noopener">WSM Law <span class="kind">Family law firm</span></a></li>
       <li><a href="https://internationalfood.market/" target="_blank" rel="noopener">International Food Market <span class="kind">E-commerce</span></a></li>
-      <li><a href="http://ritbehindthebricks.com/" target="_blank" rel="noopener">RIT Behind the Bricks <span class="kind">Social platform</span></a></li>
+      <li><a href="http://ritbehindthebricks.com/" target="_blank" rel="noopener">Rochester Institute of Technology — Behind the Bricks <span class="kind">Social platform</span></a></li>
+      <li><a href="https://www.rit.edu/simonecenter/" target="_blank" rel="noopener">RIT Simone Center for Innovation and Entrepreneurship <span class="kind">University site</span></a></li>
       <li><a href="http://daraghmehusa.com/" target="_blank" rel="noopener">Daraghmeh USA <span class="kind">Company site</span></a></li>
       <li><a href="https://daraghmeh.github.io/FlickShare/" target="_blank" rel="noopener">FlickShare <span class="kind">Company site</span></a></li>
       <li><a href="http://daraghmeh.github.io/ArchHookah/" target="_blank" rel="noopener">Arch Hookah <span class="kind">Branding site</span></a></li>
@@ -907,19 +927,19 @@ footer p{max-inline-size:none;margin:0}
 
     <div class="offer rv">
       <div>
-        <h3>Design &amp; build</h3>
+        <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.5h18v13H3z"/><path d="M3 9.5h18"/><path d="M6.5 7h.01M9 7h.01"/><path d="m9.5 13 2 2-2 2M14 17h3"/></svg>Design &amp; build</h3>
         <p>Structure, front-end, and CMS — built to load fast on a phone and stay maintainable after handoff.</p>
       </div>
       <div>
-        <h3>Technical SEO</h3>
-        <p>Crawlability, Core Web Vitals, structured data, and the unglamorous fixes that actually move rankings.</p>
+        <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.4 15.4 4.6 4.6"/><path d="M7.4 11.4l2 2 4-4.6"/></svg>Technical SEO</h3>
+        <p>Crawlability, Core Web Vitals, structured data, and the unglamorous fixes that move rankings.</p>
       </div>
       <div>
-        <h3>Photography &amp; content</h3>
+        <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5h3.2l1.6-2.4h8.4l1.6 2.4H21v10H3z"/><circle cx="12" cy="13" r="3.6"/></svg>Photography &amp; content</h3>
         <p>Original product and location photography, so the storefront isn't furnished with stock images.</p>
       </div>
       <div>
-        <h3>Hosting &amp; maintenance</h3>
+        <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.6"/><rect x="3" y="14" width="18" height="6" rx="1.6"/><path d="M6.6 7h.01M6.6 17h.01"/><path d="M10.5 7h6M10.5 17h6"/></svg>Hosting &amp; maintenance</h3>
         <p>Updates, monitoring, backups, and a real person to call the day something breaks.</p>
       </div>
     </div>
@@ -928,14 +948,13 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ PROCESS ============ -->
   <section class="wrap" id="how">
-    <p class="eyebrow">Process</p>
-    <h2>How We Operate</h2>
+    <h2 class="h2-lead"><span class="lead-k">Process</span> How We Operate</h2>
 
     <div class="steps">
       <div class="step rv">
         <b>01</b>
         <h3>First conversation</h3>
-        <p>We ask the questions that expose the real constraint, then tell you whether you need a consultant at all — sometimes the answer is no.</p>
+        <p>We ask the questions that expose the real constraint, then tell you whether you need a consultant at all — sometimes the answer is no. You leave with a straight answer either way.</p>
         <span class="when">30 minutes · no obligation</span>
       </div>
       <div class="step rv">
@@ -947,7 +966,7 @@ footer p{max-inline-size:none;margin:0}
       <div class="step rv">
         <b>03</b>
         <h3>Build &amp; handoff</h3>
-        <p>Implementation oversight next to your team or your vendor, through launch and into steady state — then a handoff package so nothing depends on us.</p>
+        <p>Implementation oversight next to your team or your vendor, through launch and into steady state — then a handoff package so nothing depends on us. You keep the runbook.</p>
         <span class="when">Monthly · fixed scope</span>
       </div>
     </div>
@@ -955,8 +974,7 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ FAQ ============ -->
   <section class="wrap" id="faq">
-    <p class="eyebrow">Working with us</p>
-    <h2>Common Questions</h2>
+    <h2 class="h2-lead"><span class="lead-k">Working With Us</span> Common Questions</h2>
     <p class="sub">Confidentiality, data handling, and what happens if it goes wrong.</p>
 
     <div class="faq rv">
@@ -1002,15 +1020,14 @@ footer p{max-inline-size:none;margin:0}
   <section class="wrap" id="contact">
     <div class="contact-panel">
       <div class="rv">
-        <p class="eyebrow">Contact</p>
-        <h2>Get in touch</h2>
+        <h2 class="h2-lead"><span class="lead-k">Contact</span> Get in Touch</h2>
         <p class="sub">
             The first conversation is short and free. If it isn't a fit, we'll say so and point you at what is.
         </p>
         <ul class="direct">
-          <li><b>Email</b><a href="mailto:mohammad@daraghmehdigital.com">mohammad@daraghmehdigital.com</a></li>
-          <li><b>Company</b><a href="https://www.linkedin.com/company/daraghmeh-digital" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><b>Owner</b><span>Mohammad Daraghmeh — <a href="https://www.daraghmeh.me" target="_blank" rel="noopener">www.daraghmeh.me</a></span></li>
+          <li><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg>Email</b><a href="mailto:mohammad@daraghmehdigital.com">mohammad@daraghmehdigital.com</a></li>
+          <li><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.75h4v10.75H3V9.75Zm6.5 0h3.83v1.47h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12v5.24h-4v-4.65c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73h-4V9.75Z"/></svg>Company</b><a href="https://www.linkedin.com/company/daraghmeh-digital" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.2a7.5 7.5 0 0 1 15 0"/></svg>Owner</b><span class="owner">Mohammad Daraghmeh<a href="https://www.daraghmeh.me" target="_blank" rel="noopener">daraghmeh.me</a></span></li>
         </ul>
       </div>
 
@@ -1041,9 +1058,11 @@ footer p{max-inline-size:none;margin:0}
               <label for="f-stage">Where you are</label>
               <select id="f-stage" name="stage">
                 <option value="Exploring — no decision yet">Exploring — no decision yet</option>
-                <option value="Evaluating vendors or models">Evaluating vendors or models</option>
-                <option value="Building now">Building now</option>
-                <option value="Live, and the costs hurt">Live, and the costs hurt</option>
+                <option value="Comparing models or vendors">Comparing models or vendors</option>
+                <option value="Building it now">Building it now</option>
+                <option value="Live, and the bill is climbing">Live, and the bill is climbing</option>
+                <option value="Live, and something needs fixing">Live, and something needs fixing</option>
+                <option value="Inherited it, and need a second opinion">Inherited it, and need a second opinion</option>
                 <option value="Web, SEO or e-commerce work">Web, SEO or e-commerce work</option>
               </select>
             </div>
@@ -1054,12 +1073,11 @@ footer p{max-inline-size:none;margin:0}
             </div>
           </div>
 
-          <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
-
           <div class="form-foot">
-            <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
+            <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
             <button class="btn btn-solid" type="submit" id="send">Send message</button>
           </div>
+          <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
 
           <div class="status" id="status" role="status" aria-live="polite"></div>
         </form>
@@ -1071,6 +1089,32 @@ footer p{max-inline-size:none;margin:0}
 
 <footer class="wrap">
   <div class="fbar">
+    <a class="flogo" href="/" aria-label="Daraghmeh Digital, home">
+    <svg viewBox="-223 231 513 99" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <g fill="var(--logo-1)">
+        <path d="M-76.4 276.3h-8.2v-13h-27.2v13h-8.1v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1h26.9V276.3zM-84.5 250.6h-14.7c-2.5 0-4.4 0.1-5.9 0.4s-2.6 0.6-3.5 1.1c-0.8 0.5-1.4 1-1.8 1.7s-0.6 1.4-0.8 2.1h26.7C-84.5 255.9-84.5 250.6-84.5 250.6z"/>
+        <path d="M-58.2 255.8h19c1.7 0 2.9-0.4 3.9-1.3 0.9-0.9 1.5-2.1 1.8-3.8h-28.4v25.6h-8.2v-33.5h44.4v6.4c0 8.4-4.1 13.1-12.3 14l12.7 13.1h-9.8l-12.9-13h-10.2V255.8L-58.2 255.8z"/>
+        <path d="M21.5 276.3h-8.2v-13h-27.2v13H-22v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1h26.9C21.5 242.8 21.5 276.3 21.5 276.3zM13.4 250.6H-1.3c-2.5 0-4.4 0.1-5.9 0.4s-2.6 0.6-3.5 1.1c-0.8 0.5-1.5 1-1.8 1.7 -0.4 0.7-0.6 1.4-0.8 2.1h26.7V250.6z"/>
+        <path d="M71.2 242.8v7.9H44.3c-1.7 0-3.1 0.1-4.2 0.4 -1.1 0.3-2 0.8-2.7 1.5 -0.7 0.7-1.1 1.6-1.4 2.8 -0.3 1.2-0.4 2.6-0.4 4.4v8.6h27.7v-5h-6.1v-7.5h14.2v20.4H27.5v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1H71.2z"/>
+        <path d="M119.4 276.3h-8.1v-12.9H85.4v12.9h-8.1v-33.5h8.1v13h25.9v-13h8.1V276.3z"/>
+        <path d="M125.4 242.8h33.5c2.5 0 4.8 0.4 6.8 1.1 2.1 0.7 3.8 1.8 5.3 3.2s2.6 3 3.4 4.8c0.8 1.9 1.2 4 1.2 6.2v18.2h-8.1v-16.7c0-5.9-2.9-8.8-8.6-8.8h-25.5v25.5h-8.1v-33.5H125.4zM145.9 254.8h8.2v21.5h-8.2V254.8z"/>
+        <path d="M224 250.6h-34.3v5.1h33.4v7.5h-33c0.5 1.6 1.4 2.9 2.7 3.7 1.3 0.9 3.2 1.3 5.6 1.3H224v8h-25.7c-2.6 0-4.9-0.4-7-1.2 -2.1-0.8-3.8-1.9-5.3-3.3s-2.6-3.2-3.3-5.2c-0.8-2.1-1.1-4.4-1.1-6.9v-16.9H224V250.6L224 250.6z"/>
+        <path d="M271.1 311.6H263v-48.3h-25.9v12.9h-8.2v-33.5h8.1v13h25.9v-13h8.1v68.9H271.1z"/>
+        <rect x="79.9" y="308.3" width="191.1" height="8"/>
+        <polygon points="-202.1 243.3 -202.1 255.5 -202.1 260.5 -202.1 278.3 -187.1 278.3 -187.1 260.3 -140.1 260.3 -140.1 278.3 -124.1 278.3 -124.1 243.3 "/>
+        <polygon points="270.1 316.3 269.8 316.3 269.9 311.6 270.1 311.6 "/>
+      </g>
+      <g fill="var(--logo-2)">
+        <path d="M-111.8 316h-8.1v-33.4h8.1V316z"/>
+        <path d="M-62 282.5v7.9h-26.9c-1.7 0-3.1 0.1-4.2 0.4s-2 0.8-2.7 1.5 -1.1 1.6-1.4 2.8c-0.3 1.2-0.4 2.6-0.4 4.4v8.6h27.7v-5H-76v-7.5h14.2V316h-43.9v-16.8c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1C-89.1 282.5-62 282.5-62 282.5z"/>
+        <path d="M-47.9 316H-56v-33.4h8.1C-47.9 282.6-47.9 316-47.9 316z"/>
+        <path d="M-40.2 282.3c1.4 0 3.6 0 7.6 0h27.8v7.7l-17.7 0 0 0 4.2 0 -0.1 25.9 -8.3 0 0-25.9h4.1 -11.3c0 0-3.3 0-5.2 0 -0.8 0-1.3 0-1.3 0"/>
+        <path d="M45.1 316h-8.2v-12.9H9.7V316H1.6v-16.7c0-2.6 0.4-5 1.1-7 0.7-2.1 1.8-3.8 3.2-5.3 1.4-1.4 3.2-2.5 5.2-3.3 2.1-0.7 4.4-1.1 7.1-1.1h26.9C45.1 282.6 45.1 316 45.1 316zM36.9 290.5H22.2c-2.5 0-4.4 0.1-5.9 0.4s-2.6 0.6-3.5 1.1c-0.8 0.5-1.4 1-1.8 1.7 -0.4 0.7-0.6 1.4-0.8 2.1h26.7V290.5z"/>
+        <polygon points="58.9 308.3 58.9 282.3 51.9 282.3 51.9 316.3 77.9 316.3 77.9 308.3 "/>
+        <path d="M-140.1 279.3v1.7c0 12.9-4.9 19.3-15.6 19.3h-31.4v-21h-15v39h46.7c4.9 0 9.2-1.1 13-2.8 3.8-1.6 7-4.2 9.6-7.3 2.6-3.1 4.9-7 6.3-11.5 1.4-4.5 2.4-9.7 2.4-15.4v-2L-140.1 279.3 -140.1 279.3z"/>
+      </g>
+    </svg>
+    </a>
     <p>Daraghmeh Digital LLC · Seattle, Washington · &copy; <span id="yr">2026</span></p>
   </div>
 </footer>
@@ -1094,17 +1138,10 @@ footer p{max-inline-size:none;margin:0}
   }
 
   /* ---------- section rail ----------
-     Fades in once the hero is behind you, then simply stays. No
+     Visible from load so the section map is available immediately. No
      directional logic, nothing to fight the snap scrolling. */
   var rail = document.getElementById("rail");
-  var heroEl = document.querySelector(".hero");
-  function syncRail() {
-    var trigger = heroEl ? heroEl.offsetHeight * 0.6 : 380;
-    if (rail) rail.classList.toggle("show", window.scrollY > trigger);
-  }
-  addEventListener("scroll", syncRail, { passive: true });
-  addEventListener("resize", syncRail, { passive: true });
-  syncRail();
+  if (rail) rail.classList.add("show");
 
   /* ---------- FAQ: show more ---------- */
   var faqMore = document.getElementById("faqMore");
@@ -1565,17 +1602,17 @@ footer p{max-inline-size:none;margin:0}
 
   var DICT = {
     es: {
-      "Practice areas":"Áreas de práctica","Your spend":"Tu gasto","Work":"Proyectos","Contact":"Contacto",
+      "Practice Areas":"Áreas de práctica","Your Spend":"Tu gasto","Work":"Proyectos","Contact":"Contacto",
       
       "The model is":"El modelo es","the cheap part.":"la parte barata.",
       "Request a conversation":"Solicitar una conversación","Model your costs":"Modela tus costes",
       "Team":"Equipo","Credentials":"Credenciales","Reach":"Alcance",
       "Engineers, SEO experts, photographers":"Ingenieros, expertos en SEO, fotógrafos",
       "Ex-Microsoft & Apple, granted U.S. patents":"Ex-Microsoft y Apple, patentes de EE. UU. concedidas",
-      "Selected work":"Proyectos seleccionados","Process":"Proceso","Working with us":"Trabajar con nosotros","Get in touch":"Contacto",
-      "Where we come in":"Dónde entramos nosotros",
-      "What it costs to run":"Lo que cuesta operarlo",
-      "Shipped, and still running":"Entregado, y todavía funcionando",
+      "Selected Work":"Proyectos seleccionados","Process":"Proceso","Working With Us":"Trabajar con nosotros","Get in Touch":"Hablemos",
+      "Where We Come In":"Dónde entramos nosotros",
+      "What It Costs to Run":"Lo que cuesta operarlo",
+      "Shipped, and Still Running":"Entregado, y todavía funcionando",
       "How We Operate":"Cómo operamos","FAQ":"Preguntas frecuentes",
       "Common Questions":"Preguntas habituales",
       
@@ -1594,7 +1631,7 @@ footer p{max-inline-size:none;margin:0}
       "Ops hours / month":"Horas de operación / mes","Where the money goes":"Adónde va el dinero",
       "Input tokens":"Tokens de entrada","Output tokens":"Tokens de salida",
       "Saved by caching":"Ahorrado con caché","Managed API or Self-Host?":"¿API gestionada o autoalojamiento?",
-      "The same workload, every model":"La misma carga, todos los modelos",
+      "What your workload costs on every model":"Lo que cuesta tu carga en cada modelo",
       "First conversation":"Primera conversación","Assessment":"Evaluación","Build & handoff":"Desarrollo y entrega",
       "30 minutes · no obligation":"30 minutos · sin compromiso","1–2 weeks · quoted in advance":"1–2 semanas · presupuesto previo",
       "Monthly · fixed scope":"Mensual · alcance fijo",
@@ -1610,8 +1647,10 @@ footer p{max-inline-size:none;margin:0}
       "How do you charge?":"¿Cómo cobran?","Show 4 more":"Ver 4 más","Show fewer":"Ver menos",
       "Name":"Nombre","Email":"Correo electrónico","Company":"Empresa","Where you are":"En qué punto estás",
       "What are you trying to do?":"¿Qué quieres conseguir?","Send message":"Enviar mensaje",
-      "Exploring — no decision yet":"Explorando — sin decisión aún","Evaluating vendors or models":"Evaluando proveedores o modelos",
-      "Building now":"Construyendo ahora","Live, and the costs hurt":"En producción, y los costes duelen",
+      "Exploring — no decision yet":"Explorando — sin decisión aún","Comparing models or vendors":"Comparando modelos o proveedores",
+      "Building it now":"Construyéndolo ahora","Live, and the bill is climbing":"En producción, y la factura sube",
+      "Live, and something needs fixing":"En producción, y algo necesita arreglo",
+      "Inherited it, and need a second opinion":"Lo heredamos, y queremos una segunda opinión",
       "Web, SEO or e-commerce work":"Trabajo web, SEO o e-commerce",
       "Owner":"Propietario",
       "Accessibility":"Accesibilidad","Language":"Idioma","Text size":"Tamaño del texto","Display":"Visualización",
@@ -1619,17 +1658,17 @@ footer p{max-inline-size:none;margin:0}
       "Underline links":"Subrayar enlaces","Reset all":"Restablecer todo"
     },
     ar: {
-      "Practice areas":"مجالات العمل","Your spend":"تكلفتك","Work":"أعمالنا","Contact":"تواصل",
+      "Practice Areas":"مجالات العمل","Your Spend":"تكلفتك","Work":"أعمالنا","Contact":"تواصل",
       
       "The model is":"النموذج هو","the cheap part.":"الجزء الرخيص.",
       "Request a conversation":"اطلب محادثة","Model your costs":"احسب تكاليفك",
       "Team":"الفريق","Credentials":"المؤهلات","Reach":"نطاق العمل",
       "Engineers, SEO experts, photographers":"مهندسون، وخبراء تحسين محركات البحث، ومصورون",
       "Ex-Microsoft & Apple, granted U.S. patents":"خبرة سابقة في مايكروسوفت وآبل، وبراءات اختراع أمريكية",
-      "Selected work":"أعمال مختارة","Process":"آلية العمل","Working with us":"التعامل معنا","Get in touch":"تواصل معنا",
-      "Where we come in":"أين يبدأ دورنا",
-      "What it costs to run":"تكلفة التشغيل",
-      "Shipped, and still running":"أُطلقت، ولا تزال تعمل",
+      "Selected Work":"أعمال مختارة","Process":"آلية العمل","Working With Us":"التعامل معنا","Get in Touch":"لنتحدث",
+      "Where We Come In":"أين يبدأ دورنا",
+      "What It Costs to Run":"تكلفة التشغيل",
+      "Shipped, and Still Running":"أُطلقت، ولا تزال تعمل",
       "How We Operate":"آلية عملنا","FAQ":"الأسئلة الشائعة",
       "Common Questions":"أسئلة شائعة",
       
@@ -1648,7 +1687,7 @@ footer p{max-inline-size:none;margin:0}
       "Ops hours / month":"ساعات التشغيل / شهرياً","Where the money goes":"أين تذهب الأموال",
       "Input tokens":"رموز الإدخال","Output tokens":"رموز الإخراج",
       "Saved by caching":"الموفَّر بالتخزين المؤقت","Managed API or Self-Host?":"واجهة مُدارة أم استضافة ذاتية؟",
-      "The same workload, every model":"نفس الحِمل، لكل النماذج",
+      "What your workload costs on every model":"تكلفة حِملك على كل نموذج",
       "First conversation":"المحادثة الأولى","Assessment":"التقييم","Build & handoff":"التنفيذ والتسليم",
       "30 minutes · no obligation":"٣٠ دقيقة · دون التزام","1–2 weeks · quoted in advance":"١–٢ أسبوع · بعرض سعر مسبق",
       "Monthly · fixed scope":"شهرياً · نطاق ثابت",
@@ -1664,8 +1703,10 @@ footer p{max-inline-size:none;margin:0}
       "How do you charge?":"كيف تحتسبون الأتعاب؟","Show 4 more":"عرض ٤ أخرى","Show fewer":"عرض أقل",
       "Name":"الاسم","Email":"البريد الإلكتروني","Company":"الشركة","Where you are":"أين أنت الآن",
       "What are you trying to do?":"ما الذي تحاول تحقيقه؟","Send message":"إرسال الرسالة",
-      "Exploring — no decision yet":"في مرحلة الاستكشاف — دون قرار","Evaluating vendors or models":"تقييم الموردين أو النماذج",
-      "Building now":"قيد التنفيذ الآن","Live, and the costs hurt":"قيد التشغيل، والتكاليف مرتفعة",
+      "Exploring — no decision yet":"في مرحلة الاستكشاف — دون قرار","Comparing models or vendors":"مقارنة النماذج أو الموردين",
+      "Building it now":"قيد التنفيذ الآن","Live, and the bill is climbing":"قيد التشغيل، والفاتورة ترتفع",
+      "Live, and something needs fixing":"قيد التشغيل، وهناك ما يحتاج إصلاحًا",
+      "Inherited it, and need a second opinion":"ورثناه، ونريد رأيًا ثانيًا",
       "Web, SEO or e-commerce work":"أعمال الويب أو تحسين محركات البحث أو التجارة الإلكترونية",
       "Owner":"المالك",
       "Accessibility":"إمكانية الوصول","Language":"اللغة","Text size":"حجم النص","Display":"العرض",
