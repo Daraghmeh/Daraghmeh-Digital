@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Independent AI infrastructure &amp; E-Commerce Advisory</title>
+<title>Daraghmeh Digital — Independent AI infrastructure &amp; E-Commerce Advisory</title>
 <meta name="description" content="Independent AI advisory. Model selection, cost and capacity modeling, and deployment readiness — plus web, SEO and e-commerce growth. Seattle, Washington.">
 
 <link rel="canonical" href="https://daraghmehdigital.com/">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Daraghmeh Digital">
 <meta property="og:url" content="https://daraghmehdigital.com/">
-<meta property="og:title" content="Independent AI infrastructure &amp; E-Commerce Advisory">
+<meta property="og:title" content="Daraghmeh Digital — Independent AI infrastructure &amp; E-Commerce Advisory">
 <meta property="og:description" content="The model is the cheap part. Independent advisory on what an AI deployment actually costs to build, run, and keep running.">
 <meta property="og:image" content="https://daraghmehdigital.com/assets/images/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -159,7 +159,7 @@ section + section{border-block-start:1px solid var(--line)}
 .hero + section{border-block-start:0}
 .h2-lead{max-inline-size:34ch;text-wrap:balance}
 .h2-lead .lead-k{color:var(--ember)}
-.h2-lead .lead-k::after{content:":"}
+.h2-lead .lead-k::after{content:": "}
 h2{font-size:clamp(1.7rem,1rem + 2vw,2.75rem);max-inline-size:26ch}
 .sub{color:var(--dim);font-size:1.25rem;line-height:1.6}
 
@@ -364,8 +364,12 @@ table.cmp:not(.all) tr.cmp-extra{display:none}
 /* ---- work ---- */
 .work{list-style:none;padding:0;margin:2.2rem 0 0;border-block-start:1px solid var(--line)}
 .work li{border-block-end:1px solid var(--line)}
-.work a{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.4rem .5rem;text-decoration:none;color:var(--bone);transition:.28s cubic-bezier(.16,.84,.44,1);font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,1rem + 1.1vw,1.85rem);letter-spacing:-.035em}
+.work a,.work .gone{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.4rem .5rem;text-decoration:none;color:var(--bone);transition:.28s cubic-bezier(.16,.84,.44,1);font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,1rem + 1.1vw,1.85rem);letter-spacing:-.035em}
 .work a:hover{color:var(--ember);padding-inline-start:1.5rem}
+.work-more{max-block-size:0;overflow:hidden;visibility:hidden;margin-block-start:0;border-block-start:0;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s linear .55s}
+.work-more.open{max-block-size:60rem;visibility:visible;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s}
+.work .gone{color:var(--dim);cursor:default}
+#workToggle{inline-size:100%;justify-content:center;margin-block-start:1.4rem}
 .work .kind{font:500 .74rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);flex:none}
 /* What a web engagement actually includes — keeps the work section from
    being a bare list of links. */
@@ -436,10 +440,11 @@ details p{padding:0 .5rem 1.6rem;color:var(--dim);font-size:1.15rem;line-height:
 .field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#E85D52}
 .err{display:block;color:#FF9188;font-size:.79rem;margin-block-start:.35rem;min-block-size:1rem}
 .hp{position:absolute!important;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.h-captcha{min-block-size:78px;flex:0 0 auto}
-.h-captcha iframe{border-radius:6px}
-.form-foot{display:flex;flex-wrap:wrap;gap:1.9rem;align-items:center;justify-content:flex-start;margin-block-start:1.4rem}
-.privacy{font-size:.88rem;font-style:italic;line-height:1.6;color:var(--dim);margin:1.1rem 0 0 auto;max-inline-size:52ch;text-align:end}
+.h-captcha{min-block-size:78px;flex:0 0 auto;display:flex;align-items:center;line-height:0}
+.h-captcha iframe{border-radius:6px;display:block}
+.foot-wrap{inline-size:fit-content;max-inline-size:100%;margin-block-start:1.4rem}
+.form-foot{display:flex;flex-wrap:wrap;gap:2.6rem;align-items:center;justify-content:space-between}
+.privacy{font-size:.88rem;font-style:italic;line-height:1.6;color:var(--dim);margin:1.1rem 0 0;max-inline-size:none;text-align:start}
 .status{margin-block-start:1.1rem;padding:1rem 1.2rem;border:1px solid var(--line-2);border-radius:12px;font-size:.92rem;display:none}
 .status.show{display:block}
 .status.ok{border-color:var(--ember);background:rgba(243,110,33,.1)}
@@ -454,7 +459,7 @@ button[disabled]{opacity:.55;cursor:progress}
 .owner a{font-size:.86rem;color:var(--ember)}
 
 /* ---- footer ---- */
-footer{padding-block:2.2rem;padding-block-end:calc(2.2rem + var(--rail-h));font-size:.82rem;color:var(--dim)}
+footer{padding-block:1rem;padding-block-end:calc(1rem + var(--rail-h));font-size:.82rem;color:var(--dim)}
 .fbar{display:flex;flex-wrap:wrap;gap:1rem 1.6rem;justify-content:space-between;align-items:center}
 .fbar p{letter-spacing:.02em;margin:0}
 .flogo{display:block;flex:none;line-height:0;opacity:.72;transition:opacity .3s ease}
@@ -529,6 +534,10 @@ footer p{max-inline-size:none;margin:0}
 .a11y-reset:hover,.a11y-reset:focus-visible{border-color:var(--ember);color:var(--ember)}
 
 /* ---- user-selected display modes ---- */
+:root[data-plain="on"] body::before{display:none}
+:root[data-plain="on"] .hero-media{display:none}
+:root[data-plain="on"] .calc-top{background:none}
+
 :root[data-contrast="high"]{--ink:#0B0908;--ink-2:#141110;--bone:#FFFFFF;--dim:#EFE9E3;--line:#6E5C4F;--line-2:#8E7A69;--ember:#FF9550}
 :root[data-contrast="high"] body::before{opacity:.3}
 :root[data-contrast="high"] .hero-media video{opacity:.1}
@@ -594,18 +603,19 @@ footer p{max-inline-size:none;margin:0}
       <div class="a11y-group">
         <h3>Text size</h3>
         <div class="seg" role="group" aria-label="Text size">
-          <button type="button" class="s1" data-size="100" aria-pressed="true">A</button>
-          <button type="button" class="s2" data-size="115" aria-pressed="false">A</button>
-          <button type="button" class="s3" data-size="130" aria-pressed="false">A</button>
+          <button type="button" class="s1" data-size="90" aria-pressed="false">A</button>
+          <button type="button" class="s2" data-size="100" aria-pressed="true">A</button>
+          <button type="button" class="s3" data-size="115" aria-pressed="false">A</button>
         </div>
       </div>
   
       <div class="a11y-group">
         <h3>Display</h3>
         <label class="sw"><span>High contrast</span><input type="checkbox" id="optContrast"><span class="track"></span></label>
-        <label class="sw"><span>Reduce motion</span><input type="checkbox" id="optMotion"><span class="track"></span></label>
-        <label class="sw"><span>Underline links</span><input type="checkbox" id="optLinks"><span class="track"></span></label>
-        <button class="a11y-reset" type="button" id="a11yReset">Reset all</button>
+                  <label class="sw"><span>Plain background</span><input type="checkbox" id="optPlain"><span class="track"></span></label>
+          <label class="sw"><span>Reduce motion</span><input type="checkbox" id="optMotion"><span class="track"></span></label>
+          <label class="sw"><span>Underline links</span><input type="checkbox" id="optLinks"><span class="track"></span></label>
+        <button class="a11y-reset" type="button" id="a11yReset">Reset All</button>
       </div>
     </div>
   </div>
@@ -878,7 +888,7 @@ footer p{max-inline-size:none;margin:0}
           <div class="calc-actions">
             <button class="btn btn-ghost act act-recalc" type="button" id="cRecalc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.2v4.6h-4.6"/></svg>Recalculate</button>
             <button class="btn btn-ghost act act-reset" type="button" id="cReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4.2v4.6h4.6"/></svg>Reset</button>
-            <button class="btn btn-ghost act act-share" type="button" id="cShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.8 7.4-3.9M8.3 13.2l7.4 3.9"/></svg>Share these numbers</button>
+            <button class="btn btn-ghost act act-share" type="button" id="cShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.8 7.4-3.9M8.3 13.2l7.4 3.9"/></svg>Share Results</button>
           </div>
           <p class="calc-toast" id="cToast" role="status" aria-live="polite"></p>
 
@@ -919,7 +929,19 @@ footer p{max-inline-size:none;margin:0}
       <li><a href="https://www.faraci.com/" target="_blank" rel="noopener">Faraci Lange Attorneys <span class="kind">Law firm site</span></a></li>
       <li><a href="https://wsm-law.com/" target="_blank" rel="noopener">WSM Law <span class="kind">Law firm site</span></a></li>
       <li><a href="https://www.rit.edu/simonecenter/" target="_blank" rel="noopener">RIT Simone Center for Innovation and Entrepreneurship <span class="kind">University site</span></a></li>
+ .       <li><span class="gone">International Food Market &amp; Cafe <span class="kind">E-commerce</span></span></li>
+ .       <li><span class="gone">Rochester Institute of Technology — Behind the Bricks <span class="kind">Social platform</span></span></li>
     </ul>
+
+    <ul class="work work-more rv" id="workMore">
+      <li><span class="gone">Daraghmeh USA <span class="kind">Company site</span></span></li>
+      <li><span class="gone">FlickShare <span class="kind">Company site</span></span></li>
+      <li><span class="gone">Arch Hookah <span class="kind">Branding site</span></span></li>
+    </ul>
+    <button class="btn btn-ghost" type="button" id="workToggle" aria-expanded="false" aria-controls="workMore">
+      <span class="label">Show More</span>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
 
     <div class="offer rv">
       <div>
@@ -928,7 +950,7 @@ footer p{max-inline-size:none;margin:0}
       </div>
       <div>
         <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.4 15.4 4.6 4.6"/><path d="M7.4 11.4l2 2 4-4.6"/></svg>Technical SEO</h3>
-        <p>Crawlability, Core Web Vitals, structured data, and the unglamorous fixes that move rankings.</p>
+        <p>Crawlability, Core Web Vitals, structured data, and the fixes that move rankings.</p>
       </div>
       <div>
         <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5h3.2l1.6-2.4h8.4l1.6 2.4H21v10H3z"/><circle cx="12" cy="13" r="3.6"/></svg>Photography &amp; content</h3>
@@ -1069,11 +1091,13 @@ footer p{max-inline-size:none;margin:0}
             </div>
           </div>
 
-          <div class="form-foot">
-            <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
-            <button class="btn btn-solid" type="submit" id="send">Send message</button>
+          <div class="foot-wrap">
+            <div class="form-foot">
+              <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+              <button class="btn btn-solid" type="submit" id="send">Send Message</button>
+            </div>
+            <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
           </div>
-          <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
 
           <div class="status" id="status" role="status" aria-live="polite"></div>
         </form>
@@ -1143,6 +1167,15 @@ footer p{max-inline-size:none;margin:0}
   var faqMore = document.getElementById("faqMore");
   var faqToggle = document.getElementById("faqToggle");
   if (faqMore && faqToggle) {
+    var workToggle = document.getElementById("workToggle"), workMore = document.getElementById("workMore");
+    if (workToggle && workMore) {
+      workToggle.addEventListener("click", function () {
+        var open = workMore.classList.toggle("open");
+        workToggle.setAttribute("aria-expanded", String(open));
+        workToggle.querySelector(".label").textContent = open ? "Show Less" : "Show More";
+      });
+    }
+
     faqToggle.addEventListener("click", function () {
       var open = faqMore.classList.toggle("open");
       faqToggle.setAttribute("aria-expanded", String(open));
@@ -1436,11 +1469,13 @@ footer p{max-inline-size:none;margin:0}
     });
 
     /* ---- actions ---- */
+    var toastTimer = null;
     function toast(msg) {
       var t = q("cToast");
       t.textContent = msg;
       t.classList.add("show");
-      setTimeout(function () { t.classList.remove("show"); }, 2600);
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { t.classList.remove("show"); toastTimer = null; }, 6500);
     }
     q("cRecalc").addEventListener("click", function () { draw(); toast("Recalculated."); });
     q("cReset").addEventListener("click", function () {
@@ -1619,7 +1654,7 @@ footer p{max-inline-size:none;margin:0}
       "Cost & capacity modeling":"Modelado de costes y capacidad","Deployment & readiness":"Despliegue y preparación",
       "Adjacent practice":"Práctica adyacente","Digital presence & market share":"Presencia digital y cuota de mercado",
       "Estimated year-one spend":"Gasto estimado del primer año","Your workload":"Tu carga de trabajo",
-      "More levers":"Más palancas","Fewer levers":"Menos palancas","What would actually cut this":"Qué reduciría esto de verdad","Recalculate":"Recalcular","Reset":"Restablecer","Share these numbers":"Compartir estos números","Show all models":"Ver todos los modelos","Show fewer models":"Ver menos modelos","Retry & waste rate":"Tasa de reintentos y desperdicio","Committed-use discount":"Descuento por uso comprometido","Traffic sent as batch":"Tráfico enviado por lotes","Batch discount":"Descuento por lotes",
+      "More levers":"Más palancas","Fewer levers":"Menos palancas","What would actually cut this":"Qué reduciría esto de verdad","Recalculate":"Recalcular","Reset":"Restablecer","Share Results":"Compartir resultados","Show all models":"Ver todos los modelos","Show fewer models":"Ver menos modelos","Retry & waste rate":"Tasa de reintentos y desperdicio","Committed-use discount":"Descuento por uso comprometido","Traffic sent as batch":"Tráfico enviado por lotes","Batch discount":"Descuento por lotes",
       "Model":"Modelo","Requests / month":"Solicitudes / mes",
       "Input tokens / request":"Tokens de entrada / solicitud","Output tokens / request":"Tokens de salida / solicitud",
       "Monthly growth":"Crecimiento mensual","Input $ / 1M":"Entrada $ / 1M",
@@ -1641,9 +1676,10 @@ footer p{max-inline-size:none;margin:0}
       "What if the work isn't what we expected?":"¿Y si el trabajo no es lo que esperábamos?",
       "Do you resell anything?":"¿Revenden algo?","What if we don't actually need AI?":"¿Y si en realidad no necesitamos IA?",
       "Why does an AI practice also do SEO and e-commerce?":"¿Por qué una consultora de IA también hace SEO y e-commerce?",
-      "How do you charge?":"¿Cómo cobran?","Show 4 more":"Ver 4 más","Show fewer":"Ver menos",
+      "How do you charge?":"¿Cómo cobran?","Show 4 more":"Ver 4 más","Show fewer":"Ver menos","Show More":"Ver más","Show Less":"Ver menos",
+      "E-commerce":"Comercio electrónico","Social platform":"Plataforma social","Company site":"Web corporativa","Branding site":"Web de marca",
       "Name":"Nombre","Email":"Correo electrónico","Company":"Empresa","Where you are":"En qué punto estás",
-      "What are you trying to do?":"¿Qué quieres conseguir?","Send message":"Enviar mensaje",
+      "What are you trying to do?":"¿Qué quieres conseguir?","Send Message":"Enviar mensaje",
       "Exploring — no decision yet":"Explorando — sin decisión aún","Comparing models or vendors":"Comparando modelos o proveedores",
       "Building it now":"Construyéndolo ahora","Live, and the bill is climbing":"En producción, y la factura sube",
       "Live, and something needs fixing":"En producción, y algo necesita arreglo",
@@ -1652,7 +1688,7 @@ footer p{max-inline-size:none;margin:0}
       "Owner":"Propietario",
       "Accessibility":"Accesibilidad","Language":"Idioma","Text size":"Tamaño del texto","Display":"Visualización",
       "High contrast":"Alto contraste","Reduce motion":"Reducir movimiento",
-      "Underline links":"Subrayar enlaces","Reset all":"Restablecer todo"
+      "Underline links":"Subrayar enlaces","Plain background":"Fondo plano","Reset All":"Restablecer todo"
     },
     ar: {
       "Practice Areas":"مجالات العمل","Your Spend":"تكلفتك","Work":"أعمالنا","Contact":"تواصل",
@@ -1675,7 +1711,7 @@ footer p{max-inline-size:none;margin:0}
       "Cost & capacity modeling":"نمذجة التكلفة والسعة","Deployment & readiness":"النشر والجاهزية",
       "Adjacent practice":"ممارسة موازية","Digital presence & market share":"الحضور الرقمي وحصة السوق",
       "Estimated year-one spend":"الإنفاق التقديري للسنة الأولى","Your workload":"حجم استخدامك",
-      "More levers":"عوامل إضافية","Fewer levers":"عوامل أقل","What would actually cut this":"ما الذي يخفض هذه التكلفة فعلاً","Recalculate":"إعادة الحساب","Reset":"إعادة تعيين","Share these numbers":"شارك هذه الأرقام","Show all models":"عرض كل النماذج","Show fewer models":"عرض نماذج أقل","Retry & waste rate":"نسبة إعادة المحاولة والهدر","Committed-use discount":"خصم الاستخدام الملتزم","Traffic sent as batch":"النسبة المُرسلة دفعات","Batch discount":"خصم الدفعات",
+      "More levers":"عوامل إضافية","Fewer levers":"عوامل أقل","What would actually cut this":"ما الذي يخفض هذه التكلفة فعلاً","Recalculate":"إعادة الحساب","Reset":"إعادة تعيين","Share Results":"مشاركة النتائج","Show all models":"عرض كل النماذج","Show fewer models":"عرض نماذج أقل","Retry & waste rate":"نسبة إعادة المحاولة والهدر","Committed-use discount":"خصم الاستخدام الملتزم","Traffic sent as batch":"النسبة المُرسلة دفعات","Batch discount":"خصم الدفعات",
       "Model":"النموذج","Requests / month":"الطلبات / شهرياً",
       "Input tokens / request":"رموز الإدخال / طلب","Output tokens / request":"رموز الإخراج / طلب",
       "Monthly growth":"النمو الشهري","Input $ / 1M":"الإدخال $ / مليون",
@@ -1697,9 +1733,9 @@ footer p{max-inline-size:none;margin:0}
       "What if the work isn't what we expected?":"ماذا لو لم يكن العمل كما توقعنا؟",
       "Do you resell anything?":"هل تبيعون منتجات وسيطة؟","What if we don't actually need AI?":"ماذا لو لم نكن بحاجة فعلاً للذكاء الاصطناعي؟",
       "Why does an AI practice also do SEO and e-commerce?":"لماذا تقدّم شركة ذكاء اصطناعي خدمات تحسين محركات البحث والتجارة الإلكترونية؟",
-      "How do you charge?":"كيف تحتسبون الأتعاب؟","Show 4 more":"عرض ٤ أخرى","Show fewer":"عرض أقل",
+      "How do you charge?":"كيف تحتسبون الأتعاب؟","Show 4 more":"عرض ٤ أخرى","Show fewer":"عرض أقل","Show More":"عرض المزيد","Show Less":"عرض أقل","E-commerce":"متجر إلكتروني","Social platform":"منصة اجتماعية","Company site":"موقع شركة","Branding site":"موقع هوية بصرية",
       "Name":"الاسم","Email":"البريد الإلكتروني","Company":"الشركة","Where you are":"أين أنت الآن",
-      "What are you trying to do?":"ما الذي تحاول تحقيقه؟","Send message":"إرسال الرسالة",
+      "What are you trying to do?":"ما الذي تحاول تحقيقه؟","Send Message":"إرسال الرسالة",
       "Exploring — no decision yet":"في مرحلة الاستكشاف — دون قرار","Comparing models or vendors":"مقارنة النماذج أو الموردين",
       "Building it now":"قيد التنفيذ الآن","Live, and the bill is climbing":"قيد التشغيل، والفاتورة ترتفع",
       "Live, and something needs fixing":"قيد التشغيل، وهناك ما يحتاج إصلاحًا",
@@ -1708,7 +1744,7 @@ footer p{max-inline-size:none;margin:0}
       "Owner":"المالك",
       "Accessibility":"إمكانية الوصول","Language":"اللغة","Text size":"حجم النص","Display":"العرض",
       "High contrast":"تباين عالٍ","Reduce motion":"تقليل الحركة",
-      "Underline links":"تسطير الروابط","Reset all":"إعادة تعيين الكل"
+      "Underline links":"تسطير الروابط","Plain background":"خلفية بسيطة","Reset All":"إعادة تعيين الكل"
     }
   };
 
@@ -1846,7 +1882,8 @@ footer p{max-inline-size:none;margin:0}
   var TOGGLES = [
     { id: "optContrast", attr: "data-contrast", on: "high" },
     { id: "optMotion",   attr: "data-motion",   on: "reduce" },
-    { id: "optLinks",    attr: "data-links",    on: "on" }
+    { id: "optLinks",    attr: "data-links",    on: "on" },
+    { id: "optPlain",    attr: "data-plain",    on: "on" }
   ];
   TOGGLES.forEach(function (t) {
     var box = document.getElementById(t.id);
