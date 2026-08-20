@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Daraghmeh Digital — AI infrastructure, priced honestly</title>
+<title>Independent AI infrastructure &amp; E-Commerce Advisory</title>
 <meta name="description" content="Independent AI advisory. Model selection, cost and capacity modeling, and deployment readiness — plus web, SEO and e-commerce growth. Seattle, Washington.">
 
 <link rel="canonical" href="https://daraghmehdigital.com/">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Daraghmeh Digital">
 <meta property="og:url" content="https://daraghmehdigital.com/">
-<meta property="og:title" content="Daraghmeh Digital — AI infrastructure, priced honestly">
+<meta property="og:title" content="Independent AI infrastructure &amp; E-Commerce Advisory">
 <meta property="og:description" content="The model is the cheap part. Independent advisory on what an AI deployment actually costs to build, run, and keep running.">
 <meta property="og:image" content="https://daraghmehdigital.com/assets/images/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -78,6 +78,7 @@
   --gut:clamp(1.15rem,4vw,4rem);
   --stack:clamp(1.9rem,3.8vw,3rem);
   --rail-h:clamp(4.4rem,7vw,5.4rem);
+  --rail-ink:#C2B7AE;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-block-start:2rem}
@@ -126,8 +127,8 @@ body::before{
   display:flex;align-items:flex-end;justify-content:flex-start;
   gap:clamp(.75rem,2vw,1.5rem);
   padding:1.5rem clamp(1rem,4vw,2.5rem) .85rem;
-  background:linear-gradient(to top,rgba(21,17,16,.97) 45%,rgba(21,17,16,.88) 72%,rgba(21,17,16,0) 100%);
-  backdrop-filter:blur(12px);
+  background:linear-gradient(to top,rgba(21,17,16,.80) 45%,rgba(21,17,16,.58) 72%,rgba(21,17,16,0) 100%);
+  backdrop-filter:blur(5px);
   overflow:visible;
   opacity:0;pointer-events:none;transform:translateY(100%);
   transition:opacity .4s ease,transform .45s cubic-bezier(.16,.84,.44,1);
@@ -138,13 +139,13 @@ body::before{
 @media (min-width:48rem){.rail-items{justify-content:center;overflow:visible}}
 .rail a{
   display:flex;flex-direction:column-reverse;align-items:center;gap:.5rem;
-  text-decoration:none;padding:.2rem .35rem;color:var(--dim);flex:none;
+  text-decoration:none;padding:.2rem .35rem;color:var(--rail-ink);flex:none;
 }
 .rail-dot{
   inline-size:1.9rem;block-size:2px;border-radius:2px;background:var(--line-2);flex:none;
   transition:inline-size .34s cubic-bezier(.16,.84,.44,1),background-color .3s ease;
 }
-.rail-label{font:600 .88rem var(--body);white-space:nowrap;transition:color .3s ease}
+.rail-label{font:600 .88rem var(--body);white-space:nowrap;transition:color .3s ease;text-shadow:0 1px 4px rgba(21,17,16,.95),0 0 2px rgba(21,17,16,.85)}
 .rail a:hover .rail-dot,.rail a:focus-visible .rail-dot{inline-size:2.9rem;background:var(--bone)}
 .rail a:hover .rail-label,.rail a:focus-visible .rail-label{color:var(--bone)}
 .rail a.current .rail-dot{inline-size:3.5rem;background:var(--ember)}
@@ -915,14 +916,9 @@ footer p{max-inline-size:none;margin:0}
       <p class="sub">Sites designed, built, photographed, and kept running under Daraghmeh Digital.</p>
 
     <ul class="work rv">
-      <li><a href="https://www.faraci.com/" target="_blank" rel="noopener">Faraci Lange Attorneys <span class="kind">Firm site</span></a></li>
-      <li><a href="https://wsm-law.com/" target="_blank" rel="noopener">WSM Law <span class="kind">Family law firm</span></a></li>
-      <li><a href="https://internationalfood.market/" target="_blank" rel="noopener">International Food Market <span class="kind">E-commerce</span></a></li>
-      <li><a href="http://ritbehindthebricks.com/" target="_blank" rel="noopener">Rochester Institute of Technology — Behind the Bricks <span class="kind">Social platform</span></a></li>
+      <li><a href="https://www.faraci.com/" target="_blank" rel="noopener">Faraci Lange Attorneys <span class="kind">Law firm site</span></a></li>
+      <li><a href="https://wsm-law.com/" target="_blank" rel="noopener">WSM Law <span class="kind">Law firm site</span></a></li>
       <li><a href="https://www.rit.edu/simonecenter/" target="_blank" rel="noopener">RIT Simone Center for Innovation and Entrepreneurship <span class="kind">University site</span></a></li>
-      <li><a href="http://daraghmehusa.com/" target="_blank" rel="noopener">Daraghmeh USA <span class="kind">Company site</span></a></li>
-      <li><a href="https://daraghmeh.github.io/FlickShare/" target="_blank" rel="noopener">FlickShare <span class="kind">Company site</span></a></li>
-      <li><a href="http://daraghmeh.github.io/ArchHookah/" target="_blank" rel="noopener">Arch Hookah <span class="kind">Branding site</span></a></li>
     </ul>
 
     <div class="offer rv">
@@ -1185,15 +1181,16 @@ footer p{max-inline-size:none;margin:0}
      ignored hand-edited prices, so editing a price appeared to do nothing. */
   var OPS_RATE = 95;
   var MODELS = [
-    { name: "Claude Opus 4.1",        inp: 15,    outp: 75   },
-    { name: "Claude Sonnet 4.5",      inp: 3,     outp: 15   },
-    { name: "Claude Haiku 3.5",       inp: 0.80,  outp: 4    },
-    { name: "GPT-4o",                 inp: 2.50,  outp: 10   },
-    { name: "GPT-4o mini",            inp: 0.15,  outp: 0.60 },
-    { name: "Gemini 1.5 Pro",         inp: 1.25,  outp: 5    },
-    { name: "Gemini 1.5 Flash",       inp: 0.075, outp: 0.30 },
-    { name: "Llama 3.1 70B (hosted)", inp: 0.60,  outp: 0.60 },
-    { name: "Mistral Large",          inp: 2,     outp: 6    }
+    { name: "Claude Opus 5",          inp: 5,    outp: 25   },
+    { name: "Claude Sonnet 5",        inp: 3,    outp: 15   },
+    { name: "Claude Haiku 4.5",       inp: 1,    outp: 5    },
+    { name: "GPT-5.6 Sol",            inp: 5,    outp: 30   },
+    { name: "GPT-5.6 Terra",          inp: 2,    outp: 12   },
+    { name: "GPT-5.4 mini",           inp: 0.75, outp: 4.50 },
+    { name: "Gemini 3.1 Pro",         inp: 2,    outp: 12   },
+    { name: "Gemini 3.7 Flash",       inp: 0.75, outp: 3.75 },
+    { name: "Llama 3.3 70B (hosted)", inp: 1.04, outp: 1.04 },
+    { name: "Mistral Large",          inp: 0.50, outp: 1.50 }
   ];
   var DEFAULTS = {
     cReq:250000, cIn:2500, cOut:600, cPriceIn:3, cPriceOut:15, cHit:0, cDisc:90,
@@ -1635,8 +1632,8 @@ footer p{max-inline-size:none;margin:0}
       "First conversation":"Primera conversación","Assessment":"Evaluación","Build & handoff":"Desarrollo y entrega",
       "30 minutes · no obligation":"30 minutos · sin compromiso","1–2 weeks · quoted in advance":"1–2 semanas · presupuesto previo",
       "Monthly · fixed scope":"Mensual · alcance fijo",
-      "Firm site":"Web de despacho","E-commerce":"Comercio electrónico","Social platform":"Plataforma social",
-      "Company site":"Web corporativa","Branding site":"Web de marca",
+      "Law firm site":"Web de despacho","University site":"Web universitaria",
+      
       "Design & build":"Diseño y desarrollo","Technical SEO":"SEO técnico",
       "Photography & content":"Fotografía y contenido","Hosting & maintenance":"Alojamiento y mantenimiento",
       "Who sees our data, and what happens to it afterwards?":"¿Quién ve nuestros datos y qué pasa con ellos después?",
@@ -1691,8 +1688,8 @@ footer p{max-inline-size:none;margin:0}
       "First conversation":"المحادثة الأولى","Assessment":"التقييم","Build & handoff":"التنفيذ والتسليم",
       "30 minutes · no obligation":"٣٠ دقيقة · دون التزام","1–2 weeks · quoted in advance":"١–٢ أسبوع · بعرض سعر مسبق",
       "Monthly · fixed scope":"شهرياً · نطاق ثابت",
-      "Firm site":"موقع مكتب محاماة","E-commerce":"متجر إلكتروني","Social platform":"منصة اجتماعية",
-      "Company site":"موقع شركة","Branding site":"موقع هوية بصرية",
+      "Law firm site":"موقع مكتب محاماة","University site":"موقع جامعي",
+      
       "Design & build":"التصميم والتطوير","Technical SEO":"تحسين محركات البحث التقني",
       "Photography & content":"التصوير والمحتوى","Hosting & maintenance":"الاستضافة والصيانة",
       "Who sees our data, and what happens to it afterwards?":"من يطّلع على بياناتنا، وماذا يحدث لها بعد ذلك؟",
