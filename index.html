@@ -101,7 +101,6 @@ img,svg{max-inline-size:100%}
 
 .skip{position:absolute;inset-inline-start:-9999px;background:var(--ember);color:#170D06;padding:.8rem 1.2rem;font-weight:600;z-index:200}
 .skip:focus{inset-inline-start:var(--gut);inset-block-start:.6rem}
-.vh{position:absolute;inline-size:1px;block-size:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .wrap{inline-size:min(100% - (var(--gut) * 2),84rem);margin-inline:auto}
 /* Fixed wash: three low-opacity pools of brand colour so the page has depth
    without any section reading as a different colour. Pinned to the viewport
@@ -320,11 +319,8 @@ table.cmp tr.is-current td:first-child{color:var(--ember)}
 .disclose{max-block-size:0;overflow:hidden;visibility:hidden;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s linear .55s}
 .disclose.open{max-block-size:220rem;visibility:visible;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s}
 .disclose-btn{inline-size:100%;justify-content:center}
-.disclose-wrap{padding:clamp(1.2rem,3vw,1.7rem) clamp(1.4rem,3.5vw,2rem);border-block-start:1px solid var(--line)}
 
 /* Twelve-month curve */
-.curve{inline-size:100%;block-size:auto;display:block}
-.curve-foot{display:flex;justify-content:space-between;gap:1rem;margin-block-start:.6rem;font-size:.84rem;color:var(--dim);font-variant-numeric:tabular-nums}
 
 /* Comparison table */
 .cmp-val{display:block;font-weight:600;color:var(--bone)}
@@ -495,7 +491,6 @@ footer p{max-inline-size:none;margin:0}
 .a11y-btn[aria-expanded="true"]{color:var(--ember);border-color:var(--ember)}
 .a11y-btn svg{inline-size:1.1rem;block-size:1.1rem;display:block;flex:none}
 .a11y-sep{inline-size:1px;block-size:1rem;background:var(--line-2);flex:none}
-.a11y-label{display:none}
 .a11y-panel{
   position:absolute;inset-block-end:calc(100% + .8rem);inset-inline-end:0;
   inline-size:min(21rem,calc(100vw - 2rem));
@@ -506,7 +501,6 @@ footer p{max-inline-size:none;margin:0}
   pointer-events:none;visibility:hidden;
   transition:opacity .28s ease,transform .28s cubic-bezier(.16,.84,.44,1),visibility 0s linear .28s;
 }
-[dir="rtl"] .a11y-panel{transform-origin:bottom left}
 .a11y-panel.open{opacity:1;transform:none;pointer-events:auto;visibility:visible;
   transition:opacity .28s ease,transform .28s cubic-bezier(.16,.84,.44,1),visibility 0s}
 .a11y-title{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:var(--bone);margin:0 0 1.1rem;padding-block-end:.9rem;border-block-end:1px solid var(--line)}
@@ -528,7 +522,6 @@ footer p{max-inline-size:none;margin:0}
 .sw .track::after{content:"";position:absolute;inset-block-start:.2rem;inset-inline-start:.2rem;inline-size:1rem;block-size:1rem;border-radius:50%;background:var(--bone);transition:transform .28s cubic-bezier(.16,.84,.44,1)}
 .sw input:checked + .track{background:var(--ember)}
 .sw input:checked + .track::after{transform:translateX(1.1rem)}
-[dir="rtl"] .sw input:checked + .track::after{transform:translateX(-1.1rem)}
 .sw input:focus-visible + .track{outline:2px solid var(--ember);outline-offset:3px}
 .a11y-reset{margin-block-start:1.2rem;inline-size:100%;padding:.65rem;font:600 .85rem var(--body);background:none;border:1px solid var(--line);border-radius:7px;color:var(--dim);cursor:pointer;transition:border-color .22s ease,color .22s ease}
 .a11y-reset:hover,.a11y-reset:focus-visible{border-color:var(--ember);color:var(--ember)}
@@ -549,16 +542,6 @@ footer p{max-inline-size:none;margin:0}
 :root[data-links="on"] main a{text-decoration:underline;text-underline-offset:.2em}
 :root[data-links="on"] .btn,:root[data-links="on"] .work a{text-decoration:none}
 
-/* ---- RTL: the layout already uses logical properties, so it mirrors for
-   free. These only undo Latin-specific typography Arabic doesn't want. ---- */
-[dir="rtl"] .eyebrow,[dir="rtl"] .a11y-panel h3,
-[dir="rtl"] .kind,[dir="rtl"] .step .when,[dir="rtl"] .creds dt,
-[dir="rtl"] .field label,[dir="rtl"] .direct b,[dir="rtl"] .svc .n,
-[dir="rtl"] .adjacent .n{letter-spacing:0;text-transform:none}
-[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3{letter-spacing:0}
-[dir="rtl"] .hero-media::after{background:
-  radial-gradient(ellipse 65% 75% at 18% 20%,rgba(243,110,33,.26),transparent 62%),
-  linear-gradient(260deg,var(--ink) 34%,rgba(21,17,16,.86) 62%,rgba(21,17,16,.72) 100%)}
 </style>
 </head>
 
@@ -579,7 +562,7 @@ footer p{max-inline-size:none;margin:0}
   </div>
   <div class="a11y" id="a11yDock">
     <button class="a11y-btn" id="a11yBtn" type="button" aria-expanded="false" aria-controls="a11yPanel"
-            aria-label="Accessibility and language options">
+            aria-label="Accessibility options">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="12" cy="4.2" r="2"/><path d="M5.5 9.2h13M12 7.4v6.4m0 0-3.2 6.4m3.2-6.4 3.2 6.4"/>
       </svg>
@@ -589,17 +572,8 @@ footer p{max-inline-size:none;margin:0}
       </svg>
     </button>
   
-    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-label="Accessibility and language options">
+    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-label="Accessibility options">
       <p class="a11y-title">Accessibility</p>
-      <div class="a11y-group">
-        <h3>Language</h3>
-        <div class="seg" role="group" aria-label="Language">
-          <button type="button" data-lang="en" aria-pressed="true">English</button>
-          <button type="button" data-lang="es" aria-pressed="false">Español</button>
-          <button type="button" data-lang="ar" aria-pressed="false" lang="ar">العربية</button>
-        </div>
-      </div>
-  
       <div class="a11y-group">
         <h3>Text size</h3>
         <div class="seg" role="group" aria-label="Text size">
@@ -672,8 +646,8 @@ footer p{max-inline-size:none;margin:0}
           on</strong> — pointed at what your deployment actually costs to build, run, and keep running.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-solid" href="#contact">Request a conversation</a>
-          <a class="btn" href="#spend">Model your costs</a>
+          <a class="btn btn-solid" href="#contact">Request a Conversation</a>
+          <a class="btn" href="#spend">Model Your Costs</a>
         </div>
       </div>
 
@@ -1631,169 +1605,11 @@ footer p{max-inline-size:none;margin:0}
   var prefs = {};
   try { prefs = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { prefs = {}; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (e) {} }
-
-  var DICT = {
-    es: {
-      "Practice Areas":"Áreas de práctica","Your Spend":"Tu gasto","Work":"Proyectos","Contact":"Contacto",
-      
-      "The model is":"El modelo es","the cheap part.":"la parte barata.",
-      "Request a conversation":"Solicitar una conversación","Model your costs":"Modela tus costes",
-      "Team":"Equipo","Credentials":"Credenciales","Reach":"Alcance",
-      "Engineers, SEO experts, photographers":"Ingenieros, expertos en SEO, fotógrafos",
-      "Ex-Microsoft & Apple, granted U.S. patents":"Ex-Microsoft y Apple, patentes de EE. UU. concedidas",
-      "Selected Work":"Proyectos seleccionados","Process":"Proceso","Working With Us":"Trabajar con nosotros","Get in Touch":"Hablemos",
-      "Where We Come In":"Dónde entramos nosotros",
-      "What It Costs to Run":"Lo que cuesta operarlo",
-      "Shipped, and Still Running":"Entregado, y todavía funcionando",
-      "How We Operate":"Cómo operamos","FAQ":"Preguntas frecuentes",
-      "Common Questions":"Preguntas habituales",
-      
-      "01 — BEFORE YOU COMMIT":"01 — ANTES DE COMPROMETERTE","02 — BEFORE YOU SIGN":"02 — ANTES DE FIRMAR",
-      "03 — AFTER LAUNCH":"03 — DESPUÉS DEL LANZAMIENTO",
-      "Strategy & model selection":"Estrategia y selección de modelo",
-      "Cost & capacity modeling":"Modelado de costes y capacidad","Deployment & readiness":"Despliegue y preparación",
-      "Adjacent practice":"Práctica adyacente","Digital presence & market share":"Presencia digital y cuota de mercado",
-      "Estimated year-one spend":"Gasto estimado del primer año","Your workload":"Tu carga de trabajo",
-      "More levers":"Más palancas","Fewer levers":"Menos palancas","What would actually cut this":"Qué reduciría esto de verdad","Recalculate":"Recalcular","Reset":"Restablecer","Share Results":"Compartir resultados","Show all models":"Ver todos los modelos","Show fewer models":"Ver menos modelos","Retry & waste rate":"Tasa de reintentos y desperdicio","Committed-use discount":"Descuento por uso comprometido","Traffic sent as batch":"Tráfico enviado por lotes","Batch discount":"Descuento por lotes",
-      "Model":"Modelo","Requests / month":"Solicitudes / mes",
-      "Input tokens / request":"Tokens de entrada / solicitud","Output tokens / request":"Tokens de salida / solicitud",
-      "Monthly growth":"Crecimiento mensual","Input $ / 1M":"Entrada $ / 1M",
-      "Output $ / 1M":"Salida $ / 1M","Prompt cache hit rate":"Tasa de acierto de caché",
-      "Cached token discount":"Descuento por tokens en caché","Self-host GPU cost / month":"Coste de GPU propia / mes",
-      "Ops hours / month":"Horas de operación / mes","Where the money goes":"Adónde va el dinero",
-      "Input tokens":"Tokens de entrada","Output tokens":"Tokens de salida",
-      "Saved by caching":"Ahorrado con caché","Managed API or Self-Host?":"¿API gestionada o autoalojamiento?",
-      "What your workload costs on every model":"Lo que cuesta tu carga en cada modelo",
-      "First conversation":"Primera conversación","Assessment":"Evaluación","Build & handoff":"Desarrollo y entrega",
-      "30 minutes · no obligation":"30 minutos · sin compromiso","1–2 weeks · quoted in advance":"1–2 semanas · presupuesto previo",
-      "Monthly · fixed scope":"Mensual · alcance fijo",
-      "Law firm site":"Web de despacho","University site":"Web universitaria",
-      
-      "Design & build":"Diseño y desarrollo","Technical SEO":"SEO técnico",
-      "Photography & content":"Fotografía y contenido","Hosting & maintenance":"Alojamiento y mantenimiento",
-      "Who sees our data, and what happens to it afterwards?":"¿Quién ve nuestros datos y qué pasa con ellos después?",
-      "Can you work under our security and compliance requirements?":"¿Pueden trabajar bajo nuestros requisitos de seguridad y cumplimiento?",
-      "What if the work isn't what we expected?":"¿Y si el trabajo no es lo que esperábamos?",
-      "Do you resell anything?":"¿Revenden algo?","What if we don't actually need AI?":"¿Y si en realidad no necesitamos IA?",
-      "Why does an AI practice also do SEO and e-commerce?":"¿Por qué una consultora de IA también hace SEO y e-commerce?",
-      "How do you charge?":"¿Cómo cobran?","Show 4 more":"Ver 4 más","Show fewer":"Ver menos","Show More":"Ver más","Show Less":"Ver menos",
-      "E-commerce":"Comercio electrónico","Social platform":"Plataforma social","Company site":"Web corporativa","Branding site":"Web de marca",
-      "Name":"Nombre","Email":"Correo electrónico","Company":"Empresa","Where you are":"En qué punto estás",
-      "What are you trying to do?":"¿Qué quieres conseguir?","Send Message":"Enviar mensaje",
-      "Exploring — no decision yet":"Explorando — sin decisión aún","Comparing models or vendors":"Comparando modelos o proveedores",
-      "Building it now":"Construyéndolo ahora","Live, and the bill is climbing":"En producción, y la factura sube",
-      "Live, and something needs fixing":"En producción, y algo necesita arreglo",
-      "Inherited it, and need a second opinion":"Lo heredamos, y queremos una segunda opinión",
-      "Web, SEO or e-commerce work":"Trabajo web, SEO o e-commerce",
-      "Owner":"Propietario",
-      "Accessibility":"Accesibilidad","Language":"Idioma","Text size":"Tamaño del texto","Display":"Visualización",
-      "High contrast":"Alto contraste","Reduce motion":"Reducir movimiento",
-      "Underline links":"Subrayar enlaces","Plain background":"Fondo plano","No cookies, no cross-site tracking, no mailing list. Your message is used to reply to you and nothing else.":"Sin cookies, sin rastreo entre sitios, sin lista de correo. Tu mensaje se usa para responderte y nada más.","Reset All":"Restablecer todo"
-    },
-    ar: {
-      "Practice Areas":"مجالات العمل","Your Spend":"تكلفتك","Work":"أعمالنا","Contact":"تواصل",
-      
-      "The model is":"النموذج هو","the cheap part.":"الجزء الرخيص.",
-      "Request a conversation":"اطلب محادثة","Model your costs":"احسب تكاليفك",
-      "Team":"الفريق","Credentials":"المؤهلات","Reach":"نطاق العمل",
-      "Engineers, SEO experts, photographers":"مهندسون، وخبراء تحسين محركات البحث، ومصورون",
-      "Ex-Microsoft & Apple, granted U.S. patents":"خبرة سابقة في مايكروسوفت وآبل، وبراءات اختراع أمريكية",
-      "Selected Work":"أعمال مختارة","Process":"آلية العمل","Working With Us":"التعامل معنا","Get in Touch":"لنتحدث",
-      "Where We Come In":"أين يبدأ دورنا",
-      "What It Costs to Run":"تكلفة التشغيل",
-      "Shipped, and Still Running":"أُطلقت، ولا تزال تعمل",
-      "How We Operate":"آلية عملنا","FAQ":"الأسئلة الشائعة",
-      "Common Questions":"أسئلة شائعة",
-      
-      "01 — BEFORE YOU COMMIT":"٠١ — قبل الالتزام","02 — BEFORE YOU SIGN":"٠٢ — قبل التوقيع",
-      "03 — AFTER LAUNCH":"٠٣ — بعد الإطلاق",
-      "Strategy & model selection":"الاستراتيجية واختيار النموذج",
-      "Cost & capacity modeling":"نمذجة التكلفة والسعة","Deployment & readiness":"النشر والجاهزية",
-      "Adjacent practice":"ممارسة موازية","Digital presence & market share":"الحضور الرقمي وحصة السوق",
-      "Estimated year-one spend":"الإنفاق التقديري للسنة الأولى","Your workload":"حجم استخدامك",
-      "More levers":"عوامل إضافية","Fewer levers":"عوامل أقل","What would actually cut this":"ما الذي يخفض هذه التكلفة فعلاً","Recalculate":"إعادة الحساب","Reset":"إعادة تعيين","Share Results":"مشاركة النتائج","Show all models":"عرض كل النماذج","Show fewer models":"عرض نماذج أقل","Retry & waste rate":"نسبة إعادة المحاولة والهدر","Committed-use discount":"خصم الاستخدام الملتزم","Traffic sent as batch":"النسبة المُرسلة دفعات","Batch discount":"خصم الدفعات",
-      "Model":"النموذج","Requests / month":"الطلبات / شهرياً",
-      "Input tokens / request":"رموز الإدخال / طلب","Output tokens / request":"رموز الإخراج / طلب",
-      "Monthly growth":"النمو الشهري","Input $ / 1M":"الإدخال $ / مليون",
-      "Output $ / 1M":"الإخراج $ / مليون","Prompt cache hit rate":"نسبة إصابة التخزين المؤقت",
-      "Cached token discount":"خصم الرموز المخزَّنة","Self-host GPU cost / month":"تكلفة المعالج الرسومي الذاتي / شهرياً",
-      "Ops hours / month":"ساعات التشغيل / شهرياً","Where the money goes":"أين تذهب الأموال",
-      "Input tokens":"رموز الإدخال","Output tokens":"رموز الإخراج",
-      "Saved by caching":"الموفَّر بالتخزين المؤقت","Managed API or Self-Host?":"واجهة مُدارة أم استضافة ذاتية؟",
-      "What your workload costs on every model":"تكلفة حِملك على كل نموذج",
-      "First conversation":"المحادثة الأولى","Assessment":"التقييم","Build & handoff":"التنفيذ والتسليم",
-      "30 minutes · no obligation":"٣٠ دقيقة · دون التزام","1–2 weeks · quoted in advance":"١–٢ أسبوع · بعرض سعر مسبق",
-      "Monthly · fixed scope":"شهرياً · نطاق ثابت",
-      "Law firm site":"موقع مكتب محاماة","University site":"موقع جامعي",
-      
-      "Design & build":"التصميم والتطوير","Technical SEO":"تحسين محركات البحث التقني",
-      "Photography & content":"التصوير والمحتوى","Hosting & maintenance":"الاستضافة والصيانة",
-      "Who sees our data, and what happens to it afterwards?":"من يطّلع على بياناتنا، وماذا يحدث لها بعد ذلك؟",
-      "Can you work under our security and compliance requirements?":"هل يمكنكم العمل وفق متطلبات الأمن والامتثال لدينا؟",
-      "What if the work isn't what we expected?":"ماذا لو لم يكن العمل كما توقعنا؟",
-      "Do you resell anything?":"هل تبيعون منتجات وسيطة؟","What if we don't actually need AI?":"ماذا لو لم نكن بحاجة فعلاً للذكاء الاصطناعي؟",
-      "Why does an AI practice also do SEO and e-commerce?":"لماذا تقدّم شركة ذكاء اصطناعي خدمات تحسين محركات البحث والتجارة الإلكترونية؟",
-      "How do you charge?":"كيف تحتسبون الأتعاب؟","Show 4 more":"عرض ٤ أخرى","Show fewer":"عرض أقل","Show More":"عرض المزيد","Show Less":"عرض أقل","E-commerce":"متجر إلكتروني","Social platform":"منصة اجتماعية","Company site":"موقع شركة","Branding site":"موقع هوية بصرية",
-      "Name":"الاسم","Email":"البريد الإلكتروني","Company":"الشركة","Where you are":"أين أنت الآن",
-      "What are you trying to do?":"ما الذي تحاول تحقيقه؟","Send Message":"إرسال الرسالة",
-      "Exploring — no decision yet":"في مرحلة الاستكشاف — دون قرار","Comparing models or vendors":"مقارنة النماذج أو الموردين",
-      "Building it now":"قيد التنفيذ الآن","Live, and the bill is climbing":"قيد التشغيل، والفاتورة ترتفع",
-      "Live, and something needs fixing":"قيد التشغيل، وهناك ما يحتاج إصلاحًا",
-      "Inherited it, and need a second opinion":"ورثناه، ونريد رأيًا ثانيًا",
-      "Web, SEO or e-commerce work":"أعمال الويب أو تحسين محركات البحث أو التجارة الإلكترونية",
-      "Owner":"المالك",
-      "Accessibility":"إمكانية الوصول","Language":"اللغة","Text size":"حجم النص","Display":"العرض",
-      "High contrast":"تباين عالٍ","Reduce motion":"تقليل الحركة",
-      "Underline links":"تسطير الروابط","Plain background":"خلفية بسيطة","No cookies, no cross-site tracking, no mailing list. Your message is used to reply to you and nothing else.":"بدون كوكيز، وبدون تتبع عبر المواقع، وبدون قائمة بريدية. رسالتك تستخدم للرد عليك فقط.","Reset All":"إعادة تعيين الكل"
-    }
-  };
-
-  /* Snapshot the English DOM once, before anything is swapped. */
-  var textNodes = [], attrNodes = [], snapped = false;
-  function snapshot() {
-    if (snapped) return;
-    snapped = true;
-    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode: function (n) {
-        var tag = n.parentNode && n.parentNode.nodeName;
-        if (tag === "SCRIPT" || tag === "STYLE") return NodeFilter.FILTER_REJECT;
-        return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-      }
-    });
-    var n;
-    while ((n = walker.nextNode())) textNodes.push({ node: n, en: n.nodeValue });
-    ["placeholder", "aria-label"].forEach(function (attr) {
-      Array.prototype.forEach.call(document.querySelectorAll("[" + attr + "]"), function (el) {
-        attrNodes.push({ el: el, attr: attr, en: el.getAttribute(attr) });
-      });
-    });
-  }
-
   function press(sel, key, val) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (b) {
       b.setAttribute("aria-pressed", String(b.dataset[key] === String(val)));
     });
   }
-
-  function applyLang(lang) {
-    snapshot();
-    var map = DICT[lang];
-    textNodes.forEach(function (t) {
-      var key = t.en.trim();
-      var hit = map && map[key];
-      t.node.nodeValue = hit ? t.en.replace(key, hit) : t.en;
-    });
-    attrNodes.forEach(function (a) {
-      var key = (a.en || "").trim();
-      var hit = map && map[key];
-      a.el.setAttribute(a.attr, hit || a.en);
-    });
-    root.setAttribute("lang", lang);
-    root.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-    prefs.lang = lang; save();
-    press("[data-lang]", "lang", lang);
-  }
-
 
   /* ---- nav scroll-spy ----
      Lights the nav link for whichever section owns the middle of the
@@ -1867,11 +1683,7 @@ footer p{max-inline-size:none;margin:0}
       if (lab) lab.textContent = open ? b.getAttribute("data-close") : b.getAttribute("data-open");
     });
   });
-  /* ---- controls ---- */
-  Array.prototype.forEach.call(document.querySelectorAll("[data-lang]"), function (b) {
-    b.addEventListener("click", function () { applyLang(b.dataset.lang); });
-  });
-  Array.prototype.forEach.call(document.querySelectorAll("[data-size]"), function (b) {
+  /* ---- controls ---- */  Array.prototype.forEach.call(document.querySelectorAll("[data-size]"), function (b) {
     b.addEventListener("click", function () {
       root.style.fontSize = b.dataset.size + "%";
       prefs.size = b.dataset.size; save();
@@ -1901,7 +1713,6 @@ footer p{max-inline-size:none;margin:0}
     });
     root.style.fontSize = "";
     press("[data-size]", "size", "100");
-    applyLang("en");
     prefs = {}; save();
   });
 
@@ -1910,7 +1721,6 @@ footer p{max-inline-size:none;margin:0}
   TOGGLES.forEach(function (t) {
     if (prefs[t.id]) { document.getElementById(t.id).checked = true; root.setAttribute(t.attr, t.on); }
   });
-  if (prefs.lang && prefs.lang !== "en") applyLang(prefs.lang);
 })();
 </script>
 <script src="https://web3forms.com/client/script.js" async defer></script>
