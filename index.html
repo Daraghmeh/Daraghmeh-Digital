@@ -123,7 +123,7 @@ body::before{
    dissolves behind it instead of colliding with the labels. */
 .rail{
   position:fixed;inset-block-end:0;inset-inline:0;z-index:140;
-  display:flex;align-items:flex-end;justify-content:flex-start;
+  display:flex;align-items:flex-end;
   gap:clamp(.75rem,2vw,1.5rem);
   padding:1.5rem clamp(1rem,4vw,2.5rem) .85rem;
   background:linear-gradient(to top,rgba(21,17,16,.80) 45%,rgba(21,17,16,.58) 72%,rgba(21,17,16,0) 100%);
@@ -132,7 +132,8 @@ body::before{
   opacity:0;pointer-events:none;transform:translateY(100%);
   transition:opacity .4s ease,transform .45s cubic-bezier(.16,.84,.44,1);
 }
-.rail-items{display:flex;align-items:flex-end;gap:clamp(.9rem,2.4vw,2.4rem);flex:1 1 auto;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail-items{display:flex;align-items:flex-end;justify-content:center;gap:clamp(.9rem,2.4vw,2.4rem);flex:1 1 auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+@media (max-width:47.99rem){.rail-items{justify-content:flex-start;padding-inline-end:3.4rem}}
 .rail-items::-webkit-scrollbar{display:none}
 .rail.show{opacity:1;pointer-events:auto;transform:none}
 @media (min-width:48rem){.rail-items{justify-content:center;overflow:visible}}
@@ -474,7 +475,7 @@ footer p{max-inline-size:none;margin:0}
    ============================================================ */
 /* Sits in the bar as one more control; panel escapes upward because .rail
    no longer clips (the links scroll inside .rail-items instead). */
-.a11y{position:relative;flex:none;align-self:flex-end;margin-block-end:.1rem}
+.a11y{position:absolute;inset-inline-end:clamp(1rem,4vw,2.5rem);inset-block-end:.9rem;z-index:2}
 /* Same interaction as every other button on the page: wipe fill from the
    leading edge, 1px press, matching treatment on :focus-visible. */
 /* Icon-only trigger, sized and baseline-shifted to sit level with the nav
@@ -490,7 +491,6 @@ footer p{max-inline-size:none;margin:0}
 .a11y-btn:active{transform:translateY(0)}
 .a11y-btn[aria-expanded="true"]{color:var(--ember);border-color:var(--ember)}
 .a11y-btn svg{inline-size:1.1rem;block-size:1.1rem;display:block;flex:none}
-.a11y-sep{inline-size:1px;block-size:1rem;background:var(--line-2);flex:none}
 .a11y-panel{
   position:absolute;inset-block-end:calc(100% + .8rem);inset-inline-end:0;
   inline-size:min(21rem,calc(100vw - 2rem));
@@ -565,10 +565,6 @@ footer p{max-inline-size:none;margin:0}
             aria-label="Accessibility options">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="12" cy="4.2" r="2"/><path d="M5.5 9.2h13M12 7.4v6.4m0 0-3.2 6.4m3.2-6.4 3.2 6.4"/>
-      </svg>
-      <span class="a11y-sep" aria-hidden="true"></span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4.2" ry="9"/>
       </svg>
     </button>
   
