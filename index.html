@@ -1096,7 +1096,7 @@ footer p{max-inline-size:none;margin:0}
               <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
               <button class="btn btn-solid" type="submit" id="send">Send Message</button>
             </div>
-            <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
+            <p class="privacy">No cookies, no cross-site tracking, no mailing list. Your message is used to reply to you and nothing else.</p>
           </div>
 
           <div class="status" id="status" role="status" aria-live="polite"></div>
@@ -1688,7 +1688,7 @@ footer p{max-inline-size:none;margin:0}
       "Owner":"Propietario",
       "Accessibility":"Accesibilidad","Language":"Idioma","Text size":"Tamaño del texto","Display":"Visualización",
       "High contrast":"Alto contraste","Reduce motion":"Reducir movimiento",
-      "Underline links":"Subrayar enlaces","Plain background":"Fondo plano","Reset All":"Restablecer todo"
+      "Underline links":"Subrayar enlaces","Plain background":"Fondo plano","No cookies, no cross-site tracking, no mailing list. Your message is used to reply to you and nothing else.":"Sin cookies, sin rastreo entre sitios, sin lista de correo. Tu mensaje se usa para responderte y nada más.","Reset All":"Restablecer todo"
     },
     ar: {
       "Practice Areas":"مجالات العمل","Your Spend":"تكلفتك","Work":"أعمالنا","Contact":"تواصل",
@@ -1744,7 +1744,7 @@ footer p{max-inline-size:none;margin:0}
       "Owner":"المالك",
       "Accessibility":"إمكانية الوصول","Language":"اللغة","Text size":"حجم النص","Display":"العرض",
       "High contrast":"تباين عالٍ","Reduce motion":"تقليل الحركة",
-      "Underline links":"تسطير الروابط","Plain background":"خلفية بسيطة","Reset All":"إعادة تعيين الكل"
+      "Underline links":"تسطير الروابط","Plain background":"خلفية بسيطة","No cookies, no cross-site tracking, no mailing list. Your message is used to reply to you and nothing else.":"بدون كوكيز، وبدون تتبع عبر المواقع، وبدون قائمة بريدية. رسالتك تستخدم للرد عليك فقط.","Reset All":"إعادة تعيين الكل"
     }
   };
 
@@ -1914,5 +1914,8 @@ footer p{max-inline-size:none;margin:0}
 })();
 </script>
 <script src="https://web3forms.com/client/script.js" async defer></script>
+
+<!-- Cloudflare Web Analytics — cookieless, no cross-site tracking. -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7660deaeefdb4b68a455cd7ff67003e9"}'></script>
 </body>
 </html>
