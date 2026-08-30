@@ -162,6 +162,7 @@ section + section{border-block-start:1px solid var(--line)}
 .h2-lead .lead-k::after{content:": "}
 h2{font-size:clamp(1.7rem,1rem + 2vw,2.75rem);max-inline-size:26ch}
 .sub{color:var(--dim);font-size:1.25rem;line-height:1.6}
+.h2-lead + .sub{margin-block-start:1.1rem}
 
 /* Every button shares one interaction: a fill that wipes in from the left,
    a 1px press, and identical treatment on :focus-visible so keyboard users
@@ -295,6 +296,7 @@ h2{font-size:clamp(1.7rem,1rem + 2vw,2.75rem);max-inline-size:26ch}
 .bar-out .bar-fill{background:linear-gradient(90deg,var(--oxblood),#C2392B)}
 .bar-cache .bar-fill{background:linear-gradient(90deg,#3E6B4F,#5F9E74)}
 
+.calc-group + .calc-group--tight{margin-block-start:1.9rem;padding-block-start:0;border-block-start:0}
 .verdict{border:1px solid var(--line-2);border-radius:12px;padding:1.1rem 1.2rem;background:rgba(243,110,33,.06);font-size:.95rem;color:var(--dim);line-height:1.6}
 .verdict b{color:var(--bone);font-weight:600}
 .verdict .hl{color:var(--ember);font-weight:600;font-variant-numeric:tabular-nums}
@@ -337,11 +339,9 @@ table.cmp tr.is-current td:first-child{color:var(--ember)}
 .lever-track{block-size:5px;border-radius:3px;background:var(--line);overflow:hidden}
 .lever-track i{display:block;block-size:100%;border-radius:3px;background:linear-gradient(90deg,#3E6B4F,#6FBF8E);transition:inline-size .45s cubic-bezier(.16,.84,.44,1)}
 .lever-note{display:block;margin-block-start:.35rem;font-size:.82rem;color:var(--dim);opacity:.8}
-.lever-total{margin:1.2rem 0 0;font-size:.9rem;line-height:1.6;color:var(--dim);padding-block-start:1rem;border-block-start:1px solid var(--line)}
-.lever-total .hl{color:var(--ember);font-weight:600;font-variant-numeric:tabular-nums}
 
 /* Actions */
-.calc-actions{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:flex-end;margin-block-start:1.7rem;padding-block-start:1.5rem;border-block-start:1px solid var(--line)}
+.calc-actions{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-block-start:1.7rem;padding-block-start:1.5rem;border-block-start:1px solid var(--line)}
 .act svg{inline-size:1rem;block-size:1rem;flex:none}
 .act-recalc{border-color:rgba(243,110,33,.5);color:var(--ember)}
 .act-recalc::before{background:var(--ember)}
@@ -361,16 +361,20 @@ table.cmp:not(.all) tr.cmp-extra{display:none}
 /* ---- work ---- */
 .work{list-style:none;padding:0;margin:2.2rem 0 0;border-block-start:1px solid var(--line)}
 .work li{border-block-end:1px solid var(--line)}
-.work a,.work .gone{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.4rem .5rem;text-decoration:none;color:var(--bone);transition:.28s cubic-bezier(.16,.84,.44,1);font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,1rem + 1.1vw,1.85rem);letter-spacing:-.035em}
-.work a:hover{color:var(--ember);padding-inline-start:1.5rem}
+.work .live,.work .gone{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.4rem .5rem;text-decoration:none;color:var(--bone);transition:.28s cubic-bezier(.16,.84,.44,1);font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,1rem + 1.1vw,1.85rem);letter-spacing:-.035em}
 .work-more{max-block-size:0;overflow:hidden;visibility:hidden;margin-block-start:0;border-block-start:0;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s linear .55s}
 .work-more.open{max-block-size:60rem;visibility:visible;transition:max-block-size .55s cubic-bezier(.16,.84,.44,1),visibility 0s}
 .work .gone{color:var(--dim);cursor:default}
+.work .live{cursor:default}
 #workToggle{inline-size:100%;justify-content:center;margin-block-start:1.4rem}
 .work .kind{font:500 .74rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);flex:none}
 /* What a web engagement actually includes — keeps the work section from
    being a bare list of links. */
-.offer{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-block-start:2.2rem}
+.band{margin-block-start:3.6rem;padding-block-start:2.6rem;border-block-start:1px solid var(--line)}
+.band .n{font:600 .82rem var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--ember);display:block;margin-block-end:.9rem}
+.band h3{font-size:1.6rem;letter-spacing:-.03em;margin:0 0 .6rem}
+.band p{color:var(--dim);margin:0;font-size:1.02rem;line-height:1.65;max-inline-size:56ch}
+.offer{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-block-start:1.8rem}
 .oico{inline-size:1.35rem;block-size:1.35rem;flex:none;color:var(--ember)}
 @media (min-width:52rem){.offer{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:74rem){.offer{grid-template-columns:repeat(4,1fr)}}
@@ -554,9 +558,9 @@ footer p{max-inline-size:none;margin:0}
 <nav class="rail" id="rail" aria-label="Sections">
   <div class="rail-items">
     <a href="#what"><span class="rail-dot"></span><span class="rail-label">Practice Areas</span></a>
-    <a href="#spend"><span class="rail-dot"></span><span class="rail-label">Your Spend</span></a>
+    <a href="#spend"><span class="rail-dot"></span><span class="rail-label">Cost Calculator</span></a>
     <a href="#work"><span class="rail-dot"></span><span class="rail-label">Work</span></a>
-    <a href="#how"><span class="rail-dot"></span><span class="rail-label">Process</span></a>
+    <a href="#how"><span class="rail-dot"></span><span class="rail-label">Engagement</span></a>
     <a href="#faq"><span class="rail-dot"></span><span class="rail-label">FAQ</span></a>
     <a href="#contact"><span class="rail-dot"></span><span class="rail-label">Contact</span></a>
   </div>
@@ -633,7 +637,7 @@ footer p{max-inline-size:none;margin:0}
           </g>
         </svg>
       </a>
-      <h1>Know the cost First. <span>Then we Build and Ship it.</span></h1>
+      <h1>Know the Upfront Cost. <span>Then we Build and Ship it.</span></h1>
 
       <div class="hero-row">
         <p class="hero-lede">
@@ -642,15 +646,15 @@ footer p{max-inline-size:none;margin:0}
           on</strong> — pointed at what your deployment actually costs to build, run, and keep running.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-solid" href="#contact">Request a Conversation</a>
+          <a class="btn btn-solid" href="#contact">Request a Consultation</a>
           <a class="btn" href="#spend">Model Your Costs</a>
         </div>
       </div>
 
       <dl class="creds">
-        <div><dt>Team</dt><dd>Engineers, SEO experts, photographers</dd></div>
-        <div><dt>Credentials</dt><dd>Ex-Microsoft &amp; Apple, granted U.S. patents</dd></div>
-        <div><dt>Reach</dt><dd>Worldwide · U.S. focus</dd></div>
+        <div><dt>Team</dt><dd>Engineers, SEO, photography, data entry, AI agents</dd></div>
+        <div><dt>Credentials</dt><dd>Apple, Microsoft, Intuit · Granted U.S. patents</dd></div>
+        <div><dt>Reach</dt><dd>Worldwide · Working timezone PST</dd></div>
       </dl>
     </div>
   </section>
@@ -659,7 +663,6 @@ footer p{max-inline-size:none;margin:0}
   <!-- ============ SERVICES ============ -->
   <section class="wrap" id="what">
     <h2 class="h2-lead"><span class="lead-k">Practice Areas</span> Where We Come In</h2>
-      <p class="sub" style="margin-block-start:1.1rem">Before you commit, before you sign, and after it's live.</p>
 
     <div class="svc">
       <article class="rv">
@@ -699,8 +702,8 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ COST MODEL ============ -->
   <section class="wrap" id="spend">
-    <h2 class="h2-lead"><span class="lead-k">Your Spend</span> What It Costs to Run</h2>
-    <p class="sub" style="margin-block-start:1.1rem;margin-block-end:2.5rem">
+    <h2 class="h2-lead"><span class="lead-k">Cost Model</span> What It Costs to Run</h2>
+    <p class="sub" style="margin-block-end:2.5rem">
       Input and output are priced differently, caching and batching change the maths, and retries
       quietly inflate every line. Put your real workload in — then see what would actually cut it.
     </p>
@@ -799,7 +802,7 @@ footer p{max-inline-size:none;margin:0}
               </div>
             </div>
           </div>
-          <div class="calc-group">
+          <div class="calc-group calc-group--tight">
             <h4>Managed API or Self-Host?</h4>
             <p class="verdict" id="cVerdict">—</p>
           </div>
@@ -852,15 +855,13 @@ footer p{max-inline-size:none;margin:0}
           <div class="calc-group">
             <h4>What would actually cut this</h4>
             <ul class="levers" id="cLevers"></ul>
-            <p class="lever-total" id="cLeverTotal">—</p>
+            <div class="calc-actions">
+              <button class="btn btn-ghost act act-recalc" type="button" id="cRecalc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.2v4.6h-4.6"/></svg>Recalculate</button>
+              <button class="btn btn-ghost act act-reset" type="button" id="cReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4.2v4.6h4.6"/></svg>Reset</button>
+              <button class="btn btn-ghost act act-share" type="button" id="cShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.8 7.4-3.9M8.3 13.2l7.4 3.9"/></svg>Share Results</button>
+            </div>
+            <p class="calc-toast" id="cToast" role="status" aria-live="polite"></p>
           </div>
-
-          <div class="calc-actions">
-            <button class="btn btn-ghost act act-recalc" type="button" id="cRecalc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.2v4.6h-4.6"/></svg>Recalculate</button>
-            <button class="btn btn-ghost act act-reset" type="button" id="cReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4.2v4.6h4.6"/></svg>Reset</button>
-            <button class="btn btn-ghost act act-share" type="button" id="cShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5.5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><path d="m8.3 10.8 7.4-3.9M8.3 13.2l7.4 3.9"/></svg>Share Results</button>
-          </div>
-          <p class="calc-toast" id="cToast" role="status" aria-live="polite"></p>
 
         </div>
       </div>
@@ -892,21 +893,20 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ WORK ============ -->
   <section class="wrap" id="work">
-    <h2 class="h2-lead"><span class="lead-k">Selected Work</span> Shipped, and Still Running</h2>
-      <p class="sub">Sites designed, built, photographed, and kept running under Daraghmeh Digital.</p>
+    <h2 class="h2-lead"><span class="lead-k">Client Work</span> Live, and Still Running</h2>
 
     <ul class="work rv">
-      <li><a href="https://www.faraci.com/" target="_blank" rel="noopener">Faraci Lange Attorneys <span class="kind">Law firm site</span></a></li>
-      <li><a href="https://wsm-law.com/" target="_blank" rel="noopener">WSM Law <span class="kind">Law firm site</span></a></li>
-      <li><a href="https://www.rit.edu/simonecenter/" target="_blank" rel="noopener">RIT Simone Center for Innovation and Entrepreneurship <span class="kind">University site</span></a></li>
+      <li><span class="live">Faraci Lange Attorneys <span class="kind">Law firm</span></span></li>
+      <li><span class="live">WSM Law <span class="kind">Law firm</span></span></li>
+      <li><span class="live">RIT Simone Center for Innovation and Entrepreneurship <span class="kind">University</span></span></li>
       <li><span class="gone">International Food Market &amp; Cafe <span class="kind">E-commerce</span></span></li>
       <li><span class="gone">Rochester Institute of Technology — Behind the Bricks <span class="kind">Social platform</span></span></li>
     </ul>
 
     <ul class="work work-more rv" id="workMore">
-      <li><span class="gone">Daraghmeh USA <span class="kind">Company site</span></span></li>
-      <li><span class="gone">FlickShare <span class="kind">Company site</span></span></li>
-      <li><span class="gone">Arch Hookah <span class="kind">Branding site</span></span></li>
+      <li><span class="gone">Daraghmeh USA <span class="kind">Company</span></span></li>
+      <li><span class="gone">FlickShare <span class="kind">Company</span></span></li>
+      <li><span class="gone">Arch Hookah <span class="kind">Branding</span></span></li>
     </ul>
     <button class="btn btn-ghost" type="button" id="workToggle" aria-expanded="false" aria-controls="workMore">
       <span class="label">Show More</span>
@@ -917,12 +917,12 @@ footer p{max-inline-size:none;margin:0}
 
   <!-- ============ PROCESS ============ -->
   <section class="wrap" id="how">
-    <h2 class="h2-lead"><span class="lead-k">Process</span> How We Operate</h2>
+    <h2 class="h2-lead"><span class="lead-k">Engagement</span> How We Operate</h2>
 
     <div class="steps">
       <div class="step rv">
         <b>01</b>
-        <h3>First conversation</h3>
+        <h3>First consultation</h3>
         <p>We ask the questions that expose the real constraint, then tell you whether you need a consultant at all — sometimes the answer is no. You leave with a straight answer either way.</p>
         <span class="when">30 minutes · no obligation</span>
       </div>
@@ -939,8 +939,12 @@ footer p{max-inline-size:none;margin:0}
         <span class="when">Monthly · fixed scope</span>
       </div>
     </div>
+    <div class="band rv">
+      <span class="n">Also from Daraghmeh Digital</span>
+      <h3>Web &amp; e-commerce</h3>
+      <p>The same discipline applied to the public-facing side of the business: one team designs it, builds it, shoots the photography, and keeps it running.</p>
+    </div>
 
-    <p class="sub" style="margin-block-start:2.4rem">We also offer full web and e-commerce services:</p>
     <div class="offer rv">
       <div>
         <h3><svg class="oico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.5h18v13H3z"/><path d="M3 9.5h18"/><path d="M6.5 7h.01M9 7h.01"/><path d="m9.5 13 2 2-2 2M14 17h3"/></svg>Design &amp; build</h3>
@@ -986,7 +990,7 @@ footer p{max-inline-size:none;margin:0}
       </details>
       <details>
         <summary>What if we don't actually need AI?</summary>
-        <p>Then that's the answer, and you get it in the first conversation before you've paid anything. A surprising share of "AI problems" turn out to be reporting problems, data-quality problems, or a search index nobody ever tuned.</p>
+        <p>Then that's the answer, and you get it in the first consultation before you've paid anything. A surprising share of "AI problems" turn out to be reporting problems, data-quality problems, or a search index nobody ever tuned.</p>
       </details>
       <details>
         <summary>Why does an AI practice also do SEO and e-commerce?</summary>
@@ -994,7 +998,7 @@ footer p{max-inline-size:none;margin:0}
       </details>
       <details>
         <summary>How do you charge?</summary>
-        <p>Assessments are a fixed fee quoted after the first conversation, so you know the price before committing. Ongoing work is a monthly retainer against a fixed scope. No hourly billing, and no change order for asking a question.</p>
+        <p>Assessments are a fixed fee quoted after the first consultation, so you know the price before committing. Ongoing work is a monthly retainer against a fixed scope. No hourly billing, and no change order for asking a question.</p>
       </details>
       </div>
     </div>
@@ -1011,7 +1015,7 @@ footer p{max-inline-size:none;margin:0}
       <div class="rv">
         <h2 class="h2-lead"><span class="lead-k">Contact</span> Get in Touch</h2>
         <p class="sub">
-            The first conversation is short and free. If it isn't a fit, we'll say so and point you at what is.
+            The first consultation is short and free. If it isn't a fit, we'll say so and point you at what is.
         </p>
         <ul class="direct">
           <li><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg>Email</b><a href="mailto:mohammad@daraghmehdigital.com">mohammad@daraghmehdigital.com</a></li>
@@ -1106,7 +1110,7 @@ footer p{max-inline-size:none;margin:0}
       </g>
     </svg>
     </a>
-    <p>Daraghmeh Digital LLC · Seattle, Washington · &copy; <span id="yr">2026</span></p>
+    <p>Daraghmeh Digital LLC · &copy; <span id="yr">2026</span></p>
   </div>
 </footer>
 
@@ -1347,13 +1351,6 @@ footer p{max-inline-size:none;margin:0}
               '<span class="lever-note">' + l.note + ' · ' + money(l.save * 12) + ' a year</span></li>';
           }).join("")
         : '<li class="lever"><span class="lever-note">No lever moves the number at these settings.</span></li>';
-
-      var totalSave = levers.reduce(function (s, l) { return s + l.save; }, 0);
-      q("cLeverTotal").innerHTML = levers.length
-        ? 'Applied together these are not additive — they overlap — but the largest single move is ' +
-          '<span class="hl">' + money(maxSave) + '/mo</span>, and the addressable envelope is roughly ' +
-          '<span class="hl">' + money(Math.min(totalSave, base.total * 0.9)) + '/mo</span>.'
-        : 'Nothing obvious left to cut at these settings.';
 
       /* ---- self-host ---- */
       var host = n(C.cGpu, 0) + n(C.cOps, 0) * OPS_RATE;
